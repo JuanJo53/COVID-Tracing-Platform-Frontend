@@ -1,0 +1,32 @@
+.header {
+  //background-color: orangered;
+  display: flex;
+  justify-content: flex-end;
+  padding: 3rem!important;
+  //height: 5vh;
+  //background-color: $color-primary-white;
+  //color: red;
+  //background-size: cover;
+  //background-position: top;
+  //clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  //float: right;
+  //position: relative;
+  &__logo-box {
+    background: salmon;
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  &__logo {
+    background: salmon;
+    height: 3.5rem;
+  }
+  &__text-box {
+    background: salmon;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

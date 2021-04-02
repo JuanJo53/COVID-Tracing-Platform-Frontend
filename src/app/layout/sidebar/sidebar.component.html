@@ -1,1 +1,35 @@
-<p>sidebar works!</p>
+<mat-nav-list class="sidebar__list">
+  <!-- <div class="sidebar-brand">
+    <img
+      src="assets/images/logopngmd1.png"
+      alt=""
+      width="210px"
+      height="50px"
+    />
+  </div> -->
+
+  <a
+    class="link"
+    mat-list-item
+    routerLinkActive="list-item-active-link"
+    routerLink="/admin/dashboard"
+    ><mat-icon class="link__icon">dashboard</mat-icon
+    ><span class="link__text">Dashboard</span></a
+  >
+  <a
+    class="link"
+    mat-list-item
+    routerLinkActive="list-item-active-link"
+    routerLink="/pharmAdmin/dashboard"
+    ><mat-icon class="link__icon">dashboard</mat-icon
+    ><span class="link__text">Dashboard</span></a
+  >
+  <a
+    class="link"
+    mat-list-item
+    routerLinkActive="list-item-active-link"
+    routerLink="/client/home"
+    ><mat-icon class="link__icon">home</mat-icon
+    ><span class="link__text">Home</span></a
+  >
+</mat-nav-list>
