@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 // import { Client } from "src/app/shared/models/client";
 import apiKey from '../apiKey';
 import { LoginUser } from 'src/app/shared/models/login-user';
+import { User } from 'src/app/shared/models/user';
 @Injectable({
   providedIn: 'root',
 })
@@ -33,5 +34,9 @@ export class AuthService {
     return this.httpClient.post<any>(this.authURL, userParams, {
       headers: httpHeaders,
     });
+  }
+
+  createUser(user: User) {
+    return this.httpClient.post(apiKey.api + '/client', user);
   }
 }

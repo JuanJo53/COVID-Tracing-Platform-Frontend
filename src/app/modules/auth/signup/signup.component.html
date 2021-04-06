@@ -1,0 +1,116 @@
+<div class="display-all">
+  <div class="column-left">
+    <div class="container1">
+      <div>
+        <!--class="signup-container"-->
+        <div>
+          <!--class="signup-header"-->
+          <!-- <img [src]="logo" alt="SmartIdea-logo" /> -->
+          <h1 class="title1"><strong>COVID Tracker</strong></h1>
+          <h4 class="title2">Para Ingresar debes Registrar tus Datos</h4>
+          <br />
+          <br />
+          <br />
+        </div>
+        <div class="row_center_xs">
+          <mat-card
+            ><!--class="signup-card"-->
+            <form [formGroup]="form" (ngSubmit)="saveUser()">
+              <mat-form-field class="form-input">
+                <mat-label class="form-letter">Apellido Paterno</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="firstSurname"
+                  placeholder="Apellido Paterno"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field class="form-input">
+                <mat-label class="form-letter">Apellido Materno</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="secondSurname"
+                  placeholder="Apellido Materno"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field class="form-input">
+                <mat-label class="form-letter">Nombre</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="firstName"
+                  placeholder="Nombre"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field class="form-input">
+                <mat-label class="form-letter">Nombre de Usuario</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="userName"
+                  placeholder="Nombre de Usuario"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field class="form-input">
+                <mat-label class="form-letter">Email</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="email"
+                  placeholder="Email"
+                  required
+                  type="email"
+                />
+              </mat-form-field>
+              <mat-form-field class="form-input">
+                <mat-label class="form-letter">Contraseña</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="password"
+                  placeholder="Contraseña"
+                  required
+                  type="password"
+                />
+              </mat-form-field>
+              <!--<mat-form-field class="form-input">
+          <mat-label class="form-letter">Confirmar Contraseña</mat-label>
+  
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Confirmar Contraseña"
+            required
+            type="password"
+          /> 
+      </mat-form-field>-->
+              <br />
+              <button
+                type="submit"
+                mat-raised-button
+                color="primary"
+                class="button_signup"
+              >
+                Registrarse
+              </button>
+              <a
+                color="accent"
+                class="form__button"
+                routerLink="/auth/login"
+                class="button_regis"
+              >
+                Ya tengo una cuenta...
+              </a>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column-right"></div>
+</div>
