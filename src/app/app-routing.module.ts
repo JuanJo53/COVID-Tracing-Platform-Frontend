@@ -14,6 +14,12 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
+        path: 'admin',
+        canActivate: [AdminGuard],
+        loadChildren: () =>
+          import('./modules/admin/admin.module').then((m) => m.AdminModule),
+      },
+      {
         path: 'inicio',
         loadChildren: () =>
           import('./modules/home/home.module').then((m) => m.HomeModule),
@@ -31,12 +37,6 @@ const routes: Routes = [
       //   component: HomeComponent,
       // },
     ],
-  },
-  {
-    path: 'admin',
-    canActivate: [AdminGuard],
-    loadChildren: () =>
-      import('./modules/admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: 'auth',
