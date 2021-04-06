@@ -1,7 +1,6 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/authentication/auth.service';
 import { User } from 'src/app/shared/models/user';
@@ -19,14 +18,13 @@ export class SignupComponent implements OnInit {
     private fromBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    public dialog: MatDialog,
-    public datepipe: DatePipe
+    public dialogRef: MatDialogRef<SignupComponent>
   ) {}
 
   ngOnInit(): void {
-    this.editClient();
+    this.editUser();
   }
-  editClient(): void {
+  editUser(): void {
     this.form = this.fromBuilder.group({
       firstName: [
         '',
@@ -84,16 +82,16 @@ export class SignupComponent implements OnInit {
     if (this.form.valid) {
       const client = this.form.value;
       console.log(client);
-      this.createClient(client);
+      this.createUser(client);
     } else {
       console.log('Algo salio mal');
     }
   }
-  createClient(newUser: User): void {
+  createUser(newUser: User): void {
     this.authService.createUser(newUser).subscribe((user) => {
       console.log(user);
       this.router.navigate(['/', 'login']);
-      Swal.fire('Any fool can use a computer');
+      Swal.fire('Registro Exitoso!', 'Ahora puedes iniciar sesión!', 'success');
     });
   }
 }

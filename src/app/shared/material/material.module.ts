@@ -65,6 +65,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
+    MatExpansionModule,
   ],
 })
 export class MaterialModule {}

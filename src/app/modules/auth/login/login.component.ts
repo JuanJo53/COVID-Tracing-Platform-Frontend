@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/authentication/auth.service';
 import { TokenService } from 'src/app/core/authentication/token.service';
 import { LoginUser } from 'src/app/shared/models/login-user';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router,
-    public dialog: MatDialog
+    public dialogRef: MatDialogRef<LoginComponent>
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +43,6 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.form.valid) {
       const usr = this.form.value;
-      // this.tokenService.setAuthorities(this.form.get("role").value);
       this.onLogin(usr);
     }
   }
@@ -68,22 +68,19 @@ export class LoginComponent implements OnInit {
         if (this.roles == 1) {
           this.router.navigate(['/admin/dashboard']);
         } else if (this.roles == 2) {
-          this.router.navigate(['/pharmAdmin/dashboard']);
+          this.router.navigate(['/home/dashboard']);
         }
       },
       (err) => {
         this.isLogged = false;
         this.isLoginFail = true;
-        // this.displayErrorDialog('Email y/o constraseña incorrectos.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Usuario o contraseña incorrectos!',
+          footer: '<p>Error Escpecifico: ' + err.toString() + '</p>',
+        });
       }
     );
   }
-  // displayErrorDialog(text: string) {
-  //   this.dialog.open(ErrorDialogComponent, {
-  //     width: '300px',
-  //     data: {
-  //       message: text,
-  //     },
-  //   });
-  // }
 }
