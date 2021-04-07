@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/core/authentication/auth.service';
 import { TokenService } from 'src/app/core/authentication/token.service';
 import { LoginUser } from 'src/app/shared/models/login-user';
 import Swal from 'sweetalert2';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   isLogged = false;
   isLoginFail = false;
-  roles: number;
-
+  roles: string[] = [];
   loginUser: LoginUser;
 
   errMsj: string;
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       this.isLoginFail = false;
     }
     this.form = this.fromBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
@@ -47,29 +47,21 @@ export class LoginComponent implements OnInit {
     }
   }
   onLogin(user: LoginUser) {
-    this.roles = parseInt(this.tokenService.getAuthorities());
     this.authService.logIn(user).subscribe(
       (data) => {
         this.isLogged = true;
         this.isLoginFail = false;
         console.log(data);
-
         this.tokenService.setToken(data.access_token);
-        if (data.userId) {
-          this.tokenService.setUserId(data.clientId);
-        } else if (data.adminId) {
-          this.tokenService.setUserId(data.adminId);
-        }
-
+        this.tokenService.setUserId(data.userId);
         this.tokenService.setUserName(data.userName);
         this.tokenService.setAuthorities(data.role);
-        this.roles = parseInt(this.tokenService.getAuthorities());
-
-        if (this.roles == 1) {
-          this.router.navigate(['/admin/dashboard']);
-        } else if (this.roles == 2) {
+        if (this.tokenService.getAuthorities() == '["ROLE_ADMIN"]') {
+          this.router.navigate(['/admin']);
+        } else if (this.tokenService.getAuthorities() == '["ROLE_USER"]') {
           this.router.navigate(['/home/dashboard']);
         }
+        this.dialogRef.close(true);
       },
       (err) => {
         this.isLogged = false;

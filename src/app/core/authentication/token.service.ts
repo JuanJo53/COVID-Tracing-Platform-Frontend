@@ -28,6 +28,7 @@ export class TokenService {
   public getUserName(): any {
     return sessionStorage.getItem(USERNAME_KEY);
   }
+
   public setUserId(userId: string): void {
     window.sessionStorage.removeItem(USERID_KEY);
     window.sessionStorage.setItem(USERID_KEY, userId);
@@ -36,11 +37,11 @@ export class TokenService {
     return sessionStorage.getItem(USERID_KEY);
   }
 
-  public setAuthorities(authorities: number): void {
+  public setAuthorities(authorities: string[]): void {
     window.sessionStorage.removeItem(AUTHORITIES_KEY);
-    window.sessionStorage.setItem(AUTHORITIES_KEY, authorities.toString());
+    window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
   }
-  public getAuthorities(): any {
+  public getAuthorities(): string {
     return sessionStorage.getItem(AUTHORITIES_KEY);
   }
 

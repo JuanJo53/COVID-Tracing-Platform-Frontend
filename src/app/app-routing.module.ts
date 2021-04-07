@@ -28,10 +28,13 @@ const routes: Routes = [
       //   path: 'noticias',
       //   component: HomeComponent,
       // },
-      // {
-      //   path: 'bolivia',
-      //   component: HomeComponent,
-      // },
+      {
+        path: 'bolivia',
+        loadChildren: () =>
+          import('./modules/home/pages/bolivia/bolivia.module').then(
+            (m) => m.BoliviaModule
+          ),
+      },
       // {
       //   path: 'mundo',
       //   component: HomeComponent,

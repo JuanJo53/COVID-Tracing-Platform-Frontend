@@ -19,7 +19,9 @@ export class AuthService {
   // }
 
   public logIn(logInUser: LoginUser): Observable<any> {
-    const credenciales = btoa('medichubapp' + ':' + 'medichubastore12345');
+    const credenciales = btoa(
+      'covidtracerapp' + ':' + 'covidtracerplatform12345'
+    );
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: 'Basic ' + credenciales,
@@ -27,11 +29,11 @@ export class AuthService {
 
     let params = new URLSearchParams();
     params.set('grant_type', 'password');
-    params.set('username', logInUser.email);
+    params.set('username', logInUser.username);
     params.set('password', logInUser.password);
-    var userParams = params.toString().replace(/%40/gi, '@');
+    // var userParams = params.toString().replace(/%40/gi, '@');
 
-    return this.httpClient.post<any>(this.authURL, userParams, {
+    return this.httpClient.post<any>(this.authURL, params.toString(), {
       headers: httpHeaders,
     });
   }
