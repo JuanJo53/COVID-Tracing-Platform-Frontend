@@ -39,6 +39,6 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    return this.httpClient.post(apiKey.api + '/client', user);
+    return this.httpClient.post(apiKey.api + '/api/v1/user', user);
   }
 }

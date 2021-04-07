@@ -1,0 +1,16 @@
+<div class="upload_button_container">
+  <button mat-raised-button color="accent" (click)="onClick()">
+    <mat-icon>file_upload</mat-icon>
+    Subir Dataset</button
+  ><input
+    type="file"
+    #fileUpload
+    id="fileUpload"
+    name="fileUpload"
+    multiple="multiple"
+    accept="*/*"
+    style="display: none"
+  />
+  <br />
+  <span>{{ fileName }}</span>
+</div>

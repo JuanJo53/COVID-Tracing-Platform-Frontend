@@ -8,7 +8,21 @@
     />
   </div> -->
 
-  <a class="link" mat-list-item routerLinkActive="active" routerLink="/inicio"
+  <a
+    *ngIf="userRole[0] == 'ROLE_ADMIN'"
+    class="link"
+    mat-list-item
+    routerLinkActive="active"
+    routerLink="/admin"
+    ><mat-icon class="link__icon">home</mat-icon
+    ><span class="link__text">Inicio</span></a
+  >
+  <a
+    *ngIf="userRole[0] != 'ROLE_ADMIN'"
+    class="link"
+    mat-list-item
+    routerLinkActive="active"
+    routerLink="/inicio"
     ><mat-icon class="link__icon">home</mat-icon
     ><span class="link__text">Inicio</span></a
   >
@@ -17,7 +31,7 @@
     class="link"
     mat-list-item
     routerLinkActive="active"
-    routerLink="/inicio"
+    routerLink="admin/datasets"
     ><mat-icon class="link__icon">data_usage</mat-icon
     ><span class="link__text">Datasets</span></a
   >
