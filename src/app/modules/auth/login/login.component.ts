@@ -51,16 +51,22 @@ export class LoginComponent implements OnInit {
       (data) => {
         this.isLogged = true;
         this.isLoginFail = false;
+
         console.log(data);
+
         this.tokenService.setToken(data.access_token);
         this.tokenService.setUserId(data.userId);
         this.tokenService.setUserName(data.userName);
         this.tokenService.setAuthorities(data.role);
-        if (this.tokenService.getAuthorities() == '["ROLE_ADMIN"]') {
-          this.router.navigate(['/admin']);
-        } else if (this.tokenService.getAuthorities() == '["ROLE_USER"]') {
-          this.router.navigate(['/home/dashboard']);
-        }
+
+        this.tokenService.getAuthorities().forEach((rol) => {
+          console.log(rol);
+          if (rol == 'ROLE_ADMIN') {
+            this.router.navigate(['/admin']);
+          } else if (rol == 'ROLE_USER') {
+            this.router.navigate(['/home/dashboard']);
+          }
+        });
         this.dialogRef.close(true);
       },
       (err) => {

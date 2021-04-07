@@ -41,8 +41,16 @@ export class TokenService {
     window.sessionStorage.removeItem(AUTHORITIES_KEY);
     window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
   }
-  public getAuthorities(): string {
-    return sessionStorage.getItem(AUTHORITIES_KEY);
+  public getAuthorities(): string[] {
+    this.roles = [];
+    if (sessionStorage.getItem(AUTHORITIES_KEY)) {
+      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)).forEach(
+        (authority) => {
+          this.roles.push(authority);
+        }
+      );
+    }
+    return this.roles;
   }
 
   public logOut(): void {
