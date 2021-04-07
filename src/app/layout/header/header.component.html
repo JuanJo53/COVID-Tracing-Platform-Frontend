@@ -1,8 +1,46 @@
-<mat-toolbar class="topbar header">
-  <div class="unlogged">
-    <button mat-raised-button color="primary" (click)="btnLogin()">
-      Iniciar Sesion
-    </button>
-    <button mat-button (click)="btnSignup()">Registrarse</button>
+<mat-toolbar class="topbar header logged" *ngIf="logged">
+  <div class="hello_user">
+    <h4 class="usuario">Hola, {{ this.username }}</h4>
   </div>
+  <div class="user_btn">
+    <button
+      mat-icon-button
+      matTooltip="Notifications"
+      [style.overflow]="'visible'"
+      class="topbar-button-right"
+    >
+      <mat-icon class="maticon">notifications</mat-icon>
+      <span class="notification-number mat-bg-warn">1</span>
+    </button>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="settingMenu"
+      matTooltip="Settings"
+      [style.overflow]="'visible'"
+      class="topbar-button-right"
+    >
+      <mat-icon class="maticon">settings</mat-icon>
+    </button>
+
+    <mat-menu #settingMenu="matMenu" class="matmenuestilo">
+      <button mat-menu-item>
+        <mat-icon class="maticon_nav">notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+      <button mat-menu-item (click)="btnLogout()">
+        <mat-icon class="maticon_nav">exit_to_app</mat-icon>
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
+
+    <button mat-icon-button class="img-button">
+      <img src="assets/images/4.jpg" alt="" />
+    </button>
+  </div>
+</mat-toolbar>
+<mat-toolbar class="topbar header unlogged" *ngIf="!logged">
+  <button mat-raised-button color="primary" (click)="btnLogin()">
+    Iniciar Sesion
+  </button>
+  <button mat-button (click)="btnSignup()">Registrarse</button>
 </mat-toolbar>

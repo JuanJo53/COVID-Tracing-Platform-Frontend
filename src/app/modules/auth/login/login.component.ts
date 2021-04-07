@@ -4,9 +4,9 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/authentication/auth.service';
 import { TokenService } from 'src/app/core/authentication/token.service';
+import { UserRoleService } from 'src/app/core/services/user-role.service';
 import { LoginUser } from 'src/app/shared/models/login-user';
 import Swal from 'sweetalert2';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     private fromBuilder: FormBuilder,
     private tokenService: TokenService,
     private authService: AuthService,
+    private userRoleService: UserRoleService,
     private router: Router,
     public dialogRef: MatDialogRef<LoginComponent>
   ) {}
@@ -60,13 +61,13 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.role);
 
         this.tokenService.getAuthorities().forEach((rol) => {
-          console.log(rol);
           if (rol == 'ROLE_ADMIN') {
             this.router.navigate(['/admin']);
           } else if (rol == 'ROLE_USER') {
             this.router.navigate(['/home/dashboard']);
           }
         });
+
         this.dialogRef.close(true);
       },
       (err) => {

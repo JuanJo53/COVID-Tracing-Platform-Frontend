@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { TokenService } from 'src/app/core/authentication/token.service';
 import { LoginComponent } from 'src/app/modules/auth/login/login.component';
 import { SignupComponent } from 'src/app/modules/auth/signup/signup.component';
 import Swal from 'sweetalert2';
@@ -11,9 +12,17 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
   resultMsg: string;
-  constructor(public dialog: MatDialog) {}
+  username: string;
+  logged = false;
 
-  ngOnInit(): void {}
+  constructor(private tokenService: TokenService, public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    if (this.tokenService.getToken()) {
+      this.username = this.tokenService.getUserName();
+      this.logged = true;
+    }
+  }
   btnLogin() {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '500px',
@@ -26,7 +35,11 @@ export class HeaderComponent implements OnInit {
           'Exito!',
           'Usted inicio sesion correctamente. ¡Bienvenido!',
           'success'
-        );
+        ).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
       }
       this.ngOnInit();
     });
@@ -47,5 +60,10 @@ export class HeaderComponent implements OnInit {
       }
       this.ngOnInit();
     });
+  }
+  btnLogout() {
+    this.tokenService.logOut();
+    window.location.reload();
+    this.logged = false;
   }
 }
