@@ -7,6 +7,16 @@
 
   <form [formGroup]="form" (ngSubmit)="saveUser()">
     <mat-form-field class="form-input">
+      <mat-label class="form-letter">Nombre</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="firstName"
+        placeholder="Nombre"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="form-input">
       <mat-label class="form-letter">Apellido Paterno</mat-label>
       <input
         type="text"
@@ -23,16 +33,6 @@
         matInput
         formControlName="secondSurname"
         placeholder="Apellido Materno"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Nombre</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="firstName"
-        placeholder="Nombre"
         required
       />
     </mat-form-field>
@@ -60,7 +60,6 @@
     <mat-form-field class="form-input">
       <mat-label class="form-letter">Contraseña</mat-label>
       <input
-        type="text"
         matInput
         formControlName="password"
         placeholder="Contraseña"
@@ -68,17 +67,16 @@
         type="password"
       />
     </mat-form-field>
-    <!--<mat-form-field class="form-input">
-        <mat-label class="form-letter">Confirmar Contraseña</mat-label>
-
-        <input
-          matInput
-          formControlName="password"
-          placeholder="Confirmar Contraseña"
-          required
-          type="password"
-        /> 
-    </mat-form-field>-->
+    <mat-form-field class="form-input">
+      <mat-label class="form-letter">Confirmar Contraseña</mat-label>
+      <input
+        matInput
+        formControlName="confirmPassword"
+        placeholder="Confirmar Contraseña"
+        required
+        type="password"
+      />
+    </mat-form-field>
     <br />
     <div mat-dialog-actions>
       <button

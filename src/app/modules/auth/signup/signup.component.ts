@@ -25,63 +25,77 @@ export class SignupComponent implements OnInit {
     this.editUser();
   }
   editUser(): void {
-    this.form = this.fromBuilder.group({
-      firstName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(25),
+    this.form = this.fromBuilder.group(
+      {
+        firstName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(25),
+          ],
         ],
-      ],
-      firstSurname: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(25),
+        firstSurname: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(25),
+          ],
         ],
-      ],
-      secondSurname: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(25),
+        secondSurname: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(25),
+          ],
         ],
-      ],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email,
-          Validators.maxLength(50),
-          Validators.minLength(6),
+        email: [
+          '',
+          [
+            Validators.required,
+            Validators.email,
+            Validators.maxLength(50),
+            Validators.minLength(6),
+          ],
         ],
-      ],
-      userName: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(20),
-          Validators.minLength(6),
+        userName: [
+          '',
+          [
+            Validators.required,
+            Validators.maxLength(20),
+            Validators.minLength(6),
+          ],
         ],
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(50),
-          Validators.minLength(6),
-        ],
-      ],
-    });
+        role: [2, [Validators.required]],
+        password: ['', Validators.compose([Validators.required])],
+        confirmPassword: ['', Validators.compose([Validators.required])],
+      },
+      {
+        validator: this.confirmPasswordMatch('password', 'confirmPassword'),
+      }
+    );
   }
+  confirmPasswordMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      // console.log(controlName, matchingControlName)
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
 
+      // set error on matchingControl if validation fails
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ confirmPasswordMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
+  }
   saveUser(): void {
     if (this.form.valid) {
       const client = this.form.value;
-      console.log(client);
+      const key = 'confirmPassword';
+      delete client[key];
       this.createUser(client);
     } else {
       console.log('Algo salio mal');
@@ -90,8 +104,8 @@ export class SignupComponent implements OnInit {
   createUser(newUser: User): void {
     this.authService.createUser(newUser).subscribe((user) => {
       console.log(user);
-      this.router.navigate(['/', 'login']);
       Swal.fire('Registro Exitoso!', 'Ahora puedes iniciar sesión!', 'success');
+      this.dialogRef.close(true);
     });
   }
 }
