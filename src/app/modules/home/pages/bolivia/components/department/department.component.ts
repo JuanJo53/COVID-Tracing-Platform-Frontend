@@ -8,6 +8,8 @@ import { Department } from 'src/app/shared/models/department';
 })
 export class DepartmentComponent implements OnInit {
   @Input() depto: Department;
+
+  selected = 'general';
   constructor() {}
 
   ngOnInit(): void {}

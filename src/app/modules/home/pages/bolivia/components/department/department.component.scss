@@ -1,0 +1,36 @@
+.grid_container {
+  display: grid;
+  grid-template-areas:
+    "header header header header header header"
+    "settings data data data data data"
+    "footer footer footer footer footer footer";
+  grid-gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+.view_change {
+  margin: 5px;
+  margin-top: 10px;
+}
+.select_insight {
+  margin: 5px;
+  margin-top: 25px;
+}
+.grid_hearder {
+  grid-area: header;
+}
+.data_view {
+  grid-area: data;
+  background-color: aquamarine;
+  padding: 8%;
+}
+.details {
+  text-align: center;
+  margin: 5px;
+  margin-top: 25px;
+}
+.setting_view {
+  padding: 8%;
+  grid-area: settings;
+  background-color: red;
+}

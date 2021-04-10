@@ -1,19 +1,62 @@
-<div class="container">
-  <h1>{{ depto.name }}</h1>
-  <mat-button-toggle-group #group="matButtonToggleGroup">
-    <mat-button-toggle value="left" aria-label="Text align left">
-      <mat-icon>format_align_left</mat-icon>
-    </mat-button-toggle>
-    <mat-button-toggle value="center" aria-label="Text align center">
-      <mat-icon>format_align_center</mat-icon>
-    </mat-button-toggle>
-    <mat-button-toggle value="right" aria-label="Text align right">
-      <mat-icon>format_align_right</mat-icon>
-    </mat-button-toggle>
-    <mat-button-toggle value="justify" disabled aria-label="Text align justify">
-      <mat-icon>format_align_justify</mat-icon>
-    </mat-button-toggle>
-  </mat-button-toggle-group>
+<div class="grid_container">
+  <div class="grid_hearder">
+    <h1>{{ depto.name }}</h1>
+  </div>
+  <div class="setting_view">
+    <div class="view_change">
+      <mat-button-toggle-group #group="matButtonToggleGroup">
+        <mat-button-toggle
+          value="map"
+          aria-label="Text align left"
+          matTooltip="Vista de Mapa"
+        >
+          <mat-icon>map</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle
+          value="table"
+          aria-label="Text align center"
+          matTooltip="Vista de Tabla"
+        >
+          <mat-icon>table_view</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle
+          value="chart"
+          aria-label="Text align center"
+          matTooltip="Vista de Gráfico"
+        >
+          <mat-icon>show_chart</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="select_insight">
+      <mat-form-field appearance="fill">
+        <mat-label>Detalles</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>Ninguno</mat-option>
+          <mat-option value="province">Provincias</mat-option>
+          <mat-option value="municipality">Municipio</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p>You selected: {{ selected }}</p>
+    </div>
+    <div class="details">
+      <h1 name="total">Casos Totales</h1>
+      <label for="total">Casoso to</label>
+      <h3 name="curados">Casos curados</h3>
+      <label for="curados">Casoso curados</label>
+    </div>
+  </div>
+  <div class="data_view">hola</div>
 
-  <div class="example-selected-value">Selected value: {{ group.value }}</div>
+  <!-- <mat-grid-list cols="4" rows="2" rowHeight="100px">
+    <mat-grid-tile class="setting_view" [colspan]="1">
+      
+    </mat-grid-tile>
+    <mat-grid-tile class="data_view" [colspan]="3" [rowspan]="2">
+      <div>hola</div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
+     </mat-grid-tile
+    >
+  </mat-grid-list> -->
 </div>

@@ -18,8 +18,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatStepperModule } from '@angular/material/stepper';
-import { RouterModule } from '@angular/router';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -27,7 +25,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [],
   imports: [
@@ -49,6 +47,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatNativeDateModule,
     MatTabsModule,
     MatButtonToggleModule,
+    MatGridListModule,
+    MatTooltipModule,
   ],
   exports: [
     MatButtonModule,
@@ -72,6 +72,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatExpansionModule,
     MatTabsModule,
     MatButtonToggleModule,
+    MatGridListModule,
+    MatTooltipModule,
   ],
 })
 export class MaterialModule {}
