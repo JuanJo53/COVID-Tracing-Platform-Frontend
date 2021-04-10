@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { ChartComponent } from './modules/home/pages/bolivia/components/chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

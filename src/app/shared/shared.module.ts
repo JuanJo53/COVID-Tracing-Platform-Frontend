@@ -7,7 +7,6 @@ import { HeaderComponent } from '../layout/header/header.component';
 import { SidebarComponent } from '../layout/sidebar/sidebar.component';
 import { MaterialModule } from './material/material.module';
 import { MainComponent } from '../layout/main/main.component';
-
 @NgModule({
   declarations: [
     FooterComponent,

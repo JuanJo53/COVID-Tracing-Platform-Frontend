@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [HomeComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule],

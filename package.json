@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~11.2.5",
     "@angular/platform-browser-dynamic": "~11.2.5",
     "@angular/router": "~11.2.5",
+    "chart.js": "^2.9.4",
+    "ng2-charts": "^2.4.2",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.15.7",
     "tslib": "^2.0.0",

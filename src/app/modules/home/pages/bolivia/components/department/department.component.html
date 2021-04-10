@@ -58,7 +58,9 @@
         [data]="deptos"
       ></app-table>
     </div>
-    <div class="chart_view" *ngIf="view_select.value == 'chart'">chart</div>
+    <div class="chart_view" *ngIf="view_select.value == 'chart'">
+      <app-chart></app-chart>
+    </div>
   </div>
 
   <!-- <mat-grid-list cols="4" rows="2" rowHeight="100px">
