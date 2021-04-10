@@ -4,7 +4,7 @@
   </div>
   <div class="setting_view">
     <div class="view_change">
-      <mat-button-toggle-group #group="matButtonToggleGroup">
+      <mat-button-toggle-group #view_select="matButtonToggleGroup" value="map">
         <mat-button-toggle
           value="map"
           aria-label="Text align left"
@@ -40,13 +40,21 @@
       <p>You selected: {{ selected }}</p>
     </div>
     <div class="details">
-      <h1 name="total">Casos Totales</h1>
-      <label for="total">Casoso to</label>
-      <h3 name="curados">Casos curados</h3>
-      <label for="curados">Casoso curados</label>
+      <h1 name="total">1232132</h1>
+      <label for="total">Casos Totales</label>
+      <h2 name="curados">123123132</h2>
+      <label for="curados">Muertes</label>
+      <h2 name="curados">12321321</h2>
+      <label for="curados">Recuperados</label>
+      <h2 name="curados">6545646546</h2>
+      <label for="curados">Activos</label>
     </div>
   </div>
-  <div class="data_view">hola</div>
+  <div class="data_view">
+    <div *ngIf="view_select.value == 'map'">map</div>
+    <app-table *ngIf="view_select.value == 'table'"></app-table>
+    <div *ngIf="view_select.value == 'chart'">chart</div>
+  </div>
 
   <!-- <mat-grid-list cols="4" rows="2" rowHeight="100px">
     <mat-grid-tile class="setting_view" [colspan]="1">
