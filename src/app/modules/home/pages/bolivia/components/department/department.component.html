@@ -59,7 +59,10 @@
       ></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">
-      <app-chart></app-chart>
+      <app-chart
+        [chartData]="chartData"
+        [chartLabels]="chartLabels"
+      ></app-chart>
     </div>
   </div>
 

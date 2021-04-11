@@ -1,11 +1,27 @@
-<div class="chart_container">
+<div class="chart_container mat-elevation-z8">
+  <mat-button-toggle-group #chart_view="matButtonToggleGroup" value="line">
+    <mat-button-toggle
+      value="line"
+      aria-label="Text align left"
+      matTooltip="Grafico de Linea"
+    >
+      <mat-icon>timeline</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle
+      value="bar"
+      aria-label="Text align center"
+      matTooltip="Grafico de Barra"
+    >
+      <mat-icon>bar_chart</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
   <canvas
     baseChart
     [datasets]="chartData"
     [labels]="chartLabels"
     [options]="chartOptions"
     [legend]="chartLegend"
-    [chartType]="chartType"
+    [chartType]="chart_view.value"
   >
   </canvas>
   <button mat-button mat-raised-button color="primary" (click)="randomize()">
