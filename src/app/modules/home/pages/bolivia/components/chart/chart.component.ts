@@ -69,7 +69,7 @@ export class ChartComponent implements OnInit {
     console.log(event, active);
   }
 
-  public randomize(): void {
+  public download(): void {
     // Only Change 3 values
     this.chartData[0].data = [
       Math.round(Math.random() * 100),
