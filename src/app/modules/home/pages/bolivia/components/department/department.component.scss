@@ -7,6 +7,25 @@
   grid-gap: 10px;
   padding: 10px;
 }
+.cases {
+  color: #2c2828;
+  font-size: 50px;
+}
+.deaths {
+  color: red;
+  font-size: 30px;
+}
+.recovered {
+  color: rgb(58, 250, 0);
+  font-size: 30px;
+}
+.actives {
+  color: rgb(8, 123, 255);
+  font-size: 30px;
+}
+label {
+  font-size: 20px;
+}
 .view_change {
   margin: 5px;
   margin-top: 10px;

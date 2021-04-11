@@ -40,14 +40,14 @@
       <p>You selected: {{ selected }}</p>
     </div>
     <div class="details">
-      <h1 name="total">1232132</h1>
-      <label for="total">Casos Totales</label>
-      <h2 name="curados">123123132</h2>
-      <label for="curados">Muertes</label>
-      <h2 name="curados">12321321</h2>
-      <label for="curados">Recuperados</label>
-      <h2 name="curados">6545646546</h2>
-      <label for="curados">Activos</label>
+      <label for="total">Casos Totales:</label>
+      <h1 class="cases" name="total">{{ 1232132 | number }}</h1>
+      <label for="deaths">Muertes:</label>
+      <h2 class="deaths" name="deaths">{{ 123123132 | number }}</h2>
+      <label for="recovered">Recuperados:</label>
+      <h2 class="recovered" name="recovered">{{ 12321321 | number }}</h2>
+      <label for="actives">Activos:</label>
+      <h2 class="actives" name="actives">{{ 6545646546 | number }}</h2>
     </div>
   </div>
   <div class="data_view">

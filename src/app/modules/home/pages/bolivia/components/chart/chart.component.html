@@ -1,5 +1,9 @@
 <div class="chart_container mat-elevation-z8">
-  <mat-button-toggle-group #chart_view="matButtonToggleGroup" value="line">
+  <mat-button-toggle-group
+    class="buttons_configs"
+    #chart_view="matButtonToggleGroup"
+    value="line"
+  >
     <mat-button-toggle
       value="line"
       aria-label="Text align left"
@@ -13,6 +17,18 @@
       matTooltip="Grafico de Barra"
     >
       <mat-icon>bar_chart</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-button-toggle-group
+    class="buttons_configs"
+    #data_view="matButtonToggleGroup"
+    value="acumulated"
+  >
+    <mat-button-toggle value="acumulated" aria-label="Text align left">
+      Datos Acumulados
+    </mat-button-toggle>
+    <mat-button-toggle value="historic" aria-label="Text align center">
+      Datos Historicos
     </mat-button-toggle>
   </mat-button-toggle-group>
   <canvas

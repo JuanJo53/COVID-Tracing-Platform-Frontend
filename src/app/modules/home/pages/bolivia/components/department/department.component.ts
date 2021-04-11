@@ -39,7 +39,6 @@ export class DepartmentComponent implements OnInit {
     {
       data: [180, 480, 770, 90, 1000, 270, 400, 100],
       label: 'Series C',
-      yAxisID: 'y-axis-1',
     },
   ];
   chartLabels: Label[] = [

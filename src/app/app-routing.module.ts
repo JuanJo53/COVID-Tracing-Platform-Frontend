@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './layout/main/main.component';
 import { AdminGuard } from './core/guards/admin.guard';
+import { WorldModule } from './modules/home/pages/world/world.module';
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'admin',
-        // canActivate: [AdminGuard],
+        canActivate: [AdminGuard],
         loadChildren: () =>
           import('./modules/admin/admin.module').then((m) => m.AdminModule),
       },
@@ -35,10 +36,13 @@ const routes: Routes = [
             (m) => m.BoliviaModule
           ),
       },
-      // {
-      //   path: 'mundo',
-      //   component: HomeComponent,
-      // },
+      {
+        path: 'mundo',
+        loadChildren: () =>
+          import('./modules/home/pages/world/world.module').then(
+            (m) => m.WorldModule
+          ),
+      },
     ],
   },
   {

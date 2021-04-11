@@ -8,6 +8,18 @@
       #search
     />
   </mat-form-field>
+  <mat-button-toggle-group
+    class="buttons_configs"
+    #data_view="matButtonToggleGroup"
+    value="acumulated"
+  >
+    <mat-button-toggle value="acumulated" aria-label="Text align left">
+      Datos Acumulados
+    </mat-button-toggle>
+    <mat-button-toggle value="historic" aria-label="Text align center">
+      Datos Historicos
+    </mat-button-toggle>
+  </mat-button-toggle-group>
   <table class="full-width-table" mat-table [dataSource]="dataSource" matSort>
     <!-- Id Column -->
     <ng-container matColumnDef="id">
