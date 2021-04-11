@@ -25,4 +25,11 @@ export class FileUploadService {
       observe: 'events',
     });
   }
+  public download() {
+    return this.http.get<any>(apiKey.api + '/download/MOCK_DATA.csv', {
+      headers: this.headers,
+      reportProgress: true,
+      observe: 'events',
+    });
+  }
 }

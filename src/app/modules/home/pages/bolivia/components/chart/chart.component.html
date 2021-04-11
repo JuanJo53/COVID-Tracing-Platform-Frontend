@@ -1,18 +1,14 @@
-<div>
-  <div>
-    <div style="display: block">
-      <canvas
-        baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [chartType]="barChartType"
-      >
-      </canvas>
-    </div>
-    <button mat-button mat-raised-button color="primary" (click)="randomize()">
-      Update
-    </button>
-  </div>
+<div class="chart_container">
+  <canvas
+    baseChart
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [legend]="chartLegend"
+    [chartType]="chartType"
+  >
+  </canvas>
+  <button mat-button mat-raised-button color="primary" (click)="randomize()">
+    Update
+  </button>
 </div>
