@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { ChartComponent } from './modules/home/pages/bolivia/components/chart/chart.component';
+import { AgmCoreModule } from '@agm/core';
 import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
@@ -20,6 +20,9 @@ import { ChartsModule } from 'ng2-charts';
     HttpClientModule,
     FormsModule,
     ChartsModule,
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyAGIQRmtZ_eX9EKPehZd6snel0OC-5c9bs',
+    // }),
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

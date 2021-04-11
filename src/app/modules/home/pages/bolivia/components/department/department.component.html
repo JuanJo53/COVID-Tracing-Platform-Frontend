@@ -4,20 +4,23 @@
   </div>
   <div class="setting_view">
     <div class="view_change">
-      <mat-button-toggle-group #view_select="matButtonToggleGroup" value="map">
-        <mat-button-toggle
-          value="map"
-          aria-label="Text align left"
-          matTooltip="Vista de Mapa"
-        >
-          <mat-icon>map</mat-icon>
-        </mat-button-toggle>
+      <mat-button-toggle-group
+        #view_select="matButtonToggleGroup"
+        value="table"
+      >
         <mat-button-toggle
           value="table"
           aria-label="Text align center"
           matTooltip="Vista de Tabla"
         >
           <mat-icon>table_view</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle
+          value="map"
+          aria-label="Text align left"
+          matTooltip="Vista de Mapa"
+        >
+          <mat-icon>map</mat-icon>
         </mat-button-toggle>
         <mat-button-toggle
           value="chart"
@@ -51,7 +54,9 @@
     </div>
   </div>
   <div class="data_view">
-    <div class="map_view" *ngIf="view_select.value == 'map'">map</div>
+    <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
+      <app-map [depto]="depto"></app-map>
+    </div>
     <div class="table_view" *ngIf="view_select.value == 'table'">
       <app-table
         [displayedColumns]="displayedColumns"

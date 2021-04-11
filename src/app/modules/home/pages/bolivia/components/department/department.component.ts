@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { Department } from 'src/app/shared/models/department';
@@ -8,8 +8,9 @@ import { Department } from 'src/app/shared/models/department';
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.scss'],
 })
-export class DepartmentComponent implements OnInit {
+export class DepartmentComponent implements OnInit, AfterViewInit {
   @Input() depto: Department;
+
   deptos: Department[] = [
     { name: 'Hydrogen', description: 'HOLA' },
     { name: 'Helium', description: 'HOLo' },
@@ -53,7 +54,18 @@ export class DepartmentComponent implements OnInit {
   chartType: ChartType = 'line';
 
   selected = 'general';
+
+  mapReady = false;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    if (this.mapReady) {
+      this.mapReady = false;
+    } else {
+      this.mapReady = true;
+    }
+  }
 }
