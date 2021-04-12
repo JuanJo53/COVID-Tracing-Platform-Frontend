@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClientDatasetsComponent } from '../client-datasets/client-datasets.component';
-import { WorldPageComponent } from './world-page/world-page.component';
+import { WorldPageComponent } from './components/world-page/world-page.component';
 
 const routes: Routes = [
   {
