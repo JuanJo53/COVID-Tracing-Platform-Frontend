@@ -4,7 +4,14 @@
   </div>
   <div class="setting_view">
     <div class="view_change">
-      <mat-button-toggle-group #view_select="matButtonToggleGroup" value="map">
+      <mat-button-toggle-group #view_select="matButtonToggleGroup" value="map"
+        ><mat-button-toggle
+          value="map"
+          aria-label="Text align left"
+          matTooltip="Vista de Mapa"
+        >
+          <mat-icon>map</mat-icon>
+        </mat-button-toggle>
         <mat-button-toggle
           value="chart"
           aria-label="Text align center"
@@ -19,13 +26,6 @@
         >
           <mat-icon>table_view</mat-icon>
         </mat-button-toggle>
-        <mat-button-toggle
-          value="map"
-          aria-label="Text align left"
-          matTooltip="Vista de Mapa"
-        >
-          <mat-icon>map</mat-icon>
-        </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
     <div class="select_insight">
@@ -37,15 +37,20 @@
           <mat-option value="municipality">Municipio</mat-option>
         </mat-select>
       </mat-form-field>
-      <p>You selected: {{ selected }}</p>
     </div>
-    <div class="details">
+    <div class="total_panel">
       <label for="total">Casos Totales:</label>
       <h1 class="cases" name="total">{{ 1232132 | number }}</h1>
+    </div>
+    <div class="deaths_panel">
       <label for="deaths">Muertes:</label>
       <h2 class="deaths" name="deaths">{{ 123123132 | number }}</h2>
+    </div>
+    <div class="recovered_panel">
       <label for="recovered">Recuperados:</label>
       <h2 class="recovered" name="recovered">{{ 12321321 | number }}</h2>
+    </div>
+    <div class="actives_panel">
       <label for="actives">Activos:</label>
       <h2 class="actives" name="actives">{{ 6545646546 | number }}</h2>
     </div>
@@ -67,7 +72,6 @@
       ></app-chart>
     </div>
   </div>
-
   <!-- <mat-grid-list cols="4" rows="2" rowHeight="100px">
     <mat-grid-tile class="setting_view" [colspan]="1">
       

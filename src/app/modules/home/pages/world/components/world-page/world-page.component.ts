@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as Leaflet from 'leaflet';
@@ -9,7 +9,7 @@ import { Department } from 'src/app/shared/models/department';
   templateUrl: './world-page.component.html',
   styleUrls: ['./world-page.component.scss'],
 })
-export class WorldPageComponent implements OnInit, AfterViewInit {
+export class WorldPageComponent implements OnInit {
   @Input() depto: Department;
 
   deptos: Department[] = [
@@ -57,43 +57,14 @@ export class WorldPageComponent implements OnInit, AfterViewInit {
   selected = 'general';
 
   mapReady = true;
-  myMap: Leaflet.Map;
 
   constructor() {}
 
   ngOnInit(): void {
-    // this.myMap = Leaflet.map('worldMap');
-    // const location = {
-    //   coords: new Leaflet.LatLng(-16.2419521, -64.0511615),
-    //   zoom: 6,
-    // };
-    // Leaflet.tileLayer(
-    //   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    // ).addTo(this.myMap);
-    // this.myMap.setView(location.coords, location.zoom);
-    // this.addCircles();
-  }
-  ngAfterViewInit(): void {
-    console.log('hola');
-    this.myMap = Leaflet.map('worldMap');
-    const location = {
-      coords: new Leaflet.LatLng(-16.2419121, -64.2511615),
-      zoom: 6,
-    };
-    Leaflet.tileLayer(
-      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    ).addTo(this.myMap);
-    this.myMap.setView(location.coords, location.zoom);
-    this.addCircles();
-  }
-
-  addCircles(): void {
-    var circle = Leaflet.circle([-16.2419521, -64.0511615], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 50000,
-    }).addTo(this.myMap);
-    circle.bindPopup('I am a circle.');
+    // if (this.mapReady) {
+    //   this.mapReady = false;
+    // } else {
+    //   this.mapReady = true;
+    // }
   }
 }

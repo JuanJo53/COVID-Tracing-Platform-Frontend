@@ -27,17 +27,17 @@ export class MapComponent implements OnInit, AfterViewInit {
     // this.addCircles();
   }
   ngAfterViewInit(): void {
-    // console.log('hola');
-    // this.myMap = Leaflet.map('worldMap');
-    // const location = {
-    //   coords: new Leaflet.LatLng(-16.2419521, -64.0511615),
-    //   zoom: 6,
-    // };
-    // Leaflet.tileLayer(
-    //   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    // ).addTo(this.myMap);
-    // this.myMap.setView(location.coords, location.zoom);
-    // this.addCircles();
+    console.log('hola');
+    this.myMap = Leaflet.map('worldMap');
+    const location = {
+      coords: new Leaflet.LatLng(-16.2419521, -64.0511615),
+      zoom: 6,
+    };
+    Leaflet.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    ).addTo(this.myMap);
+    this.myMap.setView(location.coords, location.zoom);
+    this.addCircles();
   }
 
   addCircles(): void {
