@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as Leaflet from 'leaflet';
@@ -83,13 +83,18 @@ export class WorldPageComponent implements OnInit {
 
   mapReady = false;
 
+  selectedView = 'map';
+
   constructor() {}
 
   ngOnInit(): void {
-    if (this.mapReady) {
-      this.mapReady = false;
-    } else {
+    this.refreshDataView();
+  }
+  refreshDataView(): void {
+    if (this.selectedView == 'map') {
       this.mapReady = true;
+    } else {
+      this.mapReady = false;
     }
   }
 }

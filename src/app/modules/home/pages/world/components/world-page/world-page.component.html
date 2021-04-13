@@ -5,9 +5,10 @@
   <div class="setting_view">
     <div class="view_change">
       <mat-button-toggle-group
+        [(ngModel)]="selectedView"
         #view_select="matButtonToggleGroup"
         value="map"
-        (click)="ngOnInit()"
+        (click)="refreshDataView()"
         ><mat-button-toggle
           value="map"
           aria-label="Text align left"
