@@ -6,7 +6,7 @@ import apiKey from '../apiKey';
 @Injectable({
   providedIn: 'root',
 })
-export class FileUploadService {
+export class FileService {
   authToken: string;
   headers: any;
 
@@ -18,12 +18,17 @@ export class FileUploadService {
   }
 
   public upload(formData) {
+    const userId = this.tokenService.getUserId();
     console.log(formData);
-    return this.http.post<FormData>(apiKey.api, formData, {
-      headers: this.headers,
-      reportProgress: true,
-      observe: 'events',
-    });
+    return this.http.post<FormData>(
+      apiKey.api + '/api/v1/data/La Paz/admin/' + userId,
+      formData,
+      {
+        headers: this.headers,
+        reportProgress: true,
+        observe: 'events',
+      }
+    );
   }
   public download() {
     return this.http.get<any>(apiKey.api + '/download/MOCK_DATA.csv', {

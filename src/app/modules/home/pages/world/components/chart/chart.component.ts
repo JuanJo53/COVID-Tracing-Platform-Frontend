@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { FileService } from 'src/app/core/services/file.service';
 
 @Component({
   selector: 'app-chart',
@@ -44,41 +45,22 @@ export class ChartComponent implements OnInit {
 
   public chartLegend = true;
 
-  constructor() {}
+  constructor(private fileService: FileService) {}
 
   ngOnInit(): void {}
 
   // events
-  public chartClicked({
-    event,
-    active,
-  }: {
-    event: MouseEvent;
-    active: {}[];
-  }): void {
+  chartClicked({ event, active }: { event: MouseEvent; active: {}[] }): void {
     console.log(event, active);
   }
 
-  public chartHovered({
-    event,
-    active,
-  }: {
-    event: MouseEvent;
-    active: {}[];
-  }): void {
+  chartHovered({ event, active }: { event: MouseEvent; active: {}[] }): void {
     console.log(event, active);
   }
 
-  public download(): void {
-    // Only Change 3 values
-    this.chartData[0].data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      Math.random() * 100,
-      56,
-      Math.random() * 100,
-      40,
-    ];
+  download(): void {
+    this.fileService.download().subscribe((result) => {
+      console.log(result);
+    });
   }
 }

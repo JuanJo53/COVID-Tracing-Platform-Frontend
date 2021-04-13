@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FileUploadService } from 'src/app/core/services/file-upload.service';
+import { FileService } from 'src/app/core/services/file.service';
 
 @Component({
   selector: 'app-client-datasets',
@@ -7,7 +7,7 @@ import { FileUploadService } from 'src/app/core/services/file-upload.service';
   styleUrls: ['./client-datasets.component.scss'],
 })
 export class ClientDatasetsComponent implements OnInit {
-  constructor(private downloadService: FileUploadService) {}
+  constructor(private downloadService: FileService) {}
 
   ngOnInit(): void {}
   onClick() {

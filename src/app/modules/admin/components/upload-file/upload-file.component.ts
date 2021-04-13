@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FileUploadService } from 'src/app/core/services/file-upload.service';
+import { FileService } from 'src/app/core/services/file.service';
 
 @Component({
   selector: 'app-upload-file',
@@ -12,7 +12,7 @@ export class UploadFileComponent implements OnInit {
   files = [];
   fileName: string;
 
-  constructor(private fileUploadService: FileUploadService) {}
+  constructor(private fileUploadService: FileService) {}
 
   ngOnInit(): void {}
   onClick() {
