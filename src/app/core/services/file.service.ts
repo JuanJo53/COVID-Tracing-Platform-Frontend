@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TokenService } from '../authentication/token.service';
 import apiKey from '../apiKey';
+import { FileRequest } from 'src/app/shared/models/file-request';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,11 @@ export class FileService {
       headers: this.headers,
       reportProgress: true,
       observe: 'events',
+    });
+  }
+  getAllFiles() {
+    return this.http.get<FileRequest[]>(apiKey.api, {
+      headers: this.headers,
     });
   }
 }
