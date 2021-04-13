@@ -31,15 +31,18 @@
       Datos Historicos
     </mat-button-toggle>
   </mat-button-toggle-group>
-  <canvas
-    baseChart
-    [datasets]="chartData"
-    [labels]="chartLabels"
-    [options]="chartOptions"
-    [legend]="chartLegend"
-    [chartType]="chart_view.value"
-  >
-  </canvas>
+  <div class="chart_element_container">
+    <canvas
+      class="chart"
+      baseChart
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      [legend]="chartLegend"
+      [chartType]="chart_view.value"
+    >
+    </canvas>
+  </div>
   <button mat-button mat-raised-button color="primary" (click)="download()">
     Descargar DataSet
   </button>

@@ -83,7 +83,7 @@ export class WorldPageComponent implements OnInit {
 
   mapReady = false;
 
-  selectedView = 'map';
+  selectedView = 'chart';
 
   constructor() {}
 

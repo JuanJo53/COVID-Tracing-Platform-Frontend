@@ -1,5 +1,14 @@
 .chart_container {
   padding: 4%;
+  min-height: 200px;
+}
+.chart_element_container {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+.chart {
+  height: 150%;
 }
 .buttons_configs {
   margin: 10px;
