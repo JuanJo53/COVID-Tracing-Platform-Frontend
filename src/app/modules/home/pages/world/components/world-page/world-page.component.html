@@ -2,33 +2,35 @@
   <div class="grid_hearder">
     <h1>Global</h1>
   </div>
-  <div class="view_change">
-    <mat-button-toggle-group #view_select="matButtonToggleGroup" value="map">
-      <mat-button-toggle
-        value="map"
-        aria-label="Text align left"
-        matTooltip="Vista de Mapa"
-      >
-        <mat-icon>map</mat-icon>
-      </mat-button-toggle>
-      <mat-button-toggle
-        value="table"
-        aria-label="Text align center"
-        matTooltip="Vista de Tabla"
-      >
-        <mat-icon>table_view</mat-icon>
-      </mat-button-toggle>
-      <mat-button-toggle
-        value="chart"
-        aria-label="Text align center"
-        matTooltip="Vista de Gráfico"
-      >
-        <mat-icon>show_chart</mat-icon>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
+  <div class="setting_view">
+    <div class="view_change">
+      <mat-button-toggle-group #view_select="matButtonToggleGroup" value="map">
+        <mat-button-toggle
+          value="chart"
+          aria-label="Text align center"
+          matTooltip="Vista de Gráfico"
+        >
+          <mat-icon>show_chart</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle
+          value="table"
+          aria-label="Text align center"
+          matTooltip="Vista de Tabla"
+        >
+          <mat-icon>table_view</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle
+          value="map"
+          aria-label="Text align left"
+          matTooltip="Vista de Mapa"
+        >
+          <mat-icon>map</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
     <div class="select_insight">
       <mat-form-field appearance="fill">
-        <mat-label>Paises</mat-label>
+        <mat-label>Detalles</mat-label>
         <mat-select [(value)]="selected">
           <mat-option>Ninguno</mat-option>
           <mat-option value="province">Provincias</mat-option>
@@ -37,30 +39,23 @@
       </mat-form-field>
       <p>You selected: {{ selected }}</p>
     </div>
-  </div>
-  <div class="total">
-    <label for="total">Casos Totales:</label>
-    <h1 class="cases_text" name="total">{{ 1232132 | number }}</h1>
-  </div>
-  <div class="deaths">
-    <label for="deaths">Muertes:</label>
-    <h2 class="deaths_text" name="deaths">{{ 123123132 | number }}</h2>
-  </div>
-  <div class="recovered">
-    <label for="recovered">Recuperados:</label>
-    <h2 class="recovered_text" name="recovered">{{ 12321321 | number }}</h2>
-  </div>
-  <div class="actives">
-    <label for="actives">Activos:</label>
-    <h2 class="actives_text" name="actives">{{ 6545646546 | number }}</h2>
+    <div class="details">
+      <label for="total">Casos Totales:</label>
+      <h1 class="cases" name="total">{{ 1232132 | number }}</h1>
+      <label for="deaths">Muertes:</label>
+      <h2 class="deaths" name="deaths">{{ 123123132 | number }}</h2>
+      <label for="recovered">Recuperados:</label>
+      <h2 class="recovered" name="recovered">{{ 12321321 | number }}</h2>
+      <label for="actives">Activos:</label>
+      <h2 class="actives" name="actives">{{ 6545646546 | number }}</h2>
+    </div>
   </div>
   <div class="data_view">
-    <div class="map_view" *ngIf="view_select.value == 'map'">
+    <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
       <app-map [depto]="depto"></app-map>
     </div>
     <div class="table_view" *ngIf="view_select.value == 'table'">
       <app-table
-        class="table_view"
         [displayedColumns]="displayedColumns"
         [data]="deptos"
       ></app-table>
@@ -72,4 +67,16 @@
       ></app-chart>
     </div>
   </div>
+
+  <!-- <mat-grid-list cols="4" rows="2" rowHeight="100px">
+    <mat-grid-tile class="setting_view" [colspan]="1">
+      
+    </mat-grid-tile>
+    <mat-grid-tile class="data_view" [colspan]="3" [rowspan]="2">
+      <div>hola</div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
+     </mat-grid-tile
+    >
+  </mat-grid-list> -->
 </div>

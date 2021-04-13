@@ -2,58 +2,38 @@
   display: grid;
   grid-template-areas:
     "header header header header header header"
-    "settings settings total deaths recovered actives"
-    "data data data data data data";
-  grid-gap: 5px;
+    "settings data data data data data"
+    "footer footer footer footer footer footer";
+  grid-gap: 10px;
   padding: 10px;
-  height: 100%;
-  width: 100%;
-}
-.view_change {
-  grid-area: settings;
-  margin: 5px;
-  margin-top: 10px;
-}
-.total {
-  grid-area: total;
-}
-.cases_text {
-  color: #2c2828;
-  font-size: 40px;
-}
-.deaths {
-  grid-area: deaths;
-}
-.deaths_text {
-  color: red;
-  font-size: 40px;
-}
-.recovered {
-  grid-area: recovered;
 }
 
-.recovered_text {
+.cases {
+  color: #2c2828;
+  font-size: 50px;
+}
+.deaths {
+  color: red;
+  font-size: 30px;
+}
+.recovered {
   color: rgb(58, 250, 0);
-  font-size: 40px;
+  font-size: 30px;
 }
 .actives {
-  grid-area: actives;
-}
-.actives_text {
   color: rgb(8, 123, 255);
-  font-size: 40px;
+  font-size: 30px;
 }
 label {
   font-size: 20px;
 }
-#worldMap {
-  height: 100%;
-  width: 100%;
-}
-
 .map_view {
   width: 100%;
   height: 100%;
+}
+.view_change {
+  margin: 5px;
+  margin-top: 10px;
 }
 .select_insight {
   margin: 5px;
@@ -65,4 +45,14 @@ label {
 .data_view {
   grid-area: data;
   padding: 2%;
+  border-left: 2px solid #6c6666;
+}
+.details {
+  text-align: center;
+  margin: 5px;
+  margin-top: 25px;
+}
+.setting_view {
+  padding: 8%;
+  grid-area: settings;
 }
