@@ -33,7 +33,7 @@ export class WorldPageComponent implements OnInit {
     { name: 'Potassium', description: 'HOLi' },
     { name: 'Calcium', description: 'HOLi' },
   ];
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['description', 'name'];
 
   chartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40, 560], label: 'Series A' },
