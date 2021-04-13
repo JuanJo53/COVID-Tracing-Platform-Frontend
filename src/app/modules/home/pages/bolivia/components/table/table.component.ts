@@ -23,7 +23,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   isRateLimitReached = false;
 
   length = 20;
-  size = 5;
+  size = 10;
   order = 'id';
   asc = true;
   actualPage = 0;

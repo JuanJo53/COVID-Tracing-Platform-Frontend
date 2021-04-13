@@ -32,6 +32,31 @@ export class WorldPageComponent implements OnInit {
     { name: 'Argon', description: 'HOLi' },
     { name: 'Potassium', description: 'HOLi' },
     { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
+    { name: 'Calcium', description: 'HOLi' },
   ];
   displayedColumns = ['description', 'name'];
 
@@ -56,15 +81,15 @@ export class WorldPageComponent implements OnInit {
 
   selected = 'general';
 
-  mapReady = true;
+  mapReady = false;
 
   constructor() {}
 
   ngOnInit(): void {
-    // if (this.mapReady) {
-    //   this.mapReady = false;
-    // } else {
-    //   this.mapReady = true;
-    // }
+    if (this.mapReady) {
+      this.mapReady = false;
+    } else {
+      this.mapReady = true;
+    }
   }
 }

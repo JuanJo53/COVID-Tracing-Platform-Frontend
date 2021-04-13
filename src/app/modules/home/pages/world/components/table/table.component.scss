@@ -1,10 +1,17 @@
+.table_component_container {
+  padding: 4%;
+  position: relative;
+  min-height: 200px;
+}
+.table_container {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+
 table {
   width: 100%;
 }
-.table_container {
-  padding: 4%;
-}
-
 .buttons_configs {
   margin: 10px;
 }

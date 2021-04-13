@@ -4,7 +4,10 @@
   </div>
   <div class="setting_view">
     <div class="view_change">
-      <mat-button-toggle-group #view_select="matButtonToggleGroup" value="map"
+      <mat-button-toggle-group
+        #view_select="matButtonToggleGroup"
+        value="map"
+        (click)="ngOnInit()"
         ><mat-button-toggle
           value="map"
           aria-label="Text align left"
