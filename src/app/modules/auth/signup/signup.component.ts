@@ -108,4 +108,7 @@ export class SignupComponent implements OnInit {
       this.dialogRef.close(true);
     });
   }
+  onClickLoginBtn() {
+    this.dialogRef.close(false);
+  }
 }

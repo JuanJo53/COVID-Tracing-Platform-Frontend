@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
     private fromBuilder: FormBuilder,
     private tokenService: TokenService,
     private authService: AuthService,
-    private userRoleService: UserRoleService,
     private router: Router,
     public dialogRef: MatDialogRef<LoginComponent>
   ) {}
@@ -81,5 +80,8 @@ export class LoginComponent implements OnInit {
         });
       }
     );
+  }
+  onClickRegisterBtn(): void {
+    this.dialogRef.close(false);
   }
 }

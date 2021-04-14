@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
       width: '500px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log(result);
       this.resultMsg = result;
       if (result) {
         Swal.fire(
@@ -40,6 +40,8 @@ export class HeaderComponent implements OnInit {
             window.location.reload();
           }
         });
+      } else if (result == false) {
+        this.btnSignup();
       }
       this.ngOnInit();
     });
@@ -57,6 +59,8 @@ export class HeaderComponent implements OnInit {
           'Usted se registro correctamente. ¡Bienvenido!',
           'success'
         );
+      } else if (result == false) {
+        this.btnLogin();
       }
       this.ngOnInit();
     });
