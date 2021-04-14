@@ -1,13 +1,14 @@
-<mat-nav-list class="sidebar__list">
-  <!-- <div class="sidebar-brand">
+<div class="">
+<mat-nav-list class="sidebar__list styleside">
+<div class="sidebar-brand">
     <img
-      src="assets/images/logopngmd1.png"
+      src="assets/images/logocovid1.png"
       alt=""
-      width="210px"
-      height="50px"
+      width="255px"
+      height="290px"
     />
-  </div> -->
-
+  </div>
+<div class="titles">
   <a
     *ngIf="userRole[0] == 'ROLE_ADMIN'"
     class="link"
@@ -40,11 +41,13 @@
     ><span class="link__text">Noticias</span></a
   >
   <a class="link" mat-list-item routerLinkActive="active" routerLink="/bolivia"
-    ><mat-icon svgIcon="bolivia" class="link__icon"></mat-icon
+    ><mat-icon class="link__icon" svgIcon="bolivia"></mat-icon
     ><span class="link__text">Bolivia</span></a
   >
   <a class="link" mat-list-item routerLinkActive="active" routerLink="/mundo"
     ><mat-icon class="link__icon">public</mat-icon
     ><span class="link__text">Mundo</span></a
   >
+</div>
 </mat-nav-list>
+</div>

@@ -1,11 +1,20 @@
-<h1 mat-dialog-title><strong>REGISTO</strong></h1>
+<div class="colorback">
+<div align="center">
+  <img
+        src="assets/images/ricovid2.png"
+        alt=""
+        width="370"
+      />
+    </div>
+<!--h1 mat-dialog-title><strong>REGISTO</strong></h1-->
 <div mat-dialog-content>
   <h4 class="title2">
-    Bienvenido, por favor llene el formulario para poder registrarse.
+    REGISTRO
   </h4>
   <br />
 
-  <form [formGroup]="form" (ngSubmit)="saveUser()">
+  <form [formGroup]="form" (ngSubmit)="saveUser()" >
+    <div class="ini">
     <mat-form-field class="form-input">
       <mat-label class="form-letter">Nombre</mat-label>
       <input
@@ -77,13 +86,14 @@
         type="password"
       />
     </mat-form-field>
+  </div>
     <br />
-    <div mat-dialog-actions>
+    <div mat-dialog-actions class="buttons">
       <button
         type="submit"
         mat-raised-button
         color="primary"
-        class="button_signup"
+        class="btnizq"
       >
         Registrarse
       </button>
@@ -91,10 +101,12 @@
         color="accent"
         class="form__button"
         routerLink="/auth/login"
-        class="button_regis"
+        class="form-letter1"
       >
         Ya tengo una cuenta...
       </a>
     </div>
   </form>
+</div>
+<br>
 </div>
