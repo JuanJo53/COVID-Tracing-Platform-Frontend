@@ -1,14 +1,18 @@
+.link{
+    margin-top: 20px;
+}
 .link__icon{
     margin-left: 10px;
     color: #757F8E !important;
 }
 .link__text{
     margin-left: 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    //font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     color: #757F8E;
+    font-style: normal;
+    font-weight:lighter;
 }
-.svgIcon{
-    color: aqua !important;
-    fill: aqua !important;
+.titles{
+    margin-top: 60px;
 }
