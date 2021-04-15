@@ -31,24 +31,31 @@ label {
   width: 100%;
   height: 100%;
 }
+.chart_view {
+  width: 100%;
+  height: 100%;
+}
+.table_view {
+  width: 100%;
+  height: 100%;
+}
 .view_change {
   margin: 5px;
   margin-top: 10px;
 }
-.grid_hearder {
-  grid-area: header;
-}
 .data_view {
   grid-area: data;
   padding: 10px;
-  border-left: 2px solid #6c6666;
-}
-.details {
-  text-align: center;
-  margin: 5px;
-  margin-top: 25px;
+  margin: 15px;
+  height: 650px;
+  width: 1200px;
 }
 .setting_view {
   padding: 8%;
   grid-area: settings;
+  margin: 10px;
+  width: 300px;
+}
+.details {
+  text-align: center;
 }

@@ -13,6 +13,7 @@ export class ChartComponent implements OnInit {
 
   public chartOptions: ChartOptions & { annotation: any } = {
     responsive: true,
+    maintainAspectRatio: false,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],

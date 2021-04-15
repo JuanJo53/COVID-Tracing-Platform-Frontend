@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { Department } from 'src/app/shared/models/department';
@@ -8,7 +8,7 @@ import { Department } from 'src/app/shared/models/department';
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.scss'],
 })
-export class DepartmentComponent implements OnInit, AfterViewInit {
+export class DepartmentComponent implements OnInit {
   @Input() depto: Department;
 
   deptos: Department[] = [
@@ -63,18 +63,11 @@ export class DepartmentComponent implements OnInit, AfterViewInit {
     this.refreshDataView();
   }
 
-  ngAfterViewInit(): void {
-    if (this.mapReady) {
-      this.mapReady = false;
-    } else {
-      this.mapReady = true;
-    }
-  }
   refreshDataView(): void {
-    // if (this.selected == 'map') {
-    //   this.mapReady = true;
-    // } else {
-    //   this.mapReady = false;
-    // }
+    if (this.selectedView == 'map') {
+      this.mapReady = true;
+    } else {
+      this.mapReady = false;
+    }
   }
 }
