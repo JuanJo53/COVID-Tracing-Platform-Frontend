@@ -18,11 +18,11 @@ export class FileService {
     });
   }
 
-  public upload(formData) {
+  public upload(formData, depto: string) {
     const userId = this.tokenService.getUserId();
     console.log(formData);
     return this.http.post<FormData>(
-      apiKey.api + '/api/v1/data/La Paz/admin/' + userId,
+      apiKey.api + `/api/v1/data/${depto}/admin/${userId}`,
       formData,
       {
         headers: this.headers,

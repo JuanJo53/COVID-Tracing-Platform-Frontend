@@ -1,52 +1,76 @@
 <div class="container">
   <h1>Administra los datasets!</h1>
-  <div class="datasets_list">
-    <div class="table_container mat-elevation-z8">
-      <mat-form-field class="search">
-        <mat-label>Buscar</mat-label>
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="Ex. ium"
-          #search
-        />
-      </mat-form-field>
-      <table
-        class="full-width-table"
-        mat-table
-        [dataSource]="dataSource"
-        matSort
-      >
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>Id</th>
-          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
-        </ng-container>
-        <ng-container matColumnDef="url">
-          <th mat-header-cell *matHeaderCellDef>URL del Documento</th>
-          <td mat-cell *matCellDef="let row">{{ row.url }}</td>
-        </ng-container>
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef>Fecha</th>
-          <td mat-cell *matCellDef="let row">{{ row.date }}</td>
-        </ng-container>
+  <mat-tab-group class="tab" mat-align-tabs="start">
+    <mat-tab label="Mundo">
+      <div class="datasets_list">
+        <div class="table_container mat-elevation-z8">
+          <mat-form-field class="search">
+            <mat-label>Buscar</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex. ium"
+              #search
+            />
+          </mat-form-field>
+          <table
+            class="full-width-table"
+            mat-table
+            [dataSource]="dataSource"
+            matSort
+          >
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>Id</th>
+              <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+            </ng-container>
+            <ng-container matColumnDef="url">
+              <th mat-header-cell *matHeaderCellDef>URL del Documento</th>
+              <td mat-cell *matCellDef="let row">{{ row.url }}</td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Fecha</th>
+              <td mat-cell *matCellDef="let row">{{ row.date }}</td>
+            </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="5">
-            No se encontro nada con: "{{ search.value }}"
-          </td>
-        </tr>
-      </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="5">
+                No se encontro nada con: "{{ search.value }}"
+              </td>
+            </tr>
+          </table>
 
-      <mat-paginator
-        [length]="length"
-        [pageSize]="size"
-        [pageSizeOptions]="[5, 10, 20, 30, 50]"
-      >
-      </mat-paginator>
-    </div>
-  </div>
-  <app-upload-file></app-upload-file>
+          <mat-paginator
+            [length]="length"
+            [pageSize]="size"
+            [pageSizeOptions]="[5, 10, 20, 30, 50]"
+          >
+          </mat-paginator>
+        </div>
+      </div>
+      <app-upload-file></app-upload-file>
+      <br />
+    </mat-tab>
+    <mat-tab label="Bolivia">
+      <div class="bolivia_container">
+        <mat-form-field appearance="fill">
+          <mat-label>Departamentos</mat-label>
+          <mat-select [(value)]="depto">
+            <mat-option>Ninguno</mat-option>
+            <mat-option value="La Paz">La Paz</mat-option>
+            <mat-option value="Cochabamba">Cochabamba</mat-option>
+            <mat-option value="Santa Cruz">Santa Cruz</mat-option>
+            <mat-option value="Chuquisaca">Chuquisaca</mat-option>
+            <mat-option value="Tarija">Tarija</mat-option>
+            <mat-option value="Beni">Beni</mat-option>
+            <mat-option value="Pando">Pando</mat-option>
+            <mat-option value="Oruro">Oruro</mat-option>
+            <mat-option value="Potosi">Potosi</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <app-bolivia-datasets [depto]="depto"></app-bolivia-datasets></div
+    ></mat-tab>
+  </mat-tab-group>
 </div>

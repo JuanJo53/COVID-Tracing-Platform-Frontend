@@ -1,3 +1,4 @@
+import { ContentObserver } from '@angular/cdk/observers';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -5,17 +6,18 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { FileRequest } from 'src/app/shared/models/file-request';
 
 @Component({
-  selector: 'app-datasets',
-  templateUrl: './datasets.component.html',
-  styleUrls: ['./datasets.component.scss'],
+  selector: 'app-bolivia-datasets',
+  templateUrl: './bolivia-datasets.component.html',
+  styleUrls: ['./bolivia-datasets.component.scss'],
 })
-export class DatasetsComponent implements OnInit {
-  @Input() data: FileRequest[];
-  @Input() displayedColumns: ['id', 'url', 'date'];
-  depto: string;
+export class BoliviaDatasetsComponent implements OnInit {
+  data: FileRequest[];
+  displayedColumns: ['id', 'url', 'date'];
+  @Input() depto: string;
 
   isLoadingResults = true;
   isRateLimitReached = false;
+  panelOpenState = false;
 
   length = 20;
   size = 5;
@@ -30,7 +32,7 @@ export class DatasetsComponent implements OnInit {
   constructor() {}
   dataSource = new MatTableDataSource();
   ngOnInit(): void {
-    this.depto = 'La Paz';
+    console.log(this.depto);
     this.fectchData();
   }
   ngAfterViewInit(): void {
