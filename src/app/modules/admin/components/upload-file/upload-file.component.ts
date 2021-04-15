@@ -18,6 +18,7 @@ export class UploadFileComponent implements OnInit {
 
   ngOnInit(): void {}
   onClick() {
+    this.files = [];
     const fileUpload = this.fileUpload.nativeElement;
     fileUpload.onchange = () => {
       for (let index = 0; index < fileUpload.files.length; index++) {
@@ -49,6 +50,7 @@ export class UploadFileComponent implements OnInit {
         }
       );
     } else {
+      console.log('mandando deptop');
       this.fileUploadService.upload(formData, depto, false).subscribe(
         (rsp) => {
           console.log(rsp);

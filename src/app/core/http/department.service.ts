@@ -16,11 +16,20 @@ export class DepartmentService {
       Authorization: `Bearer ${this.authToken}`,
     });
   }
-  getDepartmentDetails(deptoId: number) {
-    return this.http.get<Department>(apiKey.api + `/country/${deptoId}`);
+  getDepartmentAcumulativeData(deptoId: string, page: number, size: number) {
+    return this.http.get<Department[]>(
+      apiKey.api +
+        `api/v1/data/department/${deptoId}/cumulative/list?page=${page}&size=${size}`
+    );
+  }
+  getDepartmentHistoricData(deptoId: string, page: number, size: number) {
+    return this.http.get<Department[]>(
+      apiKey.api +
+        `api/v1/data/department/${deptoId}/historic/list?page=${page}&size=${size}`
+    );
   }
   getAllDepartments() {
-    return this.http.get<Department>(apiKey.api + `/country`);
+    return this.http.get<Department[]>(apiKey.api + `/country`);
   }
   getAllDepartmentCordenates() {
     return this.http.get<Department>(apiKey.api + `/country/coordenates`);

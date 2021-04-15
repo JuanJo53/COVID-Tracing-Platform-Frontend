@@ -35,19 +35,21 @@
     <div class="details">
       <div class="total_panel">
         <label for="total">Casos Totales:</label>
-        <h1 class="cases" name="total">{{ 1232132 | number }}</h1>
+        <h1 class="cases" name="total">{{ depto.confirmed | number }}</h1>
       </div>
       <div class="deaths_panel">
         <label for="deaths">Muertes:</label>
-        <h2 class="deaths" name="deaths">{{ 123123132 | number }}</h2>
+        <h2 class="deaths" name="deaths">{{ depto.deaths | number }}</h2>
       </div>
       <div class="recovered_panel">
         <label for="recovered">Recuperados:</label>
-        <h2 class="recovered" name="recovered">{{ 12321321 | number }}</h2>
+        <h2 class="recovered" name="recovered">
+          {{ depto.recovered | number }}
+        </h2>
       </div>
       <div class="actives_panel">
-        <label for="actives">Activos:</label>
-        <h2 class="actives" name="actives">{{ 6545646546 | number }}</h2>
+        <label for="actives">Vacunados:</label>
+        <h2 class="actives" name="actives">{{ depto.vacined | number }}</h2>
       </div>
     </div>
   </div>
@@ -58,7 +60,7 @@
     <div class="table_view" *ngIf="view_select.value == 'table'">
       <app-table
         [displayedColumns]="displayedColumns"
-        [data]="deptos"
+        [depto]="depto"
       ></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">

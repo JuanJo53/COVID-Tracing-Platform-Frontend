@@ -8,6 +8,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { DepartmentService } from 'src/app/core/http/department.service';
 import { Department } from 'src/app/shared/models/department';
 
 @Component({
@@ -15,9 +16,10 @@ import { Department } from 'src/app/shared/models/department';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit, AfterViewInit {
-  @Input() data: Department[];
+export class TableComponent implements OnInit {
+  @Input() depto: Department;
   @Input() displayedColumns: [];
+  data: Department[];
 
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -32,22 +34,38 @@ export class TableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatTable, { static: true }) table: MatTable<Department>;
 
-  // dataSource: Department;
-
-  constructor() {}
+  constructor(private deptoService: DepartmentService) {}
   dataSource = new MatTableDataSource();
   ngOnInit(): void {
-    // this.fectchData();
+    this.fectchCumulativeData();
+    this.refreshData();
   }
-  ngAfterViewInit(): void {
+  // ngAfterViewInit(): void {
+  //   this.dataSource = new MatTableDataSource(this.data);
+  //   this.dataSource.sort = this.sort;
+  //   this.dataSource.paginator = this.paginator;
+  //   // this.table.dataSource = this.dataSource;
+  // }
+  refreshData(): void {
     this.dataSource = new MatTableDataSource(this.data);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    // this.table.dataSource = this.dataSource;
   }
-  fectchData(): void {
-    this.dataSource = new MatTableDataSource(this.data);
-    this.dataSource.sort = this.sort;
+  fectchHistoricData(): void {
+    this.deptoService
+      .getDepartmentHistoricData(this.depto.iso, this.actualPage, this.size)
+      .subscribe((data) => {
+        this.data = data;
+        this.refreshData();
+      });
+  }
+  fectchCumulativeData(): void {
+    this.deptoService
+      .getDepartmentAcumulativeData(this.depto.iso, this.actualPage, this.size)
+      .subscribe((data) => {
+        this.data = data;
+        this.refreshData();
+      });
   }
 
   applyFilter(event: Event): void {
