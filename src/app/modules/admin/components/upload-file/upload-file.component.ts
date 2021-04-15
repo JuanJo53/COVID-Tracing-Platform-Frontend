@@ -18,12 +18,6 @@ export class UploadFileComponent implements OnInit {
 
   ngOnInit(): void {}
   onClick() {
-    if (this.municipality) {
-      console.log('si');
-    } else {
-      console.log('no');
-    }
-
     const fileUpload = this.fileUpload.nativeElement;
     fileUpload.onchange = () => {
       for (let index = 0; index < fileUpload.files.length; index++) {
@@ -45,13 +39,24 @@ export class UploadFileComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', file.data);
     file.inProgress = true;
-    this.fileUploadService.upload(formData, depto).subscribe(
-      (rsp) => {
-        console.log(rsp);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (this.municipality) {
+      this.fileUploadService.upload(formData, depto, true).subscribe(
+        (rsp) => {
+          console.log(rsp);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      this.fileUploadService.upload(formData, depto, false).subscribe(
+        (rsp) => {
+          console.log(rsp);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }

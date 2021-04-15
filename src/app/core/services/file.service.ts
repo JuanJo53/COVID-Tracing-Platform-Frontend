@@ -18,9 +18,22 @@ export class FileService {
     });
   }
 
-  public upload(formData, depto: string) {
+  public upload(formData, depto: string, municipality: boolean) {
     const userId = this.tokenService.getUserId();
     console.log(formData);
+    if (!municipality) {
+      console.log('no');
+    } else {
+      return this.http.post<FormData>(
+        apiKey.api + `/api/v1/data/${depto}/admin/${userId}`,
+        formData,
+        {
+          headers: this.headers,
+          reportProgress: true,
+          observe: 'events',
+        }
+      );
+    }
     return this.http.post<FormData>(
       apiKey.api + `/api/v1/data/${depto}/admin/${userId}`,
       formData,
