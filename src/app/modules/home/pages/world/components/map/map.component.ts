@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { Department } from 'src/app/shared/models/department';
 import * as Leaflet from 'leaflet';
+import { Country } from 'src/app/shared/models/country';
 
 @Component({
   selector: 'app-map',
@@ -8,7 +8,7 @@ import * as Leaflet from 'leaflet';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  @Input() depto: Department;
+  @Input() country: Country;
 
   myMap: Leaflet.Map;
 

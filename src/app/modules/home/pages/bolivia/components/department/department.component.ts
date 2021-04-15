@@ -53,13 +53,15 @@ export class DepartmentComponent implements OnInit, AfterViewInit {
   ];
   chartType: ChartType = 'line';
 
-  selected = 'general';
-
   mapReady = false;
+
+  selectedView = 'table';
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.refreshDataView();
+  }
 
   ngAfterViewInit(): void {
     if (this.mapReady) {
@@ -67,5 +69,12 @@ export class DepartmentComponent implements OnInit, AfterViewInit {
     } else {
       this.mapReady = true;
     }
+  }
+  refreshDataView(): void {
+    // if (this.selected == 'map') {
+    //   this.mapReady = true;
+    // } else {
+    //   this.mapReady = false;
+    // }
   }
 }

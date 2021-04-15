@@ -35,9 +35,10 @@
       <mat-form-field appearance="fill">
         <mat-label>Paises</mat-label>
         <mat-select [(value)]="selected">
-          <mat-option>Ninguno</mat-option>
-          <mat-option value="province">Provincias</mat-option>
-          <mat-option value="municipality">Municipio</mat-option>
+          <mat-option>Global</mat-option>
+          <mat-option *ngFor="let name of countryNames" [value]="name">{{
+            name
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -60,12 +61,12 @@
   </div>
   <div class="data_view">
     <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
-      <app-map [depto]="depto"></app-map>
+      <app-map [country]="selected"></app-map>
     </div>
     <div class="table_view" *ngIf="view_select.value == 'table'">
       <app-table
         [displayedColumns]="displayedColumns"
-        [data]="deptos"
+        [data]="counrties"
       ></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">

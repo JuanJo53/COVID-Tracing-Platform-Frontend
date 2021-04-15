@@ -1,4 +1,3 @@
-import { ContentObserver } from '@angular/cdk/observers';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';

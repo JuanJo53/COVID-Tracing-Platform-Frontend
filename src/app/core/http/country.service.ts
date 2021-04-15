@@ -20,10 +20,10 @@ export class CountryService {
     return this.http.get<Country>(apiKey.api + `/country/${countryId}`);
   }
   getAllCountries() {
-    return this.http.get<Country>(apiKey.api + `/country`);
+    return this.http.get<Country[]>(apiKey.api + `/country`);
   }
   getAllCordenates() {
-    return this.http.get<Country>(apiKey.api + `/country/coordenates`);
+    return this.http.get<Country[]>(apiKey.api + `/country/coordenates`);
   }
   getCoordenates(countryId: number) {
     return this.http.get<Country>(

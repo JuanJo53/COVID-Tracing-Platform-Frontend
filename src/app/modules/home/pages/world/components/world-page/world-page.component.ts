@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
-import * as Leaflet from 'leaflet';
-import { Department } from 'src/app/shared/models/department';
+import { CountryService } from 'src/app/core/http/country.service';
+import { Country } from 'src/app/shared/models/country';
 
 @Component({
   selector: 'app-world-page',
@@ -10,9 +10,7 @@ import { Department } from 'src/app/shared/models/department';
   styleUrls: ['./world-page.component.scss'],
 })
 export class WorldPageComponent implements OnInit {
-  @Input() depto: Department;
-
-  deptos: Department[] = [
+  counrties: Country[] = [
     { name: 'Hydrogen', description: 'HOLA' },
     { name: 'Helium', description: 'HOLo' },
     { name: 'Lithium', description: 'HOLi' },
@@ -58,6 +56,7 @@ export class WorldPageComponent implements OnInit {
     { name: 'Calcium', description: 'HOLi' },
     { name: 'Calcium', description: 'HOLi' },
   ];
+  countryNames = ['ag', 'bol'];
   displayedColumns = ['description', 'name'];
 
   chartData: ChartDataSets[] = [
@@ -85,10 +84,19 @@ export class WorldPageComponent implements OnInit {
 
   selectedView = 'map';
 
-  constructor() {}
+  constructor(private worldService: CountryService) {}
 
   ngOnInit(): void {
     this.refreshDataView();
+    // this.fetchCountryNames();
+  }
+  fetchCountryNames() {
+    this.worldService.getAllCountries().subscribe((countries) => {
+      console.log(countries);
+      countries.forEach((country) => {
+        this.countryNames.push(country.name);
+      });
+    });
   }
   refreshDataView(): void {
     if (this.selectedView == 'map') {

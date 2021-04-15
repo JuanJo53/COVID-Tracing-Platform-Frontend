@@ -10,6 +10,7 @@ import { ChartComponent } from './components/chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { ClientDatasetsComponent } from '../client-datasets/client-datasets.component';
 import { MapComponent } from './components/map/map.component';
+import { FormsModule } from '@angular/forms';
 // import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MapComponent } from './components/map/map.component';
     MaterialModule,
     BoliviaRoutingModule,
     ChartsModule,
+    FormsModule,
     // AgmCoreModule.forRoot({
     //   apiKey: 'AIzaSyAGIQRmtZ_eX9EKPehZd6snel0OC-5c9bs',
     // }),
