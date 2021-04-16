@@ -11,13 +11,7 @@ import { Department } from 'src/app/shared/models/department';
 export class DepartmentComponent implements OnInit {
   @Input() depto: Department;
 
-  displayedColumns = [
-    'Fecha',
-    'Casos Confirmados',
-    'Muertes',
-    'Recuperados',
-    'Vacunados',
-  ];
+  displayedColumns = ['Fecha', 'Casos Confirmados', 'Muertes', 'Recuperados'];
 
   chartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40, 560], label: 'Series A' },

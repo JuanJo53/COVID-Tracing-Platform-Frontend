@@ -17,10 +17,11 @@ export class MapComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    console.log(this.depto);
     this.myMap = Leaflet.map('map');
     const location = {
       coords: new Leaflet.LatLng(this.depto.longitude, this.depto.latitude),
-      zoom: this.depto.zoom,
+      zoom: 7,
     };
     Leaflet.tileLayer(
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

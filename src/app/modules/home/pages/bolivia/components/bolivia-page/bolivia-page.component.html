@@ -1,6 +1,6 @@
 <mat-tab-group>
   <mat-tab *ngFor="let depto of deptos">
-    <ng-template mat-tab-label>{{ depto.name }}</ng-template>
+    <ng-template mat-tab-label>{{ depto.department }}</ng-template>
     <app-department [depto]="depto"></app-department>
   </mat-tab>
 </mat-tab-group>

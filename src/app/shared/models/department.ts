@@ -1,6 +1,6 @@
 export interface Department {
   id: number;
-  name: string;
+  department: string;
   iso: string;
   confirmed: number;
   deaths: number;

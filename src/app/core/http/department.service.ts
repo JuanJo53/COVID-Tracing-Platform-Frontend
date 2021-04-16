@@ -1,3 +1,4 @@
+import { DepartmentList } from './../../shared/models/department-list';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Department } from 'src/app/shared/models/department';
@@ -17,19 +18,25 @@ export class DepartmentService {
     });
   }
   getDepartmentAcumulativeData(deptoId: string, page: number, size: number) {
-    return this.http.get<Department[]>(
+    return this.http.get<DepartmentList[]>(
       apiKey.api +
-        `api/v1/data/department/${deptoId}/cumulative/list?page=${page}&size=${size}`
+        `/api/v1/data/department/${deptoId}/cumulative/list?page=${
+          (page - 1) * size
+        }&size=${size}`
     );
   }
   getDepartmentHistoricData(deptoId: string, page: number, size: number) {
-    return this.http.get<Department[]>(
+    return this.http.get<DepartmentList[]>(
       apiKey.api +
-        `api/v1/data/department/${deptoId}/historic/list?page=${page}&size=${size}`
+        `/api/v1/data/department/${deptoId}/historic/list?page=${
+          (page - 1) * size
+        }&size=${size}`
     );
   }
   getAllDepartments() {
-    return this.http.get<Department[]>(apiKey.api + `/country`);
+    return this.http.get<Department[]>(
+      apiKey.api + `/api/v1/data/department/BOL/list`
+    );
   }
   getAllDepartmentCordenates() {
     return this.http.get<Department>(apiKey.api + `/country/coordenates`);
@@ -37,6 +44,11 @@ export class DepartmentService {
   getDepartmentCoordenates(deptoId: number) {
     return this.http.get<Department>(
       apiKey.api + `/country/coordenates/${deptoId}`
+    );
+  }
+  getDepartmentTotalData(deptoId: string) {
+    return this.http.get<number>(
+      apiKey.api + `/api/v1/data/department/${deptoId}/total`
     );
   }
 }

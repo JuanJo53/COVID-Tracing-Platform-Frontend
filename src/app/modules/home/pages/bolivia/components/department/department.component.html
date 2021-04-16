@@ -1,6 +1,6 @@
-<div class="grid_container">
+<div class="grid_container" *ngIf="depto">
   <div class="grid_hearder">
-    <h1>{{ depto.name }}</h1>
+    <h1>{{ depto.department }}</h1>
   </div>
   <div class="setting_view">
     <div class="view_change">
@@ -47,7 +47,7 @@
           {{ depto.recovered | number }}
         </h2>
       </div>
-      <div class="actives_panel">
+      <div class="actives_panel" *ngIf="depto.vacined">
         <label for="actives">Vacunados:</label>
         <h2 class="actives" name="actives">{{ depto.vacined | number }}</h2>
       </div>
