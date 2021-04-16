@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +35,7 @@
     "@angular-devkit/build-angular": "~0.1102.3",
     "@angular/cli": "~11.2.4",
     "@angular/compiler-cli": "~11.2.5",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/geojson": "^7946.0.7",
     "@types/googlemaps": "^3.39.13",
     "@types/jasmine": "~3.6.0",

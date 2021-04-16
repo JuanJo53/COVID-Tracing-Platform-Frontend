@@ -1,0 +1,1052 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>covid-tracing-platform-frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">covid-tracing-platform-frontend documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>TableComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/home/pages/bolivia/components/table/table.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-table</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./table.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./table.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualPage">actualPage</a>
+                            </li>
+                            <li>
+                                <a href="#asc">asc</a>
+                            </li>
+                            <li>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#isLoadingResults">isLoadingResults</a>
+                            </li>
+                            <li>
+                                <a href="#isRateLimitReached">isRateLimitReached</a>
+                            </li>
+                            <li>
+                                <a href="#length">length</a>
+                            </li>
+                            <li>
+                                <a href="#order">order</a>
+                            </li>
+                            <li>
+                                <a href="#paginator">paginator</a>
+                            </li>
+                            <li>
+                                <a href="#size">size</a>
+                            </li>
+                            <li>
+                                <a href="#sort">sort</a>
+                            </li>
+                            <li>
+                                <a href="#table">table</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyFilter">applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#fectchData">fectchData</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Department.html" target="_self" >Department[]</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedColumns"></a>
+                        <b>displayedColumns</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <b>
+                            applyFilter
+                        </b>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyFilter(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fectchData"></a>
+                    <span class="name">
+                        <b>
+                            fectchData
+                        </b>
+                        <a href="#fectchData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fectchData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actualPage"></a>
+                        <span class="name">
+                            <b>
+                            actualPage</b>
+                            <a href="#actualPage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="asc"></a>
+                        <span class="name">
+                            <b>
+                            asc</b>
+                            <a href="#asc"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSource"></a>
+                        <span class="name">
+                            <b>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new MatTableDataSource()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isLoadingResults"></a>
+                        <span class="name">
+                            <b>
+                            isLoadingResults</b>
+                            <a href="#isLoadingResults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isRateLimitReached"></a>
+                        <span class="name">
+                            <b>
+                            isRateLimitReached</b>
+                            <a href="#isRateLimitReached"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="length"></a>
+                        <span class="name">
+                            <b>
+                            length</b>
+                            <a href="#length"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>20</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="order"></a>
+                        <span class="name">
+                            <b>
+                            order</b>
+                            <a href="#order"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;id&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paginator"></a>
+                        <span class="name">
+                            <b>
+                            paginator</b>
+                            <a href="#paginator"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatPaginator</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(MatPaginator, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="size"></a>
+                        <span class="name">
+                            <b>
+                            size</b>
+                            <a href="#size"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>10</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sort"></a>
+                        <span class="name">
+                            <b>
+                            sort</b>
+                            <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatSort</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(MatSort, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="table"></a>
+                        <span class="name">
+                            <b>
+                            table</b>
+                            <a href="#table"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Department.html" target="_self" >MatTable&lt;Department&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(MatTable, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/home/pages/bolivia/components/table/table.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
+import { MatSort } from &#x27;@angular/material/sort&#x27;;
+import { MatTable, MatTableDataSource } from &#x27;@angular/material/table&#x27;;
+import { Department } from &#x27;src/app/shared/models/department&#x27;;
+
+@Component({
+  selector: &#x27;app-table&#x27;,
+  templateUrl: &#x27;./table.component.html&#x27;,
+  styleUrls: [&#x27;./table.component.scss&#x27;],
+})
+export class TableComponent implements OnInit, AfterViewInit {
+  @Input() data: Department[];
+  @Input() displayedColumns: [];
+
+  isLoadingResults &#x3D; true;
+  isRateLimitReached &#x3D; false;
+
+  length &#x3D; 20;
+  size &#x3D; 10;
+  order &#x3D; &#x27;id&#x27;;
+  asc &#x3D; true;
+  actualPage &#x3D; 0;
+
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatTable, { static: true }) table: MatTable&lt;Department&gt;;
+
+  // dataSource: Department;
+
+  constructor() {}
+  dataSource &#x3D; new MatTableDataSource();
+  ngOnInit(): void {
+    // this.fectchData();
+  }
+  ngAfterViewInit(): void {
+    this.dataSource &#x3D; new MatTableDataSource(this.data);
+    this.dataSource.sort &#x3D; this.sort;
+    this.dataSource.paginator &#x3D; this.paginator;
+    // this.table.dataSource &#x3D; this.dataSource;
+  }
+  fectchData(): void {
+    this.dataSource &#x3D; new MatTableDataSource(this.data);
+    this.dataSource.sort &#x3D; this.sort;
+  }
+
+  applyFilter(event: Event): void {
+    const filterValue &#x3D; (event.target as HTMLInputElement).value;
+    this.dataSource.filter &#x3D; filterValue.trim().toLowerCase();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;table_component_container mat-elevation-z8&quot;&gt;
+  &lt;mat-form-field class&#x3D;&quot;search&quot;&gt;
+    &lt;mat-label&gt;Buscar&lt;/mat-label&gt;
+    &lt;input
+      matInput
+      (keyup)&#x3D;&quot;applyFilter($event)&quot;
+      placeholder&#x3D;&quot;Ex. ium&quot;
+      #search
+    /&gt;
+  &lt;/mat-form-field&gt;
+  &lt;mat-button-toggle-group
+    class&#x3D;&quot;buttons_configs&quot;
+    #data_view&#x3D;&quot;matButtonToggleGroup&quot;
+    value&#x3D;&quot;acumulated&quot;
+  &gt;
+    &lt;mat-button-toggle value&#x3D;&quot;acumulated&quot; aria-label&#x3D;&quot;Text align left&quot;&gt;
+      Datos Acumulados
+    &lt;/mat-button-toggle&gt;
+    &lt;mat-button-toggle value&#x3D;&quot;historic&quot; aria-label&#x3D;&quot;Text align center&quot;&gt;
+      Datos Historicos
+    &lt;/mat-button-toggle&gt;
+  &lt;/mat-button-toggle-group&gt;
+  &lt;div class&#x3D;&quot;table_container&quot;&gt;
+    &lt;table class&#x3D;&quot;full-width-table&quot; mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort&gt;
+      &lt;ng-container
+        [matColumnDef]&#x3D;&quot;column&quot;
+        *ngFor&#x3D;&quot;let column of displayedColumns&quot;
+      &gt;
+        &lt;th mat-header-cell *matHeaderCellDef&gt;{{ column }}&lt;/th&gt;
+        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{ element[column] }}&lt;/td&gt;
+      &lt;/ng-container&gt;
+
+      &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+      &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns&quot;&gt;&lt;/tr&gt;
+      &lt;!-- Row shown when there is no matching data. --&gt;
+      &lt;tr class&#x3D;&quot;mat-row&quot; *matNoDataRow&gt;
+        &lt;td class&#x3D;&quot;mat-cell&quot; colspan&#x3D;&quot;5&quot;&gt;
+          No se encontro nada con: &quot;{{ search.value }}&quot;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;mat-paginator [length]&#x3D;&quot;length&quot; [pageSize]&#x3D;&quot;size&quot;&gt; &lt;/mat-paginator&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./table.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.table_component_container {
+  padding: 4%;
+  position: relative;
+  min-height: 200px;
+}
+table {
+  width: 100%;
+}
+.table_container {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+
+.buttons_configs {
+  margin: 10px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="table_component_container mat-elevation-z8">  <mat-form-field class="search">    <mat-label>Buscar</mat-label>    <input      matInput      (keyup)="applyFilter($event)"      placeholder="Ex. ium"      #search    />  </mat-form-field>  <mat-button-toggle-group    class="buttons_configs"    #data_view="matButtonToggleGroup"    value="acumulated"  >    <mat-button-toggle value="acumulated" aria-label="Text align left">      Datos Acumulados    </mat-button-toggle>    <mat-button-toggle value="historic" aria-label="Text align center">      Datos Historicos    </mat-button-toggle>  </mat-button-toggle-group>  <div class="table_container">    <table class="full-width-table" mat-table [dataSource]="dataSource" matSort>      <ng-container        [matColumnDef]="column"        *ngFor="let column of displayedColumns"      >        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>        <td mat-cell *matCellDef="let element">{{ element[column] }}</td>      </ng-container>      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>      <!-- Row shown when there is no matching data. -->      <tr class="mat-row" *matNoDataRow>        <td class="mat-cell" colspan="5">          No se encontro nada con: "{{ search.value }}"        </td>      </tr>    </table>  </div>  <mat-paginator [length]="length" [pageSize]="size"> </mat-paginator></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TableComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TableComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
