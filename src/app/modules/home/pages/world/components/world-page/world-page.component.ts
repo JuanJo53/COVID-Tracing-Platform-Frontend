@@ -37,20 +37,19 @@ export class WorldPageComponent implements OnInit {
 
   mapReady = false;
 
-  selectedView = 'map';
+  selectedView = 'table';
 
   constructor(private worldService: CountryService) {}
 
   ngOnInit(): void {
-    this.refreshDataView();
     this.fetchCountryNames();
+    this.refreshDataView();
   }
   fetchCountryNames() {
     this.countries = [];
     this.countryNames = [];
     this.worldService.getAllCountries().subscribe((countries) => {
       this.countries = countries;
-      console.log(this.countries);
       countries.forEach((country) => {
         this.countryNames.push(country.country);
       });
