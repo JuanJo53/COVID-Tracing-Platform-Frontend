@@ -10,6 +10,12 @@ import { Department } from 'src/app/shared/models/department';
 export class BoliviaPageComponent implements OnInit {
   deptos: Department[];
 
+  displayedColumns = ['Fecha', 'Casos Confirmados', 'Muertes', 'Recuperados'];
+
+  mapReady = false;
+
+  selectedView = 'table';
+
   constructor(private departmentService: DepartmentService) {}
 
   ngOnInit(): void {
@@ -17,5 +23,12 @@ export class BoliviaPageComponent implements OnInit {
       console.log(deptos);
       this.deptos = deptos;
     });
+  }
+  refreshDataView(): void {
+    if (this.selectedView == 'map') {
+      this.mapReady = true;
+    } else {
+      this.mapReady = false;
+    }
   }
 }
