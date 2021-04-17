@@ -22,7 +22,8 @@
   <mat-button-toggle-group
     class="buttons_configs"
     #data_view="matButtonToggleGroup"
-    value="acumulated"
+    [(ngModel)]="dataType"
+    (click)="refreshDataType()"
   >
     <mat-button-toggle value="acumulated" aria-label="Text align left">
       Datos Acumulados

@@ -1,5 +1,15 @@
 <div id="map" class="mat-elevation-z8"></div>
-
-<!-- <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map> -->
+<div class="hidden">
+  <div id="detail" class="detail" *ngIf="depto">
+    <h1>{{ depto.department }}</h1>
+    <br />
+    <h3 *ngIf="depto.confirmed">Confirmados:</h3>
+    <p class="confirmed" id="confirmed">{{ depto.confirmed | number }}</p>
+    <h3 *ngIf="depto.deaths">Muertes :</h3>
+    <p class="deaths">{{ depto.deaths | number }}</p>
+    <h3 *ngIf="depto.recovered">Recuperados :</h3>
+    <p class="recovered">{{ depto.recovered | number }}</p>
+    <h3 *ngIf="depto.vacined">Vacunados :</h3>
+    <p class="vaccined">{{ depto.vacined | number }}</p>
+  </div>
+</div>

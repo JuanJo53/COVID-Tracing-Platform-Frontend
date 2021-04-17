@@ -10,54 +10,9 @@ import { Country } from 'src/app/shared/models/country';
   styleUrls: ['./world-page.component.scss'],
 })
 export class WorldPageComponent implements OnInit {
-  counrties: Country[] = [
-    { name: 'Hydrogen', description: 'HOLA' },
-    { name: 'Helium', description: 'HOLo' },
-    { name: 'Lithium', description: 'HOLi' },
-    { name: 'Beryllium', description: 'HOLi' },
-    { name: 'Boron', description: 'HOLi' },
-    { name: 'Carbon', description: 'HOLi' },
-    { name: 'Nitrogen', description: 'HOLi' },
-    { name: 'Oxygen', description: 'HOLi' },
-    { name: 'Fluorine', description: 'HOLi' },
-    { name: 'Sodium', description: 'HOLi' },
-    { name: 'Magnesium', description: 'HOLi' },
-    { name: 'Aluminum', description: 'HOLi' },
-    { name: 'Silicon', description: 'HOLi' },
-    { name: 'Phosphoru', description: 'HOLi' },
-    { name: 'Sulfur', description: 'HOLi' },
-    { name: 'Chlorine', description: 'HOLi' },
-    { name: 'Argon', description: 'HOLi' },
-    { name: 'Potassium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-    { name: 'Calcium', description: 'HOLi' },
-  ];
-  countryNames = ['ag', 'bol'];
-  displayedColumns = ['description', 'name'];
+  countries: Country[];
+  countryNames: string[];
+  displayedColumns = ['date', 'country', 'cumulativeConfirmed'];
 
   chartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40, 560], label: 'Series A' },
@@ -88,13 +43,16 @@ export class WorldPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshDataView();
-    // this.fetchCountryNames();
+    this.fetchCountryNames();
   }
   fetchCountryNames() {
+    this.countries = [];
+    this.countryNames = [];
     this.worldService.getAllCountries().subscribe((countries) => {
-      console.log(countries);
+      this.countries = countries;
+      console.log(this.countries);
       countries.forEach((country) => {
-        this.countryNames.push(country.name);
+        this.countryNames.push(country.country);
       });
     });
   }

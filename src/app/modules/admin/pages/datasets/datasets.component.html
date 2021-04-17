@@ -50,7 +50,7 @@
           </mat-paginator>
         </div>
       </div>
-      <app-upload-file></app-upload-file>
+      <app-upload-file [region]="'global'"></app-upload-file>
       <br />
     </mat-tab>
     <mat-tab label="Bolivia">
@@ -59,15 +59,15 @@
           <mat-label>Departamentos</mat-label>
           <mat-select [(value)]="depto">
             <mat-option>Ninguno</mat-option>
-            <mat-option value="La Paz">La Paz</mat-option>
-            <mat-option value="Cochabamba">Cochabamba</mat-option>
-            <mat-option value="Santa Cruz">Santa Cruz</mat-option>
-            <mat-option value="Chuquisaca">Chuquisaca</mat-option>
-            <mat-option value="Tarija">Tarija</mat-option>
-            <mat-option value="Beni">Beni</mat-option>
-            <mat-option value="Pando">Pando</mat-option>
-            <mat-option value="Oruro">Oruro</mat-option>
-            <mat-option value="Potosi">Potosi</mat-option>
+            <mat-option value="BO-L">La Paz</mat-option>
+            <mat-option value="BO-C">Cochabamba</mat-option>
+            <mat-option value="BO-S">Santa Cruz</mat-option>
+            <mat-option value="BO-H">Chuquisaca</mat-option>
+            <mat-option value="BO-T">Tarija</mat-option>
+            <mat-option value="BO-B">Beni</mat-option>
+            <mat-option value="BO-N">Pando</mat-option>
+            <mat-option value="BO-O">Oruro</mat-option>
+            <mat-option value="BO-P">Potosi</mat-option>
           </mat-select>
         </mat-form-field>
         <app-bolivia-datasets [depto]="depto"></app-bolivia-datasets></div

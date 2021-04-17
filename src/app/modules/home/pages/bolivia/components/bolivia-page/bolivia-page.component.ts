@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DepartmentService } from 'src/app/core/http/department.service';
 import { Department } from 'src/app/shared/models/department';
 
 @Component({
@@ -7,27 +8,27 @@ import { Department } from 'src/app/shared/models/department';
   styleUrls: ['./bolivia-page.component.scss'],
 })
 export class BoliviaPageComponent implements OnInit {
-  // deptos: Department[];
-  deptos: Department[] = [
-    {
-      name: 'La Paz',
-      description: 'La Paz descripcion',
-    },
-    {
-      name: 'Cocha',
-      description: 'Cocha descripcion',
-    },
-    {
-      name: 'SC',
-      description: 'SC descripcion',
-    },
-    {
-      name: 'Beni',
-      description: 'Beni descripcion',
-    },
-  ];
+  deptos: Department[];
 
-  constructor() {}
+  displayedColumns = ['Fecha', 'Casos Confirmados', 'Muertes', 'Recuperados'];
 
-  ngOnInit(): void {}
+  mapReady = false;
+
+  selectedView = 'table';
+
+  constructor(private departmentService: DepartmentService) {}
+
+  ngOnInit(): void {
+    this.departmentService.getAllDepartments().subscribe((deptos) => {
+      console.log(deptos);
+      this.deptos = deptos;
+    });
+  }
+  refreshDataView(): void {
+    if (this.selectedView == 'map') {
+      this.mapReady = true;
+    } else {
+      this.mapReady = false;
+    }
+  }
 }

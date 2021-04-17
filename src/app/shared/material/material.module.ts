@@ -26,6 +26,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   imports: [
@@ -49,6 +50,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonToggleModule,
     MatGridListModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatButtonModule,
@@ -74,6 +76,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonToggleModule,
     MatGridListModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialModule {}

@@ -20,12 +20,20 @@ export class FileService {
 
   public upload(formData, depto: string, municipality: boolean) {
     const userId = this.tokenService.getUserId();
-    console.log(formData);
-    if (!municipality) {
-      console.log('no');
-    } else {
+    if (municipality) {
+      console.log(municipality);
       return this.http.post<FormData>(
-        apiKey.api + `/api/v1/data/${depto}/admin/${userId}`,
+        apiKey.api + `/api/v1/data/municipality/${depto}/admin/${userId}`,
+        formData,
+        {
+          headers: this.headers,
+          reportProgress: true,
+          observe: 'events',
+        }
+      );
+    } else if (depto == 'global') {
+      return this.http.post<FormData>(
+        apiKey.api + `/api/v1/data/country/admin/${userId}`,
         formData,
         {
           headers: this.headers,
@@ -34,8 +42,9 @@ export class FileService {
         }
       );
     }
+    console.log(depto);
     return this.http.post<FormData>(
-      apiKey.api + `/api/v1/data/${depto}/admin/${userId}`,
+      apiKey.api + `/api/v1/data/department/${depto}/admin/${userId}`,
       formData,
       {
         headers: this.headers,

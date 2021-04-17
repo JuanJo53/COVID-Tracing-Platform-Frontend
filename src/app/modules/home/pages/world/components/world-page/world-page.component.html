@@ -50,14 +50,14 @@
       <label for="deaths">Muertes:</label>
       <h2 class="deaths" name="deaths">{{ 123123132 | number }}</h2>
     </div>
-    <div class="recovered_panel">
+    <!-- <div class="recovered_panel">
       <label for="recovered">Recuperados:</label>
       <h2 class="recovered" name="recovered">{{ 12321321 | number }}</h2>
     </div>
     <div class="actives_panel">
       <label for="actives">Activos:</label>
       <h2 class="actives" name="actives">{{ 6545646546 | number }}</h2>
-    </div>
+    </div> -->
   </div>
   <div class="data_view">
     <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
@@ -66,7 +66,7 @@
     <div class="table_view" *ngIf="view_select.value == 'table'">
       <app-table
         [displayedColumns]="displayedColumns"
-        [data]="counrties"
+        [data]="countries"
       ></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">
