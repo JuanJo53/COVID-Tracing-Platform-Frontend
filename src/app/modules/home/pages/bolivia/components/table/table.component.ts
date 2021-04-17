@@ -50,6 +50,7 @@ export class TableComponent implements OnInit {
     this.fectchCumulativeData(1);
   }
   fectchHistoricData(page: number): void {
+    this.isLoadingResults = true;
     this.deptoService
       .getDepartmentHistoricData(this.depto.iso, page, this.size)
       .subscribe((data) => {
@@ -57,9 +58,12 @@ export class TableComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.data);
         this.dataSource.sort = this.sort;
         // this.dataSource.paginator = this.paginator;
+
+        this.isLoadingResults = false;
       });
   }
   fectchCumulativeData(page: number): void {
+    this.isLoadingResults = true;
     this.deptoService
       .getDepartmentAcumulativeData(this.depto.iso, page, this.size)
       .subscribe((data) => {
@@ -68,6 +72,8 @@ export class TableComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.data);
         this.dataSource.sort = this.sort;
         // this.dataSource.paginator = this.paginator;
+
+        this.isLoadingResults = false;
       });
   }
   refreshPage(event) {

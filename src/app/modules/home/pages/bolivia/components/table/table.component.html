@@ -1,4 +1,7 @@
 <div class="table_component_container mat-elevation-z8">
+  <div class="loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
   <mat-form-field class="search">
     <mat-label>Buscar</mat-label>
     <input
