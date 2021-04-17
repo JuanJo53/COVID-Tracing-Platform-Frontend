@@ -20,31 +20,28 @@
   </mat-button-toggle-group>
 </div>
 <div id="map" class="mat-elevation-z8"></div>
-<div class="hidden">
-  <div id="detail" class="detail" *ngIf="depto">
-    <h1>{{ depto.department }}</h1>
-    <br />
-    <div class="data_label" *ngIf="depto.confirmed">
-      <h3>Confirmados:</h3>
-      <span class="confirmed" id="confirmed">{{
-        depto.confirmed | number
-      }}</span>
-    </div>
-    <br />
-    <div class="data_label" *ngIf="depto.deaths">
-      <h3>Muertes:</h3>
-      <span class="deaths">{{ depto.deaths | number }}</span>
-    </div>
-    <br />
-    <div class="data_label" *ngIf="depto.recovered">
-      <h3>Recuperados:</h3>
-      <span class="recovered">{{ depto.recovered | number }}</span>
-    </div>
-    <br />
-    <div class="data_label" *ngIf="depto.vacined">
-      <h3>Vacunados:</h3>
-      <span class="vaccined">{{ depto.vacined | number }}</span>
-    </div>
-    <br />
+
+<!-- <div id="detail" class="detail">
+  <h1>{{ depto.department }}</h1>
+  <br />
+  <div class="data_label">
+    <h3>Confirmados:</h3>
+    <span class="confirmed" id="confirmed">{{ depto.confirmed | number }}</span>
   </div>
+  <br />
+  <div class="data_label">
+    <h3>Muertes:</h3>
+    <span class="deaths">{{ depto.deaths | number }}</span>
+  </div>
+  <br />
+  <div class="data_label">
+    <h3>Recuperados:</h3>
+    <span class="recovered">{{ depto.recovered | number }}</span>
+  </div>
+  <br />
+</div> -->
+<!-- <div class="data_label" >
+  <h3>Vacunados:</h3>
+  <span class="vaccined">{{ depto.vacined | number }}</span>
 </div>
+<br /> -->

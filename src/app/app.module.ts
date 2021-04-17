@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
@@ -24,7 +24,7 @@ import { ChartsModule } from 'ng2-charts';
     //   apiKey: 'AIzaSyAGIQRmtZ_eX9EKPehZd6snel0OC-5c9bs',
     // }),
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, DecimalPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
