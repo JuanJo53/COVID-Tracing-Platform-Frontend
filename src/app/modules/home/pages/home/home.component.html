@@ -1,70 +1,99 @@
 <!--mat-grid-list cols="3" rowHeight="2:1.4"-->
 <mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile class="continicio">
-      <div>
-      <h1>
-        Pre registro Nacional para la vacunación contra el Covid - 19
+      <table>
+        <tr>
+          <td>
+            <h1>
+              <p>Pre registro Nacional</p>
+              <p>para la vacunación</p>
+              <p>contra el Covid - 19</p>
 
-      </h1>
-      <img />
-      <button type="submit" mat-raised-button color="primary" class="btnizq">
-        REGISTRATE
-      </button>
-    </div>
+            </h1>
+          </td>
+          <td>
+            <img src="assets/images/jeringuilla.png" width="150px" height="150px" />
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+            <button type="submit" mat-raised-button color="primary" class="btnizq">
+              REGISTRATE
+            </button>
+          </th>
+        </tr>
+      </table>
     </mat-grid-tile>
     <mat-grid-tile class="continicio">
-      <div>
-      <h1>Medico en línea</h1>
-      <h2>Para consultas del COVID-19 llama a la línea gratuita</h2>
-      <button type="submit" mat-raised-button color="primary" class="btnizq">
-        800 10 11 04
-      </button>
-    </div>
+      <table>
+        <tr>
+          <td>
+            <h1 class="title">Medico en línea</h1>
+            <h3>
+              <p>Para consultas del COVID-19</p>
+              <p>llama a la línea gratuita</p>
+
+            </h3>
+          </td>
+          <td>
+            <img src="assets/images/estetoscopio.png" width="150px" height="150px" />
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+            <button type="submit" mat-raised-button color="primary" class="btnizq">
+              800 10 11 04
+            </button>
+          </th>
+        </tr>
+      </table>
     </mat-grid-tile>
     <mat-grid-tile class="continicio">
-      <div>
-      <h1>
-        Recomendaciones oficiales
-      </h1>
-      <img />
-      <button type="submit" mat-raised-button color="primary" class="btnizq">
-        IR
-      </button>
-    </div>
+      <table>
+        <tr>
+          <td>
+            
+            <h1>
+              <p>Recomendaciones</p>
+              <p>oficiales</p>
+
+            </h1>
+          </td>
+          <td>
+            <img src="assets/images/portapapeles.png" width="150px" height="150px" />
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+            <button type="submit" mat-raised-button color="primary" class="btnizq">
+              IR
+            </button>
+          </th>
+        </tr>
+      </table>
     </mat-grid-tile>
     <mat-grid-tile class="continicio">
-      <div>
-        <h1>Información sobre la vacunación</h1>
-      <br>
-      <img />
-      <button type="submit" mat-raised-button color="primary" class="btnizq">
-        IR
-      </button>
-      </div>
-      
+      <table>
+        <tr>
+          <td>
+            
+            <h1>
+              <p>Información sobre</p>
+              <p>la vacunación</p>
+
+            </h1>
+          </td>
+          <td>
+            <img src="assets/images/informacion.png" width="150px" height="150px" />
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+            <button type="submit" mat-raised-button color="primary" class="btnizq">
+              IR
+            </button>
+          </th>
+        </tr>
+      </table>      
     </mat-grid-tile>
-    
-    <!--<mat-grid-tile class="continicio">
-    <mat-spinner></mat-spinner>  
-    </mat-grid-tile>
-    <mat-grid-tile class="continicio">
-        <div class="table_container">
-            <table class="table" mat-table [dataSource]="dataSource" matSort>
-              <ng-container
-                [matColumnDef]="column"
-                *ngFor="let column of displayedColumns"
-              >
-                <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-                <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
-              </ng-container>
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-              <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="5">
-                  No se encontro nada con: "{{ search.value }}"
-                </td>
-              </tr>
-            </table>
-          </div>
-    </mat-grid-tile>-->
   </mat-grid-list>
