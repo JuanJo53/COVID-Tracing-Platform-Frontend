@@ -1,53 +1,61 @@
 <div class="">
-<mat-nav-list class="sidebar__list styleside">
-<div class="sidebar-brand">
-    <img
-      src="assets/images/logocovid1.png"
-      alt=""
-      width="255px"
-      height="290px"
-    />
-  </div>
-<div class="titles">
-  <a
-    *ngIf="userRole[0] == 'ROLE_ADMIN'"
-    class="link"
-    mat-list-item
-    routerLinkActive="active"
-    routerLink="/admin"
-    ><mat-icon class="link__icon">home</mat-icon
-    ><span class="link__text">Inicio</span></a
-  >
-  <a
-    *ngIf="userRole[0] != 'ROLE_ADMIN'"
-    class="link"
-    mat-list-item
-    routerLinkActive="active"
-    routerLink="/inicio"
-    ><mat-icon class="link__icon">home</mat-icon
-    ><span class="link__text">Inicio</span></a
-  >
-  <a
-    *ngIf="userRole[0] == 'ROLE_ADMIN'"
-    class="link"
-    mat-list-item
-    routerLinkActive="active"
-    routerLink="admin/datasets"
-    ><mat-icon class="link__icon">data_usage</mat-icon
-    ><span class="link__text">Datasets</span></a
-  >
-  <a class="link" mat-list-item routerLinkActive="active" routerLink="/noticias"
+  <mat-nav-list class="sidebar__list styleside">
+    <div class="sidebar-brand">
+      <img
+        src="assets/images/logocovid1.png"
+        alt=""
+        width="255px"
+        height="290px"
+      />
+    </div>
+    <div class="titles">
+      <a
+        *ngIf="userRole[0] == 'ROLE_ADMIN'"
+        class="link"
+        mat-list-item
+        routerLinkActive="active"
+        routerLink="/admin"
+        ><mat-icon class="link__icon">home</mat-icon
+        ><span class="link__text">Inicio</span></a
+      >
+      <a
+        *ngIf="userRole[0] != 'ROLE_ADMIN'"
+        class="link"
+        mat-list-item
+        routerLinkActive="active"
+        routerLink="/inicio"
+        ><mat-icon class="link__icon">home</mat-icon
+        ><span class="link__text">Inicio</span></a
+      >
+      <a
+        *ngIf="userRole[0] == 'ROLE_ADMIN'"
+        class="link"
+        mat-list-item
+        routerLinkActive="active"
+        routerLink="admin/datasets"
+        ><mat-icon class="link__icon">data_usage</mat-icon
+        ><span class="link__text">Datasets</span></a
+      >
+      <!-- <a class="link" mat-list-item routerLinkActive="active" routerLink="/noticias"
     ><mat-icon class="link__icon">article</mat-icon
     ><span class="link__text">Noticias</span></a
-  >
-  <a class="link" mat-list-item routerLinkActive="active" routerLink="/bolivia"
-    ><mat-icon class="link__icon" svgIcon="bolivia"></mat-icon
-    ><span class="link__text">Bolivia</span></a
-  >
-  <a class="link" mat-list-item routerLinkActive="active" routerLink="/mundo"
-    ><mat-icon class="link__icon">public</mat-icon
-    ><span class="link__text">Mundo</span></a
-  >
-</div>
-</mat-nav-list>
+  > -->
+      <a
+        class="link"
+        mat-list-item
+        routerLinkActive="active"
+        routerLink="/bolivia"
+        ><mat-icon class="link__icon" svgIcon="bolivia"></mat-icon
+        ><span class="link__text">Bolivia</span></a
+      >
+      <a
+        class="link"
+        mat-list-item
+        routerLinkActive="active"
+        routerLink="/mundo"
+        ><mat-icon class="link__icon">public</mat-icon
+        ><span class="link__text">Mundo</span></a
+      >
+    </div>
+  </mat-nav-list>
 </div>

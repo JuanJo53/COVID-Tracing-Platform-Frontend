@@ -1,6 +1,6 @@
 export interface Municipality {
   id: number;
-  name: string;
+  municipality: string;
   confirmed: number;
   deaths: number;
   recovered: number;

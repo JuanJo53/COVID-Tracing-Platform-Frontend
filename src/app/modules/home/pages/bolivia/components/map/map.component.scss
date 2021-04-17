@@ -7,8 +7,17 @@
   width: 100%;
   height: 100%;
 }
+.data_label {
+  text-align: center;
+  display: inline-flex;
+}
+span {
+  margin-left: 10px;
+  padding: 3px;
+}
 .confirmed {
   background-color: black;
+  border-radius: 3px;
 }
 .deaths {
   background-color: red;
@@ -20,6 +29,7 @@
 }
 .vaccined {
   background-color: blue;
+  border-radius: 3px;
 }
 p {
   border-radius: 3px;

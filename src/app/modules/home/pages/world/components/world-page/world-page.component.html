@@ -8,6 +8,13 @@
         [(ngModel)]="selectedView"
         #view_select="matButtonToggleGroup"
         (click)="refreshDataView()"
+      >
+        <mat-button-toggle
+          value="table"
+          aria-label="Text align center"
+          matTooltip="Vista de Tabla"
+        >
+          <mat-icon>table_view</mat-icon> </mat-button-toggle
         ><mat-button-toggle
           value="map"
           aria-label="Text align left"
@@ -21,13 +28,6 @@
           matTooltip="Vista de Gráfico"
         >
           <mat-icon>show_chart</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle
-          value="table"
-          aria-label="Text align center"
-          matTooltip="Vista de Tabla"
-        >
-          <mat-icon>table_view</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
@@ -61,7 +61,7 @@
   </div>
   <div class="data_view">
     <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
-      <app-map [country]="selected"></app-map>
+      <app-map [countries]="countries"></app-map>
     </div>
     <div class="table_view" *ngIf="view_select.value == 'table'">
       <app-table
