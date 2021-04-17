@@ -23,7 +23,17 @@ export class FileService {
     if (municipality) {
       console.log(municipality);
       return this.http.post<FormData>(
-        apiKey.api + `/api/v1/data/${depto}/admin/${userId}`,
+        apiKey.api + `/api/v1/data/municipality/${depto}/admin/${userId}`,
+        formData,
+        {
+          headers: this.headers,
+          reportProgress: true,
+          observe: 'events',
+        }
+      );
+    } else if (depto == 'global') {
+      return this.http.post<FormData>(
+        apiKey.api + `/api/v1/data/country/admin/${userId}`,
         formData,
         {
           headers: this.headers,

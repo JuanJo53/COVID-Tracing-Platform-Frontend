@@ -38,9 +38,7 @@ export class DepartmentService {
       apiKey.api + `/api/v1/data/department/BOL/list`
     );
   }
-  getAllDepartmentCordenates() {
-    return this.http.get<Department>(apiKey.api + `/country/coordenates`);
-  }
+
   getDepartmentCoordenates(deptoId: number) {
     return this.http.get<Department>(
       apiKey.api + `/country/coordenates/${deptoId}`

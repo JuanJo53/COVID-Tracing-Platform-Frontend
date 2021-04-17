@@ -8,7 +8,7 @@ import { FileService } from 'src/app/core/services/file.service';
 })
 export class UploadFileComponent implements OnInit {
   @ViewChild('fileUpload', { static: false }) fileUpload: ElementRef;
-  @Input() depto: string;
+  @Input() region: string;
   @Input() municipality: boolean;
 
   files = [];
@@ -33,15 +33,15 @@ export class UploadFileComponent implements OnInit {
   private uploadFiles() {
     this.fileUpload.nativeElement.value = '';
     this.files.forEach((file) => {
-      this.uploadFile(file, this.depto);
+      this.uploadFile(file, this.region);
     });
   }
-  uploadFile(file, depto: string) {
+  uploadFile(file, region: string) {
     const formData = new FormData();
     formData.append('file', file.data);
     file.inProgress = true;
     if (this.municipality) {
-      this.fileUploadService.upload(formData, depto, true).subscribe(
+      this.fileUploadService.upload(formData, region, true).subscribe(
         (rsp) => {
           console.log(rsp);
         },
@@ -51,7 +51,7 @@ export class UploadFileComponent implements OnInit {
       );
     } else {
       console.log('mandando deptop');
-      this.fileUploadService.upload(formData, depto, false).subscribe(
+      this.fileUploadService.upload(formData, region, false).subscribe(
         (rsp) => {
           console.log(rsp);
         },

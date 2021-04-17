@@ -20,7 +20,7 @@ export class CountryService {
     return this.http.get<Country>(apiKey.api + `/country/${countryId}`);
   }
   getAllCountries() {
-    return this.http.get<Country[]>(apiKey.api + `/country`);
+    return this.http.get<Country[]>(apiKey.api + `/api/v1/data/country/list`);
   }
   getAllCordenates() {
     return this.http.get<Country[]>(apiKey.api + `/country/coordenates`);
