@@ -17,9 +17,10 @@
         </tr>
         <tr>
           <th colspan="2">
-            <button type="submit" mat-raised-button color="primary" class="btnizq">
+            <a href="https://vacunate.boliviasegura.gob.bo/#/formulario"> <button type="submit" mat-raised-button color="primary" class="btnizq" href="https://google.com">
               REGISTRATE
-            </button>
+            </button></a>
+            
           </th>
         </tr>
       </table>
@@ -65,9 +66,23 @@
         </tr>
         <tr>
           <th colspan="2">
-            <button type="submit" mat-raised-button color="primary" class="btnizq">
-              IR
-            </button>
+            <form action="../mundo">
+    <input type="submit" value="Go to Google" />
+</form>
+            <a
+        class="link"
+        mat-list-item
+        routerLinkActive="active"
+        routerLink="admin/datasets"
+        ><mat-icon class="link__icon">data_usage</mat-icon
+        ><span class="link__text">Datasets</span></a
+      >
+            <a routerLink="/admin">
+        <button type="submit" mat-raised-button color="primary" class="btnizq">
+          IR
+        </button>
+            </a>
+            
           </th>
         </tr>
       </table>
