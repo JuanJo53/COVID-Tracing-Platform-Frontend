@@ -63,7 +63,7 @@
   </div>
   <div class="data_view">
     <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
-      <app-map [depto]="depto"></app-map>
+      <app-map [depto]="depto" [type]="'department'"></app-map>
     </div>
     <div class="table_view" *ngIf="view_select.value == 'table'">
       <app-table

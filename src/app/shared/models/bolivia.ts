@@ -1,11 +1,12 @@
 export interface Bolivia {
   id: number;
-  department: string;
+  country: string;
   iso: string;
   confirmed: number;
   deaths: number;
   recovered: number;
-  vacined: number;
+  firstVaccine: number;
+  secondVaccine: number;
   latitude: number;
   longitude: number;
   zoom: number;

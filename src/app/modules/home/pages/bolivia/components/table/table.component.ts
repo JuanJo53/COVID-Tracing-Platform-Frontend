@@ -11,6 +11,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DepartmentService } from 'src/app/core/http/department.service';
 import { Bolivia } from 'src/app/shared/models/bolivia';
+import { BoliviaData } from 'src/app/shared/models/bolivia-data-list';
 import { Department } from 'src/app/shared/models/department';
 import { DepartmentList } from 'src/app/shared/models/department-list';
 
@@ -23,6 +24,7 @@ export class TableComponent implements OnInit {
   @Input() bolivia: Bolivia;
   @Input() depto: Department;
   @Input() displayedColumns: [];
+  @Input() dataBol: BoliviaData[];
   data: DepartmentList[];
 
   isLoadingResults = true;
@@ -47,7 +49,6 @@ export class TableComponent implements OnInit {
       .getDepartmentTotalData(this.depto.iso)
       .subscribe((result) => {
         this.length = result;
-        console.log(this.length);
       });
     this.fectchCumulativeData(1);
   }
@@ -69,7 +70,6 @@ export class TableComponent implements OnInit {
     this.deptoService
       .getDepartmentAcumulativeData(this.depto.iso, page, this.size)
       .subscribe((data) => {
-        console.log(data);
         this.data = data;
         this.dataSource = new MatTableDataSource(this.data);
         this.dataSource.sort = this.sort;
