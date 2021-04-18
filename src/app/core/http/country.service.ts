@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Country } from 'src/app/shared/models/country';
 import apiKey from '../apiKey';
 import { TokenService } from '../authentication/token.service';
+import { WorldDetail } from 'src/app/shared/models/world-detail';
 
 @Injectable({
   providedIn: 'root',
@@ -50,6 +51,11 @@ export class CountryService {
   getWorldTotalData() {
     return this.http.get<number>(
       apiKey.api + `/api/v1/data/country/world/total`
+    );
+  }
+  getWorldTotalDetail() {
+    return this.http.get<WorldDetail>(
+      apiKey.api + `/api/v1/data/country/total`
     );
   }
 }

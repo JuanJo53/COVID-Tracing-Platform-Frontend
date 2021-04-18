@@ -1,4 +1,4 @@
-<div class="grid_container">
+<div class="grid_container" *ngIf="worldDetail">
   <div class="grid_hearder">
     <h1>Global</h1>
   </div>
@@ -44,11 +44,11 @@
     </div>
     <div class="total_panel">
       <label for="total">Casos Totales:</label>
-      <h1 class="cases" name="total">{{ 1232132 | number }}</h1>
+      <h1 class="cases" name="total">{{ worldDetail.confirmed | number }}</h1>
     </div>
     <div class="deaths_panel">
       <label for="deaths">Muertes:</label>
-      <h2 class="deaths" name="deaths">{{ 123123132 | number }}</h2>
+      <h2 class="deaths" name="deaths">{{ worldDetail.deaths | number }}</h2>
     </div>
     <!-- <div class="recovered_panel">
       <label for="recovered">Recuperados:</label>
@@ -73,17 +73,13 @@
   <div class="no_data" *ngIf="countries.length <= 0">
     <table class="tabla">
       <tr>
-          <img
-            src="assets/images/viruscovid.png"
-            width="380px"
-            height="380px"
-          />
+        <img src="assets/images/viruscovid.png" width="380px" height="380px" />
       </tr>
       <tr>
-          <h1>
-            <p class="adv1">¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</p>
-            <p class="adv2">Por favor intentalo mas tarde.</p>
-          </h1>
+        <h1>
+          <p class="adv1">¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</p>
+          <p class="adv2">Por favor intentalo mas tarde.</p>
+        </h1>
       </tr>
     </table>
   </div>

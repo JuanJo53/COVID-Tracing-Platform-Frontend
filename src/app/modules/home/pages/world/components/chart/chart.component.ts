@@ -4,6 +4,8 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import * as zoomPlugin from 'chartjs-plugin-zoom';
 import { Country } from 'src/app/shared/models/country';
+import { CountryList } from 'src/app/shared/models/country-list';
+import { CountryService } from 'src/app/core/http/country.service';
 
 @Component({
   selector: 'app-chart',
@@ -12,8 +14,9 @@ import { Country } from 'src/app/shared/models/country';
 })
 export class ChartComponent implements OnInit {
   @Input() countries: Country[];
+  data: CountryList[];
   confirmed: number[];
-  recovered: number[];
+  // recovered: number[];
   deaths: number[];
 
   length = 12;
@@ -63,52 +66,74 @@ export class ChartComponent implements OnInit {
   public chartLegend = true;
   public lineChartPlugins = [zoomPlugin];
 
-  constructor(private datePipe: DatePipe) {}
+  constructor(
+    private worldService: CountryService,
+    private datePipe: DatePipe
+  ) {}
 
   ngOnInit(): void {
-    this.fectchCumulativeData();
+    this.fectchCumulativeData(1);
   }
 
-  fectchHistoricData(): void {
+  fectchHistoricData(page: number): void {
     this.confirmed = [];
     this.deaths = [];
-    this.recovered = [];
+    // this.recovered = [];
     this.chartLabels = [];
     this.chartData = [];
 
-    this.countries.forEach((elem) => {
-      this.confirmed.push(elem.cumulativeConfirmed);
-      this.deaths.push(elem.cumulativeDeaths);
-      this.chartLabels.push(this.datePipe.transform(elem.date, 'dd-MM-yyyy'));
-    });
-    this.chartData = [
-      { data: this.confirmed, label: 'Casos Confirmados' },
-      { data: this.deaths, label: 'Muertes' },
-      // { data: this.recovered, label: 'Recuperados' },
-    ];
+    this.worldService
+      .getHistoricDataCountries(page, this.size)
+      .subscribe((data) => {
+        this.data = data;
+        console.log(data);
+        this.data.forEach((elem) => {
+          this.confirmed.push(elem.confirmed);
+          this.deaths.push(elem.deaths);
+          // this.recovered.push(elem.recovered);
+          this.chartLabels.push(
+            this.datePipe.transform(elem.date, 'dd-MM-yyyy')
+          );
+        });
+        this.chartData = [
+          { data: this.confirmed, label: 'Casos Confirmados' },
+          { data: this.deaths, label: 'Muertes' },
+          // { data: this.recovered, label: 'Recuperados' },
+        ];
+      });
   }
-  fectchCumulativeData(): void {
+  fectchCumulativeData(page: number): void {
+    this.data = [];
     this.confirmed = [];
     this.deaths = [];
-    this.recovered = [];
+    // this.recovered = [];
     this.chartLabels = [];
     this.chartData = [];
 
-    this.countries.forEach((elem) => {
-      this.confirmed.push(elem.cumulativeConfirmed);
-      this.deaths.push(elem.cumulativeDeaths);
-      this.chartLabels.push(this.datePipe.transform(elem.date, 'dd-MM-yyyy'));
-    });
-    this.chartData = [
-      { data: this.confirmed, label: 'Casos Confirmados' },
-      { data: this.deaths, label: 'Muertes' },
-    ];
+    this.worldService
+      .getCumulativeDataCountries(page, this.size)
+      .subscribe((data) => {
+        this.data = data;
+        console.log(data);
+        this.data.forEach((elem) => {
+          this.confirmed.push(elem.confirmed);
+          this.deaths.push(elem.deaths);
+          this.chartLabels.push(
+            this.datePipe.transform(elem.date, 'dd-MM-yyyy')
+          );
+        });
+        this.chartData = [
+          { data: this.confirmed, label: 'Casos Confirmados' },
+          { data: this.deaths, label: 'Muertes' },
+          // { data: this.recovered, label: 'Recuperados' },
+        ];
+      });
   }
   refreshDataType() {
     if (this.dataType == 'acumulated') {
-      this.fectchCumulativeData();
+      this.fectchCumulativeData(1);
     } else {
-      this.fectchHistoricData();
+      this.fectchHistoricData(1);
     }
   }
 

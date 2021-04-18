@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { CountryService } from 'src/app/core/http/country.service';
 import { Country } from 'src/app/shared/models/country';
+import { WorldDetail } from 'src/app/shared/models/world-detail';
 
 @Component({
   selector: 'app-world-page',
@@ -10,6 +11,7 @@ import { Country } from 'src/app/shared/models/country';
 export class WorldPageComponent implements OnInit {
   countries: Country[];
   countryNames: string[];
+  worldDetail: WorldDetail;
   displayedColumns = ['Fecha', 'Casos Confirmados', 'Muertes'];
 
   selected = 'general';
@@ -21,6 +23,7 @@ export class WorldPageComponent implements OnInit {
   constructor(private worldService: CountryService) {}
 
   ngOnInit(): void {
+    this.fetchWorldDetail();
     this.fetchCountryNames();
   }
   fetchCountryNames() {
@@ -32,6 +35,11 @@ export class WorldPageComponent implements OnInit {
         this.countryNames.push(country.country);
         this.refreshDataView();
       });
+    });
+  }
+  fetchWorldDetail() {
+    this.worldService.getWorldTotalDetail().subscribe((detail) => {
+      this.worldDetail = detail;
     });
   }
   refreshDataView(): void {

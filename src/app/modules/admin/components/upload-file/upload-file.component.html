@@ -1,4 +1,4 @@
-<div class="upload_button_container">
+<div class="upload_button_container" *ngIf="!uploading">
   <button
     *ngIf="!municipality"
     mat-raised-button
@@ -25,8 +25,18 @@
     multiple="multiple"
     accept="*/*"
     style="display: none"
-
   />
   <br />
   <span>{{ fileName }}</span>
 </div>
+<table class="tabla" *ngIf="uploading">
+  <tr>
+    <img src="assets/images/pandemia.png" width="380px" height="380px" />
+  </tr>
+  <tr>
+    <h1>
+      <p class="adv1">CARGANDO DATOS</p>
+      <p class="adv2">Espere un momento, por favor.</p>
+    </h1>
+  </tr>
+</table>
