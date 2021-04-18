@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
@@ -11,25 +12,20 @@ import { Country } from 'src/app/shared/models/country';
 })
 export class ChartComponent implements OnInit {
   @Input() countries: Country[];
+  confirmed: number[];
+  recovered: number[];
+  deaths: number[];
 
-  chartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40, 560], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90, 500], label: 'Series B' },
-    {
-      data: [180, 480, 770, 90, 1000, 270, 400, 100],
-      label: 'Series C',
-    },
-  ];
-  chartLabels: Label[] = [
-    '2006',
-    '2007',
-    '2008',
-    '2009',
-    '2010',
-    '2011',
-    '2012',
-  ];
-  chartType: ChartType = 'line';
+  length = 12;
+  size = 383;
+  order = 'id';
+  asc = true;
+  actualPage = 0;
+
+  dataType = 'acumulated';
+
+  chartData: ChartDataSets[];
+  chartLabels: Label[];
 
   public chartOptions: ChartOptions & { annotation: any } = {
     responsive: true,
@@ -65,9 +61,54 @@ export class ChartComponent implements OnInit {
 
   public chartLegend = true;
 
-  constructor(private fileService: FileService) {}
+  constructor(private datePipe: DatePipe) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fectchCumulativeData();
+  }
+
+  fectchHistoricData(): void {
+    this.confirmed = [];
+    this.deaths = [];
+    this.recovered = [];
+    this.chartLabels = [];
+    this.chartData = [];
+
+    this.countries.forEach((elem) => {
+      this.confirmed.push(elem.cumulativeConfirmed);
+      this.deaths.push(elem.cumulativeDeaths);
+      this.chartLabels.push(this.datePipe.transform(elem.date, 'dd-MM-yyyy'));
+    });
+    this.chartData = [
+      { data: this.confirmed, label: 'Casos Confirmados' },
+      { data: this.deaths, label: 'Muertes' },
+      // { data: this.recovered, label: 'Recuperados' },
+    ];
+  }
+  fectchCumulativeData(): void {
+    this.confirmed = [];
+    this.deaths = [];
+    this.recovered = [];
+    this.chartLabels = [];
+    this.chartData = [];
+
+    this.countries.forEach((elem) => {
+      this.confirmed.push(elem.cumulativeConfirmed);
+      this.deaths.push(elem.cumulativeDeaths);
+      this.chartLabels.push(this.datePipe.transform(elem.date, 'dd-MM-yyyy'));
+    });
+    this.chartData = [
+      { data: this.confirmed, label: 'Casos Confirmados' },
+      { data: this.deaths, label: 'Muertes' },
+    ];
+  }
+  refreshDataType() {
+    if (this.dataType == 'acumulated') {
+      this.fectchCumulativeData();
+    } else {
+      this.fectchHistoricData();
+    }
+  }
 
   // events
   chartClicked({ event, active }: { event: MouseEvent; active: {}[] }): void {
@@ -76,11 +117,5 @@ export class ChartComponent implements OnInit {
 
   chartHovered({ event, active }: { event: MouseEvent; active: {}[] }): void {
     console.log(event, active);
-  }
-
-  download(): void {
-    this.fileService.download().subscribe((result) => {
-      console.log(result);
-    });
   }
 }

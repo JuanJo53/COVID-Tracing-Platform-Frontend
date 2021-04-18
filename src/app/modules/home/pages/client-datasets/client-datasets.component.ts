@@ -11,8 +11,8 @@ export class ClientDatasetsComponent implements OnInit {
 
   ngOnInit(): void {}
   onClick() {
-    this.downloadService.download().subscribe((result) => {
-      console.log(result);
-    });
+    // this.downloadService.download().subscribe((result) => {
+    //   console.log(result);
+    // });
   }
 }

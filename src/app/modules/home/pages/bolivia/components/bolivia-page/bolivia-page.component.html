@@ -35,23 +35,33 @@
         <div class="details">
           <div class="total_panel">
             <label for="total">Casos Totales:</label>
-            <h1 class="cases" name="total">{{ bolivia.confirmed }}</h1>
+            <h1 class="cases" name="total">
+              {{ bolivia.totalconfirmed | number }}
+            </h1>
           </div>
           <div class="deaths_panel">
             <label for="deaths">Muertes:</label>
-            <h2 class="deaths" name="deaths">{{ bolivia.deaths }}</h2>
+            <h2 class="deaths" name="deaths">
+              {{ bolivia.totalDeaths | number }}
+            </h2>
           </div>
           <div class="recovered_panel">
             <label for="recovered">Recuperados:</label>
-            <h2 class="recovered" name="recovered">{{ bolivia.recovered }}</h2>
+            <h2 class="recovered" name="recovered">
+              {{ bolivia.totalrecovered | number }}
+            </h2>
           </div>
           <div class="actives_panel">
             <label for="actives">Vacunados 1ra Dosis:</label>
-            <h2 class="actives" name="actives">{{ bolivia.firstVaccine }}</h2>
+            <h2 class="actives" name="actives">
+              {{ bolivia.firstVaccine | number }}
+            </h2>
           </div>
           <div class="actives_panel">
             <label for="actives">Vacunados 2da Dosis:</label>
-            <h2 class="actives" name="actives">{{ bolivia.secondVaccine }}</h2>
+            <h2 class="actives" name="actives">
+              {{ bolivia.secondVaccine | number }}
+            </h2>
           </div>
 
           <button

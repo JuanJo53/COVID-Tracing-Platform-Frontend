@@ -70,7 +70,7 @@
       ></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">
-      <app-chart></app-chart>
+      <app-chart [countries]="countries"></app-chart>
     </div>
   </div>
   <div class="no_data" *ngIf="countries.length <= 0">

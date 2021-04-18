@@ -102,9 +102,6 @@ export class ChartComponent implements OnInit {
           { data: this.deaths, label: 'Muertes' },
           { data: this.recovered, label: 'Recuperados' },
         ];
-        // this.dataSource = new MatTableDataSource(this.data);
-        // this.dataSource.sort = this.sort;
-        // this.dataSource.paginator = this.paginator;
       });
   }
   fectchCumulativeData(page: number): void {
@@ -139,10 +136,6 @@ export class ChartComponent implements OnInit {
           { data: this.vaccined1, label: 'Vacunados 1ra Dosis' },
           { data: this.vaccined2, label: 'Vacunados 2da Dosis' },
         ];
-
-        // this.dataSource = new MatTableDataSource(this.data);
-        // this.dataSource.sort = this.sort;
-        // this.dataSource.paginator = this.paginator;
       });
   }
   refreshDataType() {
@@ -172,18 +165,5 @@ export class ChartComponent implements OnInit {
     active: {}[];
   }): void {
     console.log(event, active);
-  }
-
-  public download(): void {
-    // Only Change 3 values
-    this.chartData[0].data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      Math.random() * 100,
-      56,
-      Math.random() * 100,
-      40,
-    ];
   }
 }
