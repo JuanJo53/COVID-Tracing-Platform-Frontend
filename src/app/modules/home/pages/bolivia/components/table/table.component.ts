@@ -66,21 +66,27 @@ export class TableComponent implements OnInit {
     }
   }
   fetchBoliviaDataHistoric(page: number) {
+    this.isLoadingResults = true;
     this.boliviaService
       .getBoliviaHistoricData(page, this.size)
       .subscribe((data) => {
         this.dataBol = data;
+        console.log(this.dataBol);
         this.dataSource = new MatTableDataSource(this.dataBol);
         this.dataSource.sort = this.sort;
+        this.isLoadingResults = false;
       });
   }
   fetchBoliviaDataCumulated(page: number) {
+    this.isLoadingResults = true;
     this.boliviaService
       .getBoliviaCumulativeData(page, this.size)
       .subscribe((data) => {
         this.dataBol = data;
+        console.log(this.dataBol);
         this.dataSource = new MatTableDataSource(this.dataBol);
         this.dataSource.sort = this.sort;
+        this.isLoadingResults = false;
       });
   }
   fectchHistoricData(page: number): void {

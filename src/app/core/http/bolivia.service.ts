@@ -29,7 +29,7 @@ export class BoliviaService {
   getBoliviaCumulativeData(page: number, size: number) {
     return this.http.get<BoliviaData[]>(
       apiKey.api +
-        `/api/v1/data/country/BOL/historicList?page=${
+        `/api/v1/data/country/BOL/CumulativeEveryDay?page=${
           (page - 1) * size
         }&size=${size}`
     );
@@ -40,6 +40,8 @@ export class BoliviaService {
     );
   }
   getBoliviaTotal() {
-    return this.http.get<number>(apiKey.api + `/country/coordenates/`);
+    return this.http.get<number>(
+      apiKey.api + `/api/v1/data/country/BOL/totalCases`
+    );
   }
 }

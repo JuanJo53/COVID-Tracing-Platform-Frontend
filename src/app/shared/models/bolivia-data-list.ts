@@ -1,8 +1,8 @@
 export interface BoliviaData {
   dateCountry: string;
-  totalconfirmed: number;
-  totalDeaths: number;
-  totalrecovered: number;
+  confirmed: number;
+  deaths: number;
+  recovered: number;
   firstVaccine: number;
   secondVaccine: number;
   longitude: number;
