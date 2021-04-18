@@ -7,6 +7,7 @@ import { DepartmentList } from 'src/app/shared/models/department-list';
 import { DatePipe } from '@angular/common';
 import { BoliviaService } from 'src/app/core/http/bolivia.service';
 import { BoliviaData } from 'src/app/shared/models/bolivia-data-list';
+import * as zoomPlugin from 'chartjs-plugin-zoom';
 
 @Component({
   selector: 'app-chart',
@@ -42,6 +43,7 @@ export class ChartComponent implements OnInit {
   public chartOptions: ChartOptions & { annotation: any } = {
     responsive: true,
     maintainAspectRatio: false,
+
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
@@ -72,6 +74,7 @@ export class ChartComponent implements OnInit {
   };
 
   public chartLegend = true;
+  public lineChartPlugins = [zoomPlugin];
 
   constructor(
     private deptoService: DepartmentService,
