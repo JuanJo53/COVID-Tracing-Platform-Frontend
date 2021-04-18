@@ -23,6 +23,7 @@ export class BoliviaDatasetsComponent implements OnInit {
   order = 'id';
   asc = true;
   actualPage = 0;
+  disableBtn: boolean;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -30,7 +31,6 @@ export class BoliviaDatasetsComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
   ngOnInit(): void {
-    this.depto = 'La Paz';
     this.dataRequestService.getBoliviaTotal().subscribe((result) => {
       this.length = result;
     });

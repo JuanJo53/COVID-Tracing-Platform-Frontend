@@ -27,6 +27,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [],
   imports: [
@@ -51,6 +53,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatGridListModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    ClipboardModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -77,6 +81,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatGridListModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    ClipboardModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}

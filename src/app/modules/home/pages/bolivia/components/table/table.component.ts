@@ -9,6 +9,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { BoliviaService } from 'src/app/core/http/bolivia.service';
 import { DepartmentService } from 'src/app/core/http/department.service';
 import { Bolivia } from 'src/app/shared/models/bolivia';
 import { BoliviaData } from 'src/app/shared/models/bolivia-data-list';
@@ -24,8 +25,9 @@ export class TableComponent implements OnInit {
   @Input() bolivia: Bolivia;
   @Input() depto: Department;
   @Input() displayedColumns: [];
-  @Input() dataBol: BoliviaData[];
+  @Input() type: string;
   data: DepartmentList[];
+  dataBol: BoliviaData[];
 
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -42,15 +44,44 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatTable, { static: true }) table: MatTable<Department>;
 
-  constructor(private deptoService: DepartmentService) {}
+  constructor(
+    private deptoService: DepartmentService,
+    private boliviaService: BoliviaService
+  ) {}
+
   dataSource = new MatTableDataSource();
   ngOnInit(): void {
-    this.deptoService
-      .getDepartmentTotalData(this.depto.iso)
-      .subscribe((result) => {
+    if (this.type == 'department') {
+      this.deptoService
+        .getDepartmentTotalData(this.depto.iso)
+        .subscribe((result) => {
+          this.length = result;
+        });
+      this.fectchCumulativeData(1);
+    } else if (this.type == 'bolivia') {
+      this.boliviaService.getBoliviaTotal().subscribe((result) => {
         this.length = result;
       });
-    this.fectchCumulativeData(1);
+      this.fetchBoliviaDataCumulated(1);
+    }
+  }
+  fetchBoliviaDataHistoric(page: number) {
+    this.boliviaService
+      .getBoliviaHistoricData(page, this.size)
+      .subscribe((data) => {
+        this.dataBol = data;
+        this.dataSource = new MatTableDataSource(this.dataBol);
+        this.dataSource.sort = this.sort;
+      });
+  }
+  fetchBoliviaDataCumulated(page: number) {
+    this.boliviaService
+      .getBoliviaCumulativeData(page, this.size)
+      .subscribe((data) => {
+        this.dataBol = data;
+        this.dataSource = new MatTableDataSource(this.dataBol);
+        this.dataSource.sort = this.sort;
+      });
   }
   fectchHistoricData(page: number): void {
     this.isLoadingResults = true;
@@ -80,17 +111,33 @@ export class TableComponent implements OnInit {
   }
   refreshPage(event) {
     this.actualPage = event.pageIndex;
-    if (this.dataType == 'acumulated') {
-      this.fectchCumulativeData(event.pageIndex + 1);
-    } else {
-      this.fectchHistoricData(event.pageIndex + 1);
+    if (this.type == 'department') {
+      if (this.dataType == 'acumulated') {
+        this.fectchCumulativeData(event.pageIndex + 1);
+      } else {
+        this.fectchHistoricData(event.pageIndex + 1);
+      }
+    } else if (this.type == 'bolivia') {
+      if (this.dataType == 'acumulated') {
+        this.fetchBoliviaDataCumulated(event.pageIndex + 1);
+      } else {
+        this.fetchBoliviaDataHistoric(event.pageIndex + 1);
+      }
     }
   }
   refreshDataType() {
-    if (this.dataType == 'acumulated') {
-      this.fectchCumulativeData(this.actualPage + 1);
-    } else {
-      this.fectchHistoricData(this.actualPage + 1);
+    if (this.type == 'department') {
+      if (this.dataType == 'acumulated') {
+        this.fectchCumulativeData(this.actualPage + 1);
+      } else {
+        this.fectchHistoricData(this.actualPage + 1);
+      }
+    } else if (this.type == 'bolivia') {
+      if (this.dataType == 'acumulated') {
+        this.fetchBoliviaDataCumulated(this.actualPage + 1);
+      } else {
+        this.fetchBoliviaDataHistoric(this.actualPage + 1);
+      }
     }
   }
   applyFilter(event: Event): void {

@@ -81,7 +81,7 @@ export class MapComponent implements OnInit {
     this.vaccined = [];
 
     this.myMap.removeLayer(this.circles);
-    if (this.type == 'departmet') {
+    if (this.type == 'department') {
       if (this.circleDisplayType == 'confirmed') {
         this.municipalities.forEach((municip) => {
           this.confirmed.push(
@@ -149,7 +149,7 @@ export class MapComponent implements OnInit {
     this.myMap.setView(location.coords, location.zoom);
   }
   addCircles(municipality: Municipality, volume: number, color: string): any {
-    const resizedRadius = 0.2 * (volume / this.mapZoom) ** 0.5;
+    const resizedRadius = 0.025 * (volume / this.mapZoom) ** 0.5;
     var circle = Leaflet.circle(
       [municipality.latitude, municipality.longitude],
       {

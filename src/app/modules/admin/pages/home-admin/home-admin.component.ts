@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { TokenService } from 'src/app/core/authentication/token.service';
 
 @Component({
@@ -7,15 +8,15 @@ import { TokenService } from 'src/app/core/authentication/token.service';
   styleUrls: ['./home-admin.component.scss'],
 })
 export class HomeAdminComponent implements OnInit {
-  constructor(public tokenService: TokenService) {}
+  constructor(
+    public tokenService: TokenService,
+    private _snackBar: MatSnackBar
+  ) {}
 
-  ngOnInit(): void {
-    getShortBio();
+  ngOnInit(): void {}
+  openSnackBar() {
+    this._snackBar.open('Copiado al portapapeles', 'OK', {
+      duration: 2000,
+    });
   }
-
 }
-function getShortBio() {
-  value:'aqsxdcfvghbjnkm';
-  throw new Error('Function not implemented.');
-}
-

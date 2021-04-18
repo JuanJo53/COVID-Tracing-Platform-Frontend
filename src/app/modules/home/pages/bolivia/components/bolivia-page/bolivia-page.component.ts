@@ -48,8 +48,6 @@ export class BoliviaPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchDepartments();
-    this.fetchBoliviaDataHistoric();
-    this.getBoliviaDataCumulated();
     this.getBoliviaDetails();
   }
   fetchDepartments() {
@@ -58,25 +56,7 @@ export class BoliviaPageComponent implements OnInit {
       this.deptos = deptos;
     });
   }
-  fetchBoliviaDataHistoric() {
-    this.boliviaService.getBoliviaData().subscribe((data) => {
-      this.data = data;
-      console.log(data);
-    });
-  }
-  getBoliviaDataCumulated() {
-    this.boliviaService.getBoliviaDataVaccine().subscribe((data) => {
-      this.data.forEach((d) => {
-        data.forEach((d1) => {
-          if (d1.dateCountry == d.dateCountry) {
-            d['firstVaccine'] = d1.firstVaccine;
-            d['secondVaccine'] = d1.secondVaccine;
-          }
-        });
-      });
-      console.log(this.data);
-    });
-  }
+
   getBoliviaDetails() {
     this.boliviaService.getBoliviaDetails().subscribe((bol) => {
       this.bolivia = bol;
