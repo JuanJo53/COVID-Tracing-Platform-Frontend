@@ -1,8 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
-import { FileService } from 'src/app/core/services/file.service';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
+import * as zoomPlugin from 'chartjs-plugin-zoom';
 import { Country } from 'src/app/shared/models/country';
 
 @Component({
@@ -30,6 +30,7 @@ export class ChartComponent implements OnInit {
   public chartOptions: ChartOptions & { annotation: any } = {
     responsive: true,
     maintainAspectRatio: false,
+
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
@@ -58,8 +59,13 @@ export class ChartComponent implements OnInit {
       ],
     },
   };
+  public chartColors: Color[] = [
+    { backgroundColor: '#3E71E7' },
+    { backgroundColor: '#FF5555' },
+  ];
 
   public chartLegend = true;
+  public lineChartPlugins = [zoomPlugin];
 
   constructor(private datePipe: DatePipe) {}
 
