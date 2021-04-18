@@ -29,14 +29,4 @@
   <br />
   <span>{{ fileName }}</span>
 </div>
-<table class="tabla" *ngIf="uploading">
-  <tr>
-    <img src="assets/images/pandemia.png" width="380px" height="380px" />
-  </tr>
-  <tr>
-    <h1>
-      <p class="adv1">CARGANDO DATOS</p>
-      <p class="adv2">Espere un momento, por favor.</p>
-    </h1>
-  </tr>
-</table>
+<mat-spinner class="loading_shade" *ngIf="uploading"></mat-spinner>

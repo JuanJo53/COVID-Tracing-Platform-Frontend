@@ -36,7 +36,6 @@ export class DatasetsComponent implements OnInit {
     });
     this.fectchData(1);
   }
-
   fectchData(page: number): void {
     this.isLoadingResults = true;
     this.dataRequestService

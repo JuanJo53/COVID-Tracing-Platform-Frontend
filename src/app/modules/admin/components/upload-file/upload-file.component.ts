@@ -13,6 +13,7 @@ export class UploadFileComponent implements OnInit {
 
   files = [];
   fileName: string;
+
   uploading = false;
 
   constructor(private fileUploadService: FileService) {}
@@ -32,16 +33,18 @@ export class UploadFileComponent implements OnInit {
     fileUpload.click();
   }
   private uploadFiles() {
+    this.uploading = true;
     this.fileUpload.nativeElement.value = '';
     this.files.forEach((file) => {
       this.uploadFile(file, this.region);
+
+      this.uploading = false;
     });
   }
   uploadFile(file, region: string) {
     const formData = new FormData();
     formData.append('file', file.data);
     file.inProgress = true;
-    this.uploading = true;
     if (this.municipality) {
       this.fileUploadService.upload(formData, region, true).subscribe(
         (rsp) => {
@@ -51,7 +54,6 @@ export class UploadFileComponent implements OnInit {
           console.log(error);
         }
       );
-      this.uploading = false;
     } else {
       console.log('mandando deptop');
       this.fileUploadService.upload(formData, region, false).subscribe(
@@ -62,7 +64,6 @@ export class UploadFileComponent implements OnInit {
           console.log(error);
         }
       );
-      this.uploading = false;
     }
   }
 }
