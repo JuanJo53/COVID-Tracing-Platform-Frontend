@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { TokenService } from '../authentication/token.service';
 import apiKey from '../apiKey';
 import { FileRequest } from 'src/app/shared/models/file-request';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +43,6 @@ export class FileService {
         }
       );
     }
-    console.log(depto);
     return this.http.post<FormData>(
       apiKey.api + `/api/v1/data/department/${depto}/admin/${userId}`,
       formData,
@@ -53,12 +53,17 @@ export class FileService {
       }
     );
   }
-  public download() {
-    return this.http.get<any>(apiKey.api + '/download/MOCK_DATA.csv', {
-      headers: this.headers,
-      reportProgress: true,
-      observe: 'events',
+  public download(depto: string): any {
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${this.authToken}`,
     });
+    return this.http.get(
+      apiKey.api + `/api/v1/data/department/${depto}/download`,
+      {
+        headers: header,
+        responseType: 'blob',
+      }
+    );
   }
   getAllFiles() {
     return this.http.get<FileRequest[]>(apiKey.api, {

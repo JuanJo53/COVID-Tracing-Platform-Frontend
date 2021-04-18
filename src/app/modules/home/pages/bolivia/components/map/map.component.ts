@@ -44,11 +44,7 @@ export class MapComponent implements OnInit {
       );
       this.getMunicipalities();
     } else if (this.type == 'bolivia') {
-      this.setMapLoc(
-        this.bolivia.longitude,
-        this.bolivia.latitude,
-        this.bolivia.zoom
-      );
+      this.setMapLoc(this.bolivia.longitude, this.bolivia.latitude, 6);
       this.confirmed = [];
       this.deptos.forEach((depto) => {
         this.confirmed.push(

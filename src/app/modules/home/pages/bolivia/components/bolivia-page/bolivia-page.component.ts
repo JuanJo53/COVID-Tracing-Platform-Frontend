@@ -13,19 +13,7 @@ import { Department } from 'src/app/shared/models/department';
 export class BoliviaPageComponent implements OnInit {
   deptos: Department[];
   data: BoliviaData[];
-  bolivia: Bolivia = {
-    id: 1,
-    country: 'string',
-    iso: 'BOL',
-    confirmed: 1,
-    deaths: 1,
-    recovered: 1,
-    firstVaccine: 1,
-    secondVaccine: 1,
-    latitude: 1,
-    longitude: 1,
-    zoom: 1,
-  };
+  bolivia: Bolivia;
 
   displayedColumns = [
     'Fecha',
@@ -48,12 +36,9 @@ export class BoliviaPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchDepartments();
-    this.fetchBoliviaData();
-    if (Object.keys(this.bolivia).length > 0) {
-      this.dataReady = true;
-    } else {
-      this.dataReady = false;
-    }
+    this.fetchBoliviaDataHistoric();
+    this.getBoliviaDataCumulated();
+    this.getBoliviaDetails();
   }
   fetchDepartments() {
     this.departmentService.getAllDepartments().subscribe((deptos) => {
@@ -61,11 +46,13 @@ export class BoliviaPageComponent implements OnInit {
       this.deptos = deptos;
     });
   }
-  fetchBoliviaData() {
+  fetchBoliviaDataHistoric() {
     this.boliviaService.getBoliviaData().subscribe((data) => {
       this.data = data;
       console.log(data);
     });
+  }
+  getBoliviaDataCumulated() {
     this.boliviaService.getBoliviaDataVaccine().subscribe((data) => {
       this.data.forEach((d) => {
         data.forEach((d1) => {
@@ -76,6 +63,16 @@ export class BoliviaPageComponent implements OnInit {
         });
       });
       console.log(this.data);
+    });
+  }
+  getBoliviaDetails() {
+    this.boliviaService.getBoliviaDetails().subscribe((bol) => {
+      this.bolivia = bol;
+      if (Object.keys(this.bolivia).length > 0) {
+        this.dataReady = true;
+      } else {
+        this.dataReady = false;
+      }
     });
   }
 

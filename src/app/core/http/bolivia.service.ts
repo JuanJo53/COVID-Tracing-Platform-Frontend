@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Bolivia } from 'src/app/shared/models/bolivia';
 import { BoliviaData } from 'src/app/shared/models/bolivia-data-list';
 import { BoliviaVaccineData } from 'src/app/shared/models/bolivia-vaccine-data';
 import apiKey from '../apiKey';
@@ -28,8 +29,8 @@ export class BoliviaService {
     );
   }
   getBoliviaDetails() {
-    return this.http.get<BoliviaVaccineData[]>(
-      apiKey.api + `/country/coordenates`
+    return this.http.get<Bolivia>(
+      apiKey.api + `/api/v1/data/country/BOL/historic`
     );
   }
   getBoliviaTotal() {
