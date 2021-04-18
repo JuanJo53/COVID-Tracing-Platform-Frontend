@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Administra los datasets!</h1>
+  <h1>Administra los datasets</h1>
   <mat-tab-group class="tab" mat-align-tabs="start">
     <mat-tab label="Mundo">
       <div class="table_component_container mat-elevation-z8">
@@ -88,6 +88,23 @@
         </mat-form-field>
       </div>
       <app-bolivia-datasets [depto]="depto"></app-bolivia-datasets>
+    </mat-tab>
+    <mat-tab>
+      <table class="tabla">
+        <tr>
+            <img
+              src="assets/images/pandemia.png"
+              width="380px"
+              height="380px"
+            />
+        </tr>
+        <tr>
+            <h1>
+              <p class="adv1">CARGANDO DATOS</p>
+              <p class="adv2">Espere un momento, por favor.</p>
+            </h1>
+        </tr>
+      </table>
     </mat-tab>
   </mat-tab-group>
 </div>

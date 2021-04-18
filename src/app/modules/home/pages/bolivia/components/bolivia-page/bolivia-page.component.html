@@ -1,7 +1,7 @@
 <mat-tab-group>
   <mat-tab>
     <ng-template mat-tab-label class="name">Bolivia</ng-template>
-    <div class="grid_container">
+    <div class="grid_container" *ngIf="dataReady">
       <div class="setting_view">
         <div class="view_change">
           <mat-button-toggle-group
@@ -94,6 +94,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="no_data" *ngIf="dataReady">
       <table class="tabla">
         <tr>
@@ -110,6 +111,11 @@
             </h1>
         </tr>
       </table>
+=======
+    <div class="no_data" *ngIf="!dataReady">
+      <h1>¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</h1>
+      <h2>Por favor intentalo mas tarde.</h2>
+>>>>>>> ced92e83075d7331263204c964625be831865cc2
     </div>
   </mat-tab>
   <mat-tab *ngFor="let depto of deptos">

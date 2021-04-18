@@ -2,16 +2,16 @@
   <button
     *ngIf="!municipality"
     mat-raised-button
-    color="accent"
     (click)="onClick()"
+    class="btnIzq"
   >
     <mat-icon>file_upload</mat-icon>
     Subir Dataset</button
   ><button
     *ngIf="municipality"
     mat-raised-button
-    color="accent"
     (click)="onClick()"
+    class="btnIzq"
   >
     <mat-icon>file_upload</mat-icon>
     Subir Dataset de Municipio de
@@ -25,6 +25,7 @@
     multiple="multiple"
     accept="*/*"
     style="display: none"
+
   />
   <br />
   <span>{{ fileName }}</span>

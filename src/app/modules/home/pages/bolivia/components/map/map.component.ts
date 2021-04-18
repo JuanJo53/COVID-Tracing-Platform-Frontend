@@ -33,6 +33,7 @@ export class MapComponent implements OnInit {
     private _decimalPipe: DecimalPipe
   ) {}
 
+  mapZoom = 3;
   ngOnInit(): void {
     this.myMap = Leaflet.map('map');
 
@@ -46,6 +47,7 @@ export class MapComponent implements OnInit {
     } else if (this.type == 'bolivia') {
       this.setMapLoc(this.bolivia.longitude, this.bolivia.latitude, 6);
       this.confirmed = [];
+      this.deptos.sort((a, b) => b.confirmed - a.confirmed);
       this.deptos.forEach((depto) => {
         this.confirmed.push(
           this.addCirclesDept(depto, depto.confirmed, '#313947')
@@ -62,6 +64,7 @@ export class MapComponent implements OnInit {
       .subscribe((munis) => {
         console.log(munis);
         this.municipalities = munis;
+        this.municipalities.sort((a, b) => b.confirmed - a.confirmed);
         this.municipalities.forEach((municip) => {
           this.confirmed.push(
             this.addCircles(municip, municip.confirmed, '#313947')
@@ -146,13 +149,14 @@ export class MapComponent implements OnInit {
     this.myMap.setView(location.coords, location.zoom);
   }
   addCircles(municipality: Municipality, volume: number, color: string): any {
+    const resizedRadius = 0.2 * (volume / this.mapZoom) ** 0.5;
     var circle = Leaflet.circle(
       [municipality.latitude, municipality.longitude],
       {
         color: color,
         fillColor: color,
         fillOpacity: 0.5,
-        radius: volume * 5,
+        radius: volume * resizedRadius,
       }
     );
     const detail = `<div id="detail" style="
@@ -208,11 +212,12 @@ export class MapComponent implements OnInit {
     return circle;
   }
   addCirclesDept(depto: Department, volume: number, color: string): any {
+    const resizedRadius = 1000 * (volume / this.mapZoom) ** 0.5;
     var circle = Leaflet.circle([depto.latitude, depto.longitude], {
       color: color,
       fillColor: color,
       fillOpacity: 0.5,
-      radius: volume * 5,
+      radius: resizedRadius,
     });
     const detail = `<div id="detail" style="
     width: 100%;
