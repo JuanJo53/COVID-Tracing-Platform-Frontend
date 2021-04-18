@@ -9,5 +9,13 @@ import { TokenService } from 'src/app/core/authentication/token.service';
 export class HomeAdminComponent implements OnInit {
   constructor(public tokenService: TokenService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    getShortBio();
+  }
+
 }
+function getShortBio() {
+  value:'aqsxdcfvghbjnkm';
+  throw new Error('Function not implemented.');
+}
+

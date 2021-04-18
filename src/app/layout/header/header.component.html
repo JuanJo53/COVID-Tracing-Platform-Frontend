@@ -7,7 +7,6 @@
       mat-icon-button
       matTooltip="Notifications"
       [style.overflow]="'visible'"
-      class="btnizq"
     >
       <mat-icon class="maticon">notifications</mat-icon>
       <span class="notification-number mat-bg-warn">1</span>
@@ -17,7 +16,6 @@
       [matMenuTriggerFor]="settingMenu"
       matTooltip="Settings"
       [style.overflow]="'visible'"
-      class="btnder"
     >
       <mat-icon class="maticon">settings</mat-icon>
     </button>
@@ -27,8 +25,8 @@
         <mat-icon class="maticon_nav">notifications_off</mat-icon>
         <span>Disable alerts</span>
       </button>
-      <button mat-menu-item (click)="btnLogout()" class="btnder">
-        <mat-icon class="maticon_nav">exit_to_app</mat-icon>
+      <button mat-menu-item (click)="btnLogout()" class="btnizq">
+        <mat-icon class="bl" >exit_to_app</mat-icon>
         <span>Sign out</span>
       </button>
     </mat-menu>
