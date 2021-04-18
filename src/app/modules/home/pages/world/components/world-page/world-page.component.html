@@ -74,7 +74,20 @@
     </div>
   </div>
   <div class="no_data" *ngIf="countries.length <= 0">
-    <h1>¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</h1>
-    <h2>Por favor intentalo mas tarde.</h2>
+    <table class="tabla">
+      <tr>
+          <img
+            src="assets/images/viruscovid.png"
+            width="380px"
+            height="380px"
+          />
+      </tr>
+      <tr>
+          <h1>
+            <p class="adv1">¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</p>
+            <p class="adv2">Por favor intentalo mas tarde.</p>
+          </h1>
+      </tr>
+    </table>
   </div>
 </div>
