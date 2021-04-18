@@ -65,6 +65,15 @@ export class FileService {
       }
     );
   }
+  public countryDownload(iso: string): any {
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${this.authToken}`,
+    });
+    return this.http.get(apiKey.api + `/api/v1/data/country/${iso}/download`, {
+      headers: header,
+      responseType: 'blob',
+    });
+  }
   getAllFiles() {
     return this.http.get<FileRequest[]>(apiKey.api, {
       headers: this.headers,
