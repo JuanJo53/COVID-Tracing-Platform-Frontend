@@ -105,7 +105,7 @@ export class SignupComponent implements OnInit {
     this.authService.createUser(newUser).subscribe((user) => {
       console.log(user);
       Swal.fire('Registro Exitoso!', 'Ahora puedes iniciar sesión!', 'success');
-      this.dialogRef.close(true);
+      this.dialogRef.close(false);
     });
   }
   onClickLoginBtn() {

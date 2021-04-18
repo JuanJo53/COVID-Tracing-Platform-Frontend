@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/core/authentication/token.service';
 import { LoginComponent } from 'src/app/modules/auth/login/login.component';
 import { SignupComponent } from 'src/app/modules/auth/signup/signup.component';
@@ -15,7 +16,11 @@ export class HeaderComponent implements OnInit {
   username: string;
   logged = false;
 
-  constructor(private tokenService: TokenService, public dialog: MatDialog) {}
+  constructor(
+    private tokenService: TokenService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -67,7 +72,10 @@ export class HeaderComponent implements OnInit {
   }
   btnLogout() {
     this.tokenService.logOut();
-    window.location.reload();
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
     this.logged = false;
   }
 }

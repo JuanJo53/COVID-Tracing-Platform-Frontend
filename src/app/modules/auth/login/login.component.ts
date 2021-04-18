@@ -60,10 +60,19 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.role);
 
         this.tokenService.getAuthorities().forEach((rol) => {
+          const currentUrl = this.router.url;
           if (rol == 'ROLE_ADMIN') {
-            this.router.navigate(['/admin']);
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
           } else if (rol == 'ROLE_USER') {
-            this.router.navigate(['/home/dashboard']);
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
           }
         });
 
