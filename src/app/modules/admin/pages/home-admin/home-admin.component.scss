@@ -1,0 +1,33 @@
+.continicio{
+    border-radius: 25px;
+    //background-color: #757F8E;
+    margin-bottom: 25px;
+    border: 20px #fff;
+    //padding-bottom: 5%;
+}
+p{
+    align-items: center;
+    text-align: center;
+}
+.btnizq{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #313947;
+    width: 40%;
+    background-color: #deae4a;
+    border-radius: 6px;
+    border: 2px solid #313947;
+    margin-right: 5%;
+}
+.btnizq:hover{
+    color: #ffffff;
+    background-color: #313947;
+}
+td{
+    padding: 15px;
+}
+.title{
+    text-align: center;
+}
