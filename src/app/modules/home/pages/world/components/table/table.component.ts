@@ -37,7 +37,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   constructor() {}
   dataSource = new MatTableDataSource();
   ngOnInit(): void {
-    // this.fectchData();
+    this.fectchData();
   }
   ngAfterViewInit(): void {
     this.dataSource = new MatTableDataSource(this.data);

@@ -9,7 +9,14 @@ import { Department } from 'src/app/shared/models/department';
 export class DepartmentComponent implements OnInit {
   @Input() depto: Department;
 
-  displayedColumns = ['Fecha', 'Casos Confirmados', 'Muertes', 'Recuperados'];
+  displayedColumns = [
+    'Fecha',
+    'Casos Confirmados',
+    'Muertes',
+    'Recuperados',
+    'Vacunados 1ra Dosis',
+    'Vacunados 2da Dosis',
+  ];
 
   mapReady = false;
 

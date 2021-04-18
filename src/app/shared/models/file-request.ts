@@ -1,5 +1,6 @@
 export interface FileRequest {
-  fileId: string;
-  url: string;
+  id: string;
+  username: string;
+  region: string;
   date: string;
 }

@@ -4,5 +4,6 @@ export interface DepartmentList {
   confirmed: number;
   deaths: number;
   recovered: number;
-  vacined: number;
+  firstVaccine: number;
+  secondVaccine: number;
 }

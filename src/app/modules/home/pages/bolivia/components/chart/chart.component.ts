@@ -17,6 +17,8 @@ export class ChartComponent implements OnInit {
   confirmed: number[];
   recovered: number[];
   deaths: number[];
+  vaccined1: number[];
+  vaccined2: number[];
 
   length = 12;
   size = 383;
@@ -77,6 +79,8 @@ export class ChartComponent implements OnInit {
     this.confirmed = [];
     this.deaths = [];
     this.recovered = [];
+    this.vaccined1 = [];
+    this.vaccined2 = [];
     this.chartLabels = [];
     this.chartData = [];
 
@@ -89,6 +93,8 @@ export class ChartComponent implements OnInit {
           this.confirmed.push(elem.confirmed);
           this.deaths.push(elem.deaths);
           this.recovered.push(elem.recovered);
+          this.vaccined1.push(elem.firstVaccine);
+          this.vaccined2.push(elem.secondVaccine);
           this.chartLabels.push(
             this.datePipe.transform(elem.date, 'dd-MM-yyyy')
           );
@@ -97,6 +103,8 @@ export class ChartComponent implements OnInit {
           { data: this.confirmed, label: 'Casos Confirmados' },
           { data: this.deaths, label: 'Muertes' },
           { data: this.recovered, label: 'Recuperados' },
+          { data: this.vaccined1, label: 'Vacunados 1ra Dosis' },
+          { data: this.vaccined2, label: 'Vacunados 2da Dosis' },
         ];
         // this.dataSource = new MatTableDataSource(this.data);
         // this.dataSource.sort = this.sort;
@@ -108,6 +116,8 @@ export class ChartComponent implements OnInit {
     this.confirmed = [];
     this.deaths = [];
     this.recovered = [];
+    this.vaccined1 = [];
+    this.vaccined2 = [];
     this.chartLabels = [];
     this.chartData = [];
 
@@ -120,6 +130,8 @@ export class ChartComponent implements OnInit {
           this.confirmed.push(elem.confirmed);
           this.deaths.push(elem.deaths);
           this.recovered.push(elem.recovered);
+          this.vaccined1.push(elem.firstVaccine);
+          this.vaccined2.push(elem.secondVaccine);
           this.chartLabels.push(
             this.datePipe.transform(elem.date, 'dd-MM-yyyy')
           );
@@ -128,6 +140,8 @@ export class ChartComponent implements OnInit {
           { data: this.confirmed, label: 'Casos Confirmados' },
           { data: this.deaths, label: 'Muertes' },
           { data: this.recovered, label: 'Recuperados' },
+          { data: this.vaccined1, label: 'Vacunados 1ra Dosis' },
+          { data: this.vaccined2, label: 'Vacunados 2da Dosis' },
         ];
 
         // this.dataSource = new MatTableDataSource(this.data);

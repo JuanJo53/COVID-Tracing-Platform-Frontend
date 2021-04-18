@@ -8,19 +8,19 @@
         [(ngModel)]="selectedView"
         #view_select="matButtonToggleGroup"
         (click)="refreshDataView()"
-      >
-        <mat-button-toggle
-          value="table"
-          aria-label="Text align center"
-          matTooltip="Vista de Tabla"
-        >
-          <mat-icon>table_view</mat-icon> </mat-button-toggle
         ><mat-button-toggle
           value="map"
           aria-label="Text align left"
           matTooltip="Vista de Mapa"
         >
           <mat-icon>map</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle
+          value="table"
+          aria-label="Text align center"
+          matTooltip="Vista de Tabla"
+        >
+          <mat-icon>table_view</mat-icon>
         </mat-button-toggle>
         <mat-button-toggle
           value="chart"
@@ -59,7 +59,7 @@
       <h2 class="actives" name="actives">{{ 6545646546 | number }}</h2>
     </div> -->
   </div>
-  <div class="data_view">
+  <div class="data_view" *ngIf="countries.length">
     <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
       <app-map [countries]="countries"></app-map>
     </div>
@@ -70,10 +70,11 @@
       ></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">
-      <app-chart
-        [chartData]="chartData"
-        [chartLabels]="chartLabels"
-      ></app-chart>
+      <app-chart></app-chart>
     </div>
+  </div>
+  <div class="no_data" *ngIf="countries.length <= 0">
+    <h1>¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</h1>
+    <h2>Por favor intentalo mas tarde.</h2>
   </div>
 </div>

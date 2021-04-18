@@ -1,12 +1,11 @@
-export interface Department {
+export interface Bolivia {
   id: number;
   department: string;
   iso: string;
   confirmed: number;
   deaths: number;
   recovered: number;
-  firstVaccine: number;
-  secondVaccine: number;
+  vacined: number;
   latitude: number;
   longitude: number;
   zoom: number;

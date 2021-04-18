@@ -48,6 +48,18 @@
           {{ element.recovered | number }}
         </td>
       </ng-container>
+      <ng-container matColumnDef="Vacunados 1ra Dosis">
+        <th mat-header-cell *matHeaderCellDef>Vacunados 1ra Dosis</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.firstVaccine | number }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Vacunados 2da Dosis">
+        <th mat-header-cell *matHeaderCellDef>Vacunados 2da Dosis</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.secondVaccine | number }}
+        </td>
+      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

@@ -10,6 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DepartmentService } from 'src/app/core/http/department.service';
+import { Bolivia } from 'src/app/shared/models/bolivia';
 import { Department } from 'src/app/shared/models/department';
 import { DepartmentList } from 'src/app/shared/models/department-list';
 
@@ -19,6 +20,7 @@ import { DepartmentList } from 'src/app/shared/models/department-list';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
+  @Input() bolivia: Bolivia;
   @Input() depto: Department;
   @Input() displayedColumns: [];
   data: DepartmentList[];

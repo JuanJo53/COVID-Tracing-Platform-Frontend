@@ -11,12 +11,27 @@
 
   <div class="table_container">
     <table class="table" mat-table [dataSource]="dataSource" matSort>
-      <ng-container
-        [matColumnDef]="column"
-        *ngFor="let column of displayedColumns"
-      >
-        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-        <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+      <ng-container matColumnDef="Fecha">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
+      </ng-container>
+      <ng-container matColumnDef="Pais">
+        <th mat-header-cell *matHeaderCellDef>Pais</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.country }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Casos Confirmados">
+        <th mat-header-cell *matHeaderCellDef>Casos Confirmados</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.cumulativeConfirmed | number }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Muertes">
+        <th mat-header-cell *matHeaderCellDef>Muertes</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.cumulativeDeaths | number }}
+        </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

@@ -33,7 +33,7 @@ export class MapComponent implements OnInit {
     console.log(this.depto);
 
     this.myMap = Leaflet.map('map');
-    this.setMapLoc(this.depto.longitude, this.depto.latitude, 7); //needs zoom
+    this.setMapLoc(this.depto.longitude, this.depto.latitude, this.depto.zoom);
     this.getMunicipalities();
   }
   getMunicipalities() {
@@ -45,7 +45,7 @@ export class MapComponent implements OnInit {
         this.municipalities = munis;
         this.municipalities.forEach((municip) => {
           this.confirmed.push(
-            this.addCircles(municip, municip.confirmed, '#999999')
+            this.addCircles(municip, municip.confirmed, '#313947')
           );
           this.circles = Leaflet.layerGroup(this.confirmed);
           this.myMap.addLayer(this.circles);
@@ -64,7 +64,7 @@ export class MapComponent implements OnInit {
       console.log(this.circleDisplayType);
       this.municipalities.forEach((municip) => {
         this.confirmed.push(
-          this.addCircles(municip, municip.confirmed, '#999999')
+          this.addCircles(municip, municip.confirmed, '#313947')
         );
         this.circles = Leaflet.layerGroup(this.confirmed);
         this.myMap.addLayer(this.circles);

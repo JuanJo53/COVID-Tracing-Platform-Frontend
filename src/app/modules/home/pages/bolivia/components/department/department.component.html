@@ -47,9 +47,17 @@
           {{ depto.recovered | number }}
         </h2>
       </div>
-      <div class="actives_panel" *ngIf="depto.vacined">
-        <label for="actives">Vacunados:</label>
-        <h2 class="actives" name="actives">{{ depto.vacined | number }}</h2>
+      <div class="vaccined_panel">
+        <label for="vaccined">Vacunados 1ra Dosis:</label>
+        <h2 class="vaccined" name="vaccined">
+          {{ depto.firstVaccine | number }}
+        </h2>
+      </div>
+      <div class="vaccined_panel">
+        <label for="vaccined">Vacunados 2da Dosis:</label>
+        <h2 class="vaccined" name="vaccined">
+          {{ depto.secondVaccine | number }}
+        </h2>
       </div>
     </div>
   </div>

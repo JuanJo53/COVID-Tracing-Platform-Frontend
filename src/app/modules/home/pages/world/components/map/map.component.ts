@@ -54,7 +54,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     if (this.circleDisplayType == 'confirmed') {
       this.countries.forEach((country) => {
         this.confirmed.push(
-          this.addCircles(country, country.cumulativeConfirmed, '#999999')
+          this.addCircles(country, country.cumulativeConfirmed, 'blue')
         );
         this.circles = Leaflet.layerGroup(this.confirmed);
         this.myMap.addLayer(this.circles);
@@ -68,21 +68,6 @@ export class MapComponent implements OnInit, AfterViewInit {
         this.myMap.addLayer(this.circles);
       });
     }
-    // else if (this.circleDisplayType == 'recovered') {
-    //   this.countries.forEach((municip) => {
-    //     this.recovered.push(
-    //       this.addCircles(municip, municip.recovered, 'green')
-    //     );
-    //     this.circles = Leaflet.layerGroup(this.recovered);
-    //     this.myMap.addLayer(this.circles);
-    //   });
-    // } else if (this.circleDisplayType == 'vaccined') {
-    //   this.countries.forEach((municip) => {
-    //     this.vaccined.push(this.addCircles(municip, municip.vacined, 'blue'));
-    //     this.circles = Leaflet.layerGroup(this.vaccined);
-    //     this.myMap.addLayer(this.circles);
-    //   });
-    // }
   }
   setMapLoc(lng, lat, zoom) {
     const location = {
@@ -96,12 +81,25 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.myMap.setView(location.coords, location.zoom);
   }
   addCircles(country: Country, volume: number, color: string): any {
+    let resizedRadius = 0;
+    if (volume > 10000000) {
+      resizedRadius = volume * 0.04;
+    } else if (volume > 1000000) {
+      resizedRadius = volume / (volume * 0.5);
+    } else if (volume > 500000) {
+      resizedRadius = volume;
+    } else if (volume > 100000) {
+      resizedRadius = volume * 2;
+    } else {
+      resizedRadius = volume * 5;
+    }
     const circle = Leaflet.circle([country.latitude, country.longitude], {
       color: color,
       fillColor: color,
       fillOpacity: 0.5,
-      radius: volume / this.myMap.getZoom(),
+      radius: resizedRadius,
     });
+
     const detail = `<div id="detail" style="
     width: 100%;
     height: 100%;">
