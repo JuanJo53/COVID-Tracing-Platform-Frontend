@@ -23,6 +23,8 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   myMap: Leaflet.Map;
 
+  mapZoom = 3;
+
   constructor(
     private countryService: CountryService,
     private _decimalPipe: DecimalPipe
@@ -32,14 +34,22 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.confirmed = [];
     this.myMap = Leaflet.map('worldMap');
 
-    this.setMapLoc(19.0303499, 19.0303499, 3);
-
+    this.setMapLoc(19.0303499, 19.0303499, this.mapZoom);
+    this.countries.sort(
+      (a, b) => b.cumulativeConfirmed - a.cumulativeConfirmed
+    );
     this.countries.forEach((country) => {
       this.confirmed.push(
         this.addCircles(country, country.cumulativeConfirmed, 'blue')
       );
+
       this.circles = Leaflet.layerGroup(this.confirmed);
       this.myMap.addLayer(this.circles);
+    });
+
+    this.myMap.on('zoomend', () => {
+      this.mapZoom = this.myMap.getZoom();
+      this.changeData();
     });
   }
   ngAfterViewInit(): void {}
@@ -81,25 +91,13 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.myMap.setView(location.coords, location.zoom);
   }
   addCircles(country: Country, volume: number, color: string): any {
-    let resizedRadius = 0;
-    if (volume > 10000000) {
-      resizedRadius = volume * 0.04;
-    } else if (volume > 1000000) {
-      resizedRadius = volume / (volume * 0.5);
-    } else if (volume > 500000) {
-      resizedRadius = volume;
-    } else if (volume > 100000) {
-      resizedRadius = volume * 2;
-    } else {
-      resizedRadius = volume * 5;
-    }
+    const resizedRadius = 500 * (volume / this.mapZoom) ** 0.5;
     const circle = Leaflet.circle([country.latitude, country.longitude], {
       color: color,
       fillColor: color,
       fillOpacity: 0.5,
       radius: resizedRadius,
     });
-
     const detail = `<div id="detail" style="
     width: 100%;
     height: 100%;">
