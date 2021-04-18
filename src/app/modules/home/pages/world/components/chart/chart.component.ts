@@ -59,10 +59,6 @@ export class ChartComponent implements OnInit {
       ],
     },
   };
-  public chartColors: Color[] = [
-    { backgroundColor: '#3E71E7' },
-    { backgroundColor: '#FF5555' },
-  ];
 
   public chartLegend = true;
   public lineChartPlugins = [zoomPlugin];

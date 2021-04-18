@@ -1,4 +1,7 @@
 <div class="table_component_container mat-elevation-z8">
+  <div class="loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
   <mat-form-field class="search">
     <mat-label>Buscar</mat-label>
     <input
@@ -8,29 +11,35 @@
       #search
     />
   </mat-form-field>
-
+  <mat-button-toggle-group
+    class="buttons_configs"
+    #data_view="matButtonToggleGroup"
+    [(ngModel)]="dataType"
+    (click)="refreshDataType()"
+  >
+    <mat-button-toggle value="acumulated" aria-label="Text align left">
+      Datos Acumulados
+    </mat-button-toggle>
+    <mat-button-toggle value="historic" aria-label="Text align center">
+      Datos Historicos
+    </mat-button-toggle>
+  </mat-button-toggle-group>
   <div class="table_container">
     <table class="table" mat-table [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="Fecha">
         <th mat-header-cell *matHeaderCellDef>Fecha</th>
         <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
       </ng-container>
-      <ng-container matColumnDef="Pais">
-        <th mat-header-cell *matHeaderCellDef>Pais</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.country }}
-        </td>
-      </ng-container>
       <ng-container matColumnDef="Casos Confirmados">
         <th mat-header-cell *matHeaderCellDef>Casos Confirmados</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.cumulativeConfirmed | number }}
+          {{ element.confirmed | number }}
         </td>
       </ng-container>
       <ng-container matColumnDef="Muertes">
         <th mat-header-cell *matHeaderCellDef>Muertes</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.cumulativeDeaths | number }}
+          {{ element.deaths | number }}
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -44,5 +53,10 @@
     </table>
   </div>
 
-  <mat-paginator [length]="length" [pageSize]="size"> </mat-paginator>
+  <mat-paginator
+    [length]="length"
+    [pageSize]="size"
+    (page)="refreshPage($event)"
+  >
+  </mat-paginator>
 </div>

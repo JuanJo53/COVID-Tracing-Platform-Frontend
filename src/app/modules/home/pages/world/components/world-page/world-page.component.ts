@@ -10,7 +10,7 @@ import { Country } from 'src/app/shared/models/country';
 export class WorldPageComponent implements OnInit {
   countries: Country[];
   countryNames: string[];
-  displayedColumns = ['Fecha', 'Pais', 'Casos Confirmados', 'Muertes'];
+  displayedColumns = ['Fecha', 'Casos Confirmados', 'Muertes'];
 
   selected = 'general';
 

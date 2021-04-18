@@ -1,3 +1,4 @@
+import { CountryList } from './../../shared/models/country-list';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Country } from 'src/app/shared/models/country';
@@ -28,6 +29,27 @@ export class CountryService {
   getCoordenates(countryId: number) {
     return this.http.get<Country>(
       apiKey.api + `/country/coordenates/${countryId}`
+    );
+  }
+  getHistoricDataCountries(page: number, size: number) {
+    return this.http.get<CountryList[]>(
+      apiKey.api +
+        `/api/v1/data/country/historic/list?page=${
+          (page - 1) * size
+        }&size=${size}`
+    );
+  }
+  getCumulativeDataCountries(page: number, size: number) {
+    return this.http.get<CountryList[]>(
+      apiKey.api +
+        `/api/v1/data/country/cumulative/list?page=${
+          (page - 1) * size
+        }&size=${size}`
+    );
+  }
+  getWorldTotalData() {
+    return this.http.get<number>(
+      apiKey.api + `/api/v1/data/country/world/total`
     );
   }
 }

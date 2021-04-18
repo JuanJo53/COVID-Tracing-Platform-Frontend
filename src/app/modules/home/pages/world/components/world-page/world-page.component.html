@@ -64,10 +64,7 @@
       <app-map [countries]="countries"></app-map>
     </div>
     <div class="table_view" *ngIf="view_select.value == 'table'">
-      <app-table
-        [displayedColumns]="displayedColumns"
-        [data]="countries"
-      ></app-table>
+      <app-table [displayedColumns]="displayedColumns"></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">
       <app-chart [countries]="countries"></app-chart>
