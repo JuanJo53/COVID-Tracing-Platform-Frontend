@@ -71,8 +71,11 @@ export class HeaderComponent implements OnInit {
     });
   }
   btnLogout() {
+    const currentUrl = this.router.url;
     this.tokenService.logOut();
-    window.location.reload();
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
     this.logged = false;
   }
 }
