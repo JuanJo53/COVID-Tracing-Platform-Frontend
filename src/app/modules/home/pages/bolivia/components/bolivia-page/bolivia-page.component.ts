@@ -47,7 +47,7 @@ export class BoliviaPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.refreshDataView();
+    // this.refreshDataView();
     this.fetchDepartments();
     this.getBoliviaDetails();
   }
@@ -55,6 +55,7 @@ export class BoliviaPageComponent implements OnInit {
     this.departmentService.getAllDepartments().subscribe((deptos) => {
       console.log(deptos);
       this.deptos = deptos;
+      this.deptos.sort((a, b) => b.confirmed - a.confirmed);
     });
   }
 
