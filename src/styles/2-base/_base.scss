@@ -23,3 +23,9 @@ body {
 .swal2-popup {
   font-size: 20px !important;
 }
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #313947 !important;
+  color: #fff !important;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
