@@ -47,7 +47,6 @@ export class MapComponent implements OnInit {
     } else if (this.type == 'bolivia') {
       this.setMapLoc(this.bolivia.longitude, this.bolivia.latitude, 6);
       this.confirmed = [];
-      this.deptos.sort((a, b) => b.confirmed - a.confirmed);
       this.deptos.forEach((depto) => {
         this.confirmed.push(
           this.addCirclesDept(depto, depto.confirmed, '#313947')
