@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './layout/main/main.component';
 import { AdminGuard } from './core/guards/admin.guard';
-import { WorldModule } from './modules/home/pages/world/world.module';
+import { WorldModule } from './modules/world/world.module';
 
 const routes: Routes = [
   {
@@ -32,16 +32,14 @@ const routes: Routes = [
       {
         path: 'bolivia',
         loadChildren: () =>
-          import('./modules/home/pages/bolivia/bolivia.module').then(
+          import('./modules/bolivia/bolivia.module').then(
             (m) => m.BoliviaModule
           ),
       },
       {
         path: 'mundo',
         loadChildren: () =>
-          import('./modules/home/pages/world/world.module').then(
-            (m) => m.WorldModule
-          ),
+          import('./modules/world/world.module').then((m) => m.WorldModule),
       },
     ],
   },
