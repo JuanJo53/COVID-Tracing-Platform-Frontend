@@ -68,7 +68,7 @@ export class TableComponent implements OnInit {
   fetchBoliviaDataHistoric(page: number) {
     this.isLoadingResults = true;
     this.boliviaService
-      .getBoliviaHistoricData(page, this.size)
+      .getBoliviaHistoricData((page - 1) * this.size, this.size)
       .subscribe((data) => {
         this.dataBol = data;
         console.log(this.dataBol);
@@ -80,7 +80,7 @@ export class TableComponent implements OnInit {
   fetchBoliviaDataCumulated(page: number) {
     this.isLoadingResults = true;
     this.boliviaService
-      .getBoliviaCumulativeData(page, this.size)
+      .getBoliviaCumulativeData((page - 1) * this.size, this.size)
       .subscribe((data) => {
         this.dataBol = data;
         console.log(this.dataBol);
@@ -92,7 +92,11 @@ export class TableComponent implements OnInit {
   fectchHistoricData(page: number): void {
     this.isLoadingResults = true;
     this.deptoService
-      .getDepartmentHistoricData(this.depto.iso, page, this.size)
+      .getDepartmentHistoricData(
+        this.depto.iso,
+        (page - 1) * this.size,
+        this.size
+      )
       .subscribe((data) => {
         this.data = data;
         this.dataSource = new MatTableDataSource(this.data);
@@ -105,7 +109,11 @@ export class TableComponent implements OnInit {
   fectchCumulativeData(page: number): void {
     this.isLoadingResults = true;
     this.deptoService
-      .getDepartmentAcumulativeData(this.depto.iso, page, this.size)
+      .getDepartmentAcumulativeData(
+        this.depto.iso,
+        (page - 1) * this.size,
+        this.size
+      )
       .subscribe((data) => {
         this.data = data;
         this.dataSource = new MatTableDataSource(this.data);

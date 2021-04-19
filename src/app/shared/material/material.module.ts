@@ -72,6 +72,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     MatSortModule,
     LayoutModule,
+    MatDatepickerModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,

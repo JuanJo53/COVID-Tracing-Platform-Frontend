@@ -8,6 +8,19 @@ import { DatePipe } from '@angular/common';
 import { BoliviaService } from 'src/app/core/http/bolivia.service';
 import { BoliviaData } from 'src/app/shared/models/bolivia-data-list';
 import * as zoomPlugin from 'chartjs-plugin-zoom';
+import { FormControl, FormGroup } from '@angular/forms';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 @Component({
   selector: 'app-chart',
@@ -20,6 +33,9 @@ export class ChartComponent implements OnInit {
 
   dataBol: BoliviaData[];
   data: DepartmentList[];
+
+  initialDate: string;
+  finalDate: string;
 
   confirmed: number[];
   recovered: number[];
@@ -76,20 +92,37 @@ export class ChartComponent implements OnInit {
   public chartLegend = true;
   public lineChartPlugins = [zoomPlugin];
 
+  dateRange: FormGroup;
+  startDate: string;
+  endDate: string;
+
   constructor(
     private deptoService: DepartmentService,
     private datePipe: DatePipe,
     private boliviaService: BoliviaService
-  ) {}
+  ) {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+
+    this.dateRange = new FormGroup({
+      start: new FormControl(new Date(2020, 5, 1)),
+      end: new FormControl(new Date(year, month, 30)),
+    });
+  }
 
   ngOnInit(): void {
-    if (this.type == 'department') {
-      this.fectchCumulativeData(1);
-    } else if (this.type == 'bolivia') {
-      this.fetchBoliviaDataCumulated(1);
-    }
+    this.refreshDataType();
   }
-  fetchBoliviaDataHistoric(page: number) {
+  getDateRange() {
+    const startDate = this.dateRange.get('start').value;
+    const endDate = this.dateRange.get('end').value;
+    const date = new Date(endDate);
+    date.setDate(date.getDate() + 1);
+    this.startDate = this.datePipe.transform(startDate, 'yyyy-MM-dd');
+    this.endDate = this.datePipe.transform(date, 'yyyy-MM-dd');
+  }
+  fetchBoliviaDataHistoric() {
     this.dataBol = [];
     this.confirmed = [];
     this.deaths = [];
@@ -102,7 +135,7 @@ export class ChartComponent implements OnInit {
     this.isLoadingResults = true;
 
     this.boliviaService
-      .getBoliviaHistoricData(page, this.size)
+      .getBoliviaHistoricData(this.startDate, this.endDate)
       .subscribe((data) => {
         this.dataBol = data;
         console.log(data);
@@ -122,7 +155,7 @@ export class ChartComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
-  fetchBoliviaDataCumulated(page: number) {
+  fetchBoliviaDataCumulated() {
     this.dataBol = [];
     this.confirmed = [];
     this.deaths = [];
@@ -135,7 +168,7 @@ export class ChartComponent implements OnInit {
     this.isLoadingResults = true;
 
     this.boliviaService
-      .getBoliviaCumulativeData(page, this.size)
+      .getBoliviaCumulativeData(this.startDate, this.endDate)
       .subscribe((data) => {
         this.dataBol = data;
         console.log(data);
@@ -159,7 +192,7 @@ export class ChartComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
-  fectchHistoricData(page: number): void {
+  fectchHistoricData(): void {
     this.data = [];
     this.confirmed = [];
     this.deaths = [];
@@ -172,7 +205,7 @@ export class ChartComponent implements OnInit {
     this.isLoadingResults = true;
 
     this.deptoService
-      .getDepartmentHistoricData(this.depto.iso, page, this.size)
+      .getDepartmentHistoricData(this.depto.iso, this.startDate, this.endDate)
       .subscribe((data) => {
         this.data = data;
         console.log(data);
@@ -193,7 +226,7 @@ export class ChartComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
-  fectchCumulativeData(page: number): void {
+  fectchCumulativeData(): void {
     this.data = [];
     this.confirmed = [];
     this.deaths = [];
@@ -206,7 +239,11 @@ export class ChartComponent implements OnInit {
     this.isLoadingResults = true;
 
     this.deptoService
-      .getDepartmentAcumulativeData(this.depto.iso, page, this.size)
+      .getDepartmentAcumulativeData(
+        this.depto.iso,
+        this.startDate,
+        this.endDate
+      )
       .subscribe((data) => {
         this.data = data;
         console.log(data);
@@ -232,17 +269,19 @@ export class ChartComponent implements OnInit {
       });
   }
   refreshDataType() {
+    this.getDateRange();
     if (this.type == 'department') {
       if (this.dataType == 'acumulated') {
-        this.fectchCumulativeData(this.actualPage + 1);
+        this.fectchCumulativeData();
       } else {
-        this.fectchHistoricData(this.actualPage + 1);
+        this.fectchHistoricData();
       }
     } else if (this.type == 'bolivia') {
+      this.getDateRange();
       if (this.dataType == 'acumulated') {
-        this.fetchBoliviaDataCumulated(this.actualPage + 1);
+        this.fetchBoliviaDataCumulated();
       } else {
-        this.fetchBoliviaDataHistoric(this.actualPage + 1);
+        this.fetchBoliviaDataHistoric();
       }
     }
   }

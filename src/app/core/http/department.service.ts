@@ -17,20 +17,16 @@ export class DepartmentService {
       Authorization: `Bearer ${this.authToken}`,
     });
   }
-  getDepartmentAcumulativeData(deptoId: string, page: number, size: number) {
+  getDepartmentAcumulativeData(deptoId: string, page: any, size: any) {
     return this.http.get<DepartmentList[]>(
       apiKey.api +
-        `/api/v1/data/department/${deptoId}/cumulative/list?page=${
-          (page - 1) * size
-        }&size=${size}`
+        `/api/v1/data/department/${deptoId}/cumulative/list?page=${page}&size=${size}`
     );
   }
-  getDepartmentHistoricData(deptoId: string, page: number, size: number) {
+  getDepartmentHistoricData(deptoId: string, page: any, size: any) {
     return this.http.get<DepartmentList[]>(
       apiKey.api +
-        `/api/v1/data/department/${deptoId}/historic/list?page=${
-          (page - 1) * size
-        }&size=${size}`
+        `/api/v1/data/department/${deptoId}/historic/list?page=${page}&size=${size}`
     );
   }
   getAllDepartments() {

@@ -18,20 +18,16 @@ export class BoliviaService {
       Authorization: `Bearer ${this.authToken}`,
     });
   }
-  getBoliviaHistoricData(page: number, size: number) {
+  getBoliviaHistoricData(page: any, size: any) {
     return this.http.get<BoliviaData[]>(
       apiKey.api +
-        `/api/v1/data/country/BOL/historicList?page=${
-          (page - 1) * size
-        }&size=${size}`
+        `/api/v1/data/country/BOL/historicList?page=${page}&size=${size}`
     );
   }
-  getBoliviaCumulativeData(page: number, size: number) {
+  getBoliviaCumulativeData(page: any, size: any) {
     return this.http.get<BoliviaData[]>(
       apiKey.api +
-        `/api/v1/data/country/BOL/CumulativeEveryDay?page=${
-          (page - 1) * size
-        }&size=${size}`
+        `/api/v1/data/country/BOL/CumulativeEveryDay?page=${page}&size=${size}`
     );
   }
   getBoliviaDetails() {
