@@ -44,7 +44,7 @@ label {
 .setting_view {
   height: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin: 5px;
 }
@@ -54,21 +54,19 @@ label {
   justify-content: center;
   align-items: center;
 }
-.no_data{
+.no_data {
   text-align: center;
 }
-.tabla{
+.tabla {
   margin-top: 5%;
   margin-left: 25%;
   text-align: center;
   align-items: center;
 }
-.adv1{
+.adv1 {
   margin-top: 5px;
   color: #deae4a;
 }
-.adv2{
+.adv2 {
   color: #313947;
 }
-
-

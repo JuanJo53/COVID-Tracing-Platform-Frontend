@@ -31,17 +31,6 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <div class="select_insight">
-      <mat-form-field appearance="fill">
-        <mat-label>Paises</mat-label>
-        <mat-select [(value)]="selected">
-          <mat-option>Global</mat-option>
-          <mat-option *ngFor="let name of countryNames" [value]="name">{{
-            name
-          }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
     <div class="total_panel">
       <label for="total">Casos Totales:</label>
       <h1 class="cases" name="total">{{ worldDetail.confirmed | number }}</h1>

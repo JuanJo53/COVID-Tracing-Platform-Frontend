@@ -59,7 +59,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   fectchHistoricData(page: number): void {
     this.isLoadingResults = true;
     this.worldService
-      .getHistoricDataCountries(page, this.size)
+      .getHistoricDataCountries((page - 1) * this.size, this.size)
       .subscribe((data) => {
         this.data = data;
         this.dataSource = new MatTableDataSource(this.data);
@@ -72,7 +72,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   fectchCumulativeData(page: number): void {
     this.isLoadingResults = true;
     this.worldService
-      .getCumulativeDataCountries(page, this.size)
+      .getCumulativeDataCountries((page - 1) * this.size, this.size)
       .subscribe((data) => {
         this.data = data;
         this.dataSource = new MatTableDataSource(this.data);

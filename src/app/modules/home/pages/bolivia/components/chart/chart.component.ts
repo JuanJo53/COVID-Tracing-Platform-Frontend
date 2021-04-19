@@ -34,9 +34,6 @@ export class ChartComponent implements OnInit {
   dataBol: BoliviaData[];
   data: DepartmentList[];
 
-  initialDate: string;
-  finalDate: string;
-
   confirmed: number[];
   recovered: number[];
   deaths: number[];
@@ -44,12 +41,6 @@ export class ChartComponent implements OnInit {
   vaccined2: number[];
 
   isLoadingResults = true;
-
-  length = 12;
-  size = 383;
-  order = 'id';
-  asc = true;
-  actualPage = 0;
 
   dataType = 'acumulated';
 

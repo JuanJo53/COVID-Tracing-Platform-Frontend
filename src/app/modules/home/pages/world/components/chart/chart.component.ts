@@ -6,6 +6,7 @@ import * as zoomPlugin from 'chartjs-plugin-zoom';
 import { Country } from 'src/app/shared/models/country';
 import { CountryList } from 'src/app/shared/models/country-list';
 import { CountryService } from 'src/app/core/http/country.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-chart',
@@ -19,11 +20,10 @@ export class ChartComponent implements OnInit {
   // recovered: number[];
   deaths: number[];
 
-  length = 12;
-  size = 383;
-  order = 'id';
-  asc = true;
-  actualPage = 0;
+  initialDate: string;
+  finalDate: string;
+
+  isLoadingResults = true;
 
   dataType = 'acumulated';
 
@@ -66,24 +66,46 @@ export class ChartComponent implements OnInit {
   public chartLegend = true;
   public lineChartPlugins = [zoomPlugin];
 
+  dateRange: FormGroup;
+  startDate: string;
+  endDate: string;
+
   constructor(
     private worldService: CountryService,
     private datePipe: DatePipe
-  ) {}
+  ) {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
 
-  ngOnInit(): void {
-    this.fectchCumulativeData(1);
+    this.dateRange = new FormGroup({
+      start: new FormControl(new Date(2020, 5, 1)),
+      end: new FormControl(new Date(year, month, 30)),
+    });
   }
 
-  fectchHistoricData(page: number): void {
+  ngOnInit(): void {
+    this.refreshDataType();
+  }
+  getDateRange() {
+    const startDate = this.dateRange.get('start').value;
+    const endDate = this.dateRange.get('end').value;
+    const date = new Date(endDate);
+    date.setDate(date.getDate() + 1);
+    this.startDate = this.datePipe.transform(startDate, 'yyyy-MM-dd');
+    this.endDate = this.datePipe.transform(date, 'yyyy-MM-dd');
+  }
+  fectchHistoricData(): void {
     this.confirmed = [];
     this.deaths = [];
     // this.recovered = [];
     this.chartLabels = [];
     this.chartData = [];
 
+    this.isLoadingResults = true;
+
     this.worldService
-      .getHistoricDataCountries(page, this.size)
+      .getHistoricDataCountries(this.startDate, this.endDate)
       .subscribe((data) => {
         this.data = data;
         console.log(data);
@@ -100,9 +122,10 @@ export class ChartComponent implements OnInit {
           { data: this.deaths, label: 'Muertes' },
           // { data: this.recovered, label: 'Recuperados' },
         ];
+        this.isLoadingResults = false;
       });
   }
-  fectchCumulativeData(page: number): void {
+  fectchCumulativeData(): void {
     this.data = [];
     this.confirmed = [];
     this.deaths = [];
@@ -110,8 +133,10 @@ export class ChartComponent implements OnInit {
     this.chartLabels = [];
     this.chartData = [];
 
+    this.isLoadingResults = true;
+
     this.worldService
-      .getCumulativeDataCountries(page, this.size)
+      .getCumulativeDataCountries(this.startDate, this.endDate)
       .subscribe((data) => {
         this.data = data;
         console.log(data);
@@ -127,16 +152,17 @@ export class ChartComponent implements OnInit {
           { data: this.deaths, label: 'Muertes' },
           // { data: this.recovered, label: 'Recuperados' },
         ];
+        this.isLoadingResults = false;
       });
   }
   refreshDataType() {
+    this.getDateRange();
     if (this.dataType == 'acumulated') {
-      this.fectchCumulativeData(1);
+      this.fectchCumulativeData();
     } else {
-      this.fectchHistoricData(1);
+      this.fectchHistoricData();
     }
   }
-
   // events
   chartClicked({ event, active }: { event: MouseEvent; active: {}[] }): void {
     console.log(event, active);

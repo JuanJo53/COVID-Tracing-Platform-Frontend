@@ -32,6 +32,24 @@
       Datos Historicos
     </mat-button-toggle>
   </mat-button-toggle-group>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Rango de Fechas</mat-label>
+    <mat-date-range-input
+      [formGroup]="dateRange"
+      [rangePicker]="campaignOnePicker"
+      [comparisonStart]="dateRange.value.start"
+      [comparisonEnd]="dateRange.value.end"
+    >
+      <input matStartDate placeholder="Start date" formControlName="start" />
+      <input matEndDate placeholder="End date" formControlName="end" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="campaignOnePicker"
+    ></mat-datepicker-toggle>
+    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+  </mat-form-field>
+  <button mat-raised-button (click)="refreshDataType()">Filtrar</button>
   <div class="chart_element_container">
     <canvas
       class="chart"

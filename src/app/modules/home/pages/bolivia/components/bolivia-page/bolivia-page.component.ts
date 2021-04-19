@@ -47,6 +47,7 @@ export class BoliviaPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.refreshDataView();
     this.fetchDepartments();
     this.getBoliviaDetails();
   }

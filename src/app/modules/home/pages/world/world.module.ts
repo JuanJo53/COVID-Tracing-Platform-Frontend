@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChartsModule,
     WorldRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   entryComponents: [],
 })

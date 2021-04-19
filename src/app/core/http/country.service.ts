@@ -32,20 +32,16 @@ export class CountryService {
       apiKey.api + `/country/coordenates/${countryId}`
     );
   }
-  getHistoricDataCountries(page: number, size: number) {
+  getHistoricDataCountries(page: any, size: any) {
     return this.http.get<CountryList[]>(
       apiKey.api +
-        `/api/v1/data/country/historic/list?page=${
-          (page - 1) * size
-        }&size=${size}`
+        `/api/v1/data/country/historic/list?page=${page}&size=${size}`
     );
   }
-  getCumulativeDataCountries(page: number, size: number) {
+  getCumulativeDataCountries(page: any, size: any) {
     return this.http.get<CountryList[]>(
       apiKey.api +
-        `/api/v1/data/country/cumulative/list?page=${
-          (page - 1) * size
-        }&size=${size}`
+        `/api/v1/data/country/cumulative/list?page=${page}&size=${size}`
     );
   }
   getWorldTotalData() {

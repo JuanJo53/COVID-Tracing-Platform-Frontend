@@ -3,14 +3,14 @@
     <h4 class="usuario">Hola, {{ this.username }}</h4>
   </div>
   <div class="user_btn">
-    <button
+    <!-- <button
       mat-icon-button
       matTooltip="Notifications"
       [style.overflow]="'visible'"
     >
       <mat-icon class="maticon">notifications</mat-icon>
       <span class="notification-number mat-bg-warn">1</span>
-    </button>
+    </button> -->
     <button
       mat-icon-button
       [matMenuTriggerFor]="settingMenu"
@@ -21,12 +21,12 @@
     </button>
 
     <mat-menu #settingMenu="matMenu" class="matmenuestilo">
-      <button mat-menu-item class="btnizq">
+      <!-- <button mat-menu-item class="btnizq">
         <mat-icon class="maticon_nav">notifications_off</mat-icon>
         <span>Disable alerts</span>
-      </button>
+      </button> -->
       <button mat-menu-item (click)="btnLogout()" class="btnizq">
-        <mat-icon class="bl" >exit_to_app</mat-icon>
+        <mat-icon class="bl">exit_to_app</mat-icon>
         <span>Sign out</span>
       </button>
     </mat-menu>
@@ -40,5 +40,7 @@
   <button mat-raised-button (click)="btnLogin()" class="btnizq">
     Iniciar Sesion
   </button>
-  <button mat-raised-button (click)="btnSignup()" class="btnder">Registrarse</button>
+  <button mat-raised-button (click)="btnSignup()" class="btnder">
+    Registrarse
+  </button>
 </mat-toolbar>
