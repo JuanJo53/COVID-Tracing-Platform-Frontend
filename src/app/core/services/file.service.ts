@@ -19,10 +19,9 @@ export class FileService {
     });
   }
 
-  public upload(formData, depto: string, municipality: boolean) {
+  upload(formData, depto: string, municipality: boolean) {
     const userId = this.tokenService.getUserId();
     if (municipality) {
-      console.log(municipality);
       return this.http.post<FormData>(
         apiKey.api + `/api/v1/data/municipality/${depto}/admin/${userId}`,
         formData,
@@ -32,7 +31,8 @@ export class FileService {
           observe: 'events',
         }
       );
-    } else if (depto == 'global') {
+    }
+    if (depto == 'global') {
       return this.http.post<FormData>(
         apiKey.api + `/api/v1/data/country/admin/${userId}`,
         formData,
@@ -42,16 +42,17 @@ export class FileService {
           observe: 'events',
         }
       );
+    } else {
+      return this.http.post<FormData>(
+        apiKey.api + `/api/v1/data/department/${depto}/admin/${userId}`,
+        formData,
+        {
+          headers: this.headers,
+          reportProgress: true,
+          observe: 'events',
+        }
+      );
     }
-    return this.http.post<FormData>(
-      apiKey.api + `/api/v1/data/department/${depto}/admin/${userId}`,
-      formData,
-      {
-        headers: this.headers,
-        reportProgress: true,
-        observe: 'events',
-      }
-    );
   }
   public download(depto: string): any {
     const header = new HttpHeaders({

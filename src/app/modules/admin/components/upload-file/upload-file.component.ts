@@ -1,5 +1,7 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FileService } from 'src/app/core/services/file.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-upload-file',
@@ -37,33 +39,67 @@ export class UploadFileComponent implements OnInit {
     this.fileUpload.nativeElement.value = '';
     this.files.forEach((file) => {
       this.uploadFile(file, this.region);
-
-      this.uploading = false;
+      this.files = [];
     });
   }
   uploadFile(file, region: string) {
     const formData = new FormData();
     formData.append('file', file.data);
     file.inProgress = true;
-    if (this.municipality) {
-      this.fileUploadService.upload(formData, region, true).subscribe(
-        (rsp) => {
-          console.log(rsp);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    } else {
-      console.log('mandando deptop');
-      this.fileUploadService.upload(formData, region, false).subscribe(
-        (rsp) => {
-          console.log(rsp);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    if (region != '') {
+      if (this.municipality) {
+        this.fileUploadService
+          .upload(formData, region, true)
+          .subscribe((rsp) => {
+            console.log(rsp);
+            if (rsp.type === HttpEventType.Response) {
+              Swal.fire(
+                'Exito!',
+                '¡El archivo se subio exitosamente!',
+                'success'
+              );
+            }
+            if (rsp.type === HttpEventType.UploadProgress) {
+              const percentDone = Math.round((100 * rsp.loaded) / rsp.total);
+              console.log('Progress ' + percentDone + '%');
+            }
+
+            this.uploading = false;
+          }),
+          (error) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...' + error,
+              text: 'Parece que ubo un error al subir el archivo.',
+            });
+          };
+      } else {
+        this.fileUploadService
+          .upload(formData, region, false)
+          .subscribe((rsp) => {
+            if (rsp.type === HttpEventType.Response) {
+              Swal.fire(
+                'Exito!',
+                '¡El archivo se subio exitosamente!',
+                'success'
+              );
+            }
+            if (rsp.type === HttpEventType.UploadProgress) {
+              const percentDone = Math.round((100 * rsp.loaded) / rsp.total);
+              console.log('Progress ' + percentDone + '%');
+            }
+
+            this.uploading = false;
+          }),
+          (error) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...' + error,
+              text: 'Parece que ubo un error al subir el archivo.',
+            });
+          };
+      }
     }
+    this.files = [];
   }
 }

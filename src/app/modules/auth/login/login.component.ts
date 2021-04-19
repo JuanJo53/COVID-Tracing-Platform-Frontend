@@ -8,6 +8,7 @@ import { UserRoleService } from 'src/app/core/services/user-role.service';
 import { LoginUser } from 'src/app/shared/models/login-user';
 import Swal from 'sweetalert2';
 
+import 'sweetalert2/src/sweetalert2.scss';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

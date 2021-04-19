@@ -69,7 +69,10 @@ export class SignupComponent implements OnInit {
           ],
         ],
         role: [2, [Validators.required]],
-        password: ['', Validators.compose([Validators.required])],
+        password: [
+          '',
+          Validators.compose([Validators.required, Validators.minLength(8)]),
+        ],
         confirmPassword: ['', Validators.compose([Validators.required])],
       },
       {

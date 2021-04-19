@@ -16,6 +16,5 @@ export class UserRoleService {
   setUserRole() {
     this.roles = this.tokenService.getAuthorities();
     this.userRole.next(this.roles);
-    console.log(this.userRole);
   }
 }
