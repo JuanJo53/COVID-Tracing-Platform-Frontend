@@ -69,7 +69,10 @@ export class SignupComponent implements OnInit {
           ],
         ],
         role: [2, [Validators.required]],
-        password: ['', Validators.compose([Validators.required])],
+        password: [
+          '',
+          Validators.compose([Validators.required, Validators.minLength(8)]),
+        ],
         confirmPassword: ['', Validators.compose([Validators.required])],
       },
       {
@@ -105,7 +108,10 @@ export class SignupComponent implements OnInit {
     this.authService.createUser(newUser).subscribe((user) => {
       console.log(user);
       Swal.fire('Registro Exitoso!', 'Ahora puedes iniciar sesión!', 'success');
-      this.dialogRef.close(true);
+      this.dialogRef.close(false);
     });
+  }
+  onClickLoginBtn() {
+    this.dialogRef.close(false);
   }
 }

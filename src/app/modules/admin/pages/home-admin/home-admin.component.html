@@ -1,1 +1,139 @@
-<p>home-admin works!</p>
+<!--mat-grid-list cols="3" rowHeight="2:1.4"-->
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="continicio">
+    <table>
+      <tr>
+        <td>
+          <h1>
+            <p>Pre registro Nacional</p>
+            <p>para la vacunación</p>
+            <p>contra el Covid - 19</p>
+          </h1>
+        </td>
+        <td>
+          <img
+            src="assets/images/jeringuilla.png"
+            width="150px"
+            height="150px"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <a
+            href="https://vacunate.boliviasegura.gob.bo/#/formulario"
+            target="_blank"
+          >
+            <button
+              type="submit"
+              mat-raised-button
+              color="primary"
+              class="btnizq"
+              href="https://google.com"
+            >
+              REGISTRATE
+            </button></a
+          >
+        </th>
+      </tr>
+    </table>
+  </mat-grid-tile>
+  <mat-grid-tile class="continicio">
+    <table>
+      <tr>
+        <td>
+          <h1 class="title">Medico en línea</h1>
+          <h3>
+            <p>Para consultas del COVID-19</p>
+            <p>llama a la línea gratuita</p>
+          </h3>
+        </td>
+        <td>
+          <img
+            src="assets/images/estetoscopio.png"
+            width="150px"
+            height="150px"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="btnizq"
+            [cdkCopyToClipboard]="'800 10 11 04'"
+            (click)="openSnackBar()"
+          >
+            800 10 11 04
+          </button>
+        </th>
+      </tr>
+    </table>
+  </mat-grid-tile>
+  <mat-grid-tile class="continicio">
+    <table>
+      <tr>
+        <td>
+          <h1>
+            <p>Recomendaciones</p>
+            <p>oficiales</p>
+          </h1>
+        </td>
+        <td>
+          <img
+            src="assets/images/portapapeles.png"
+            width="150px"
+            height="150px"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="btnizq"
+            routerLink="/inicio/recomendaciones"
+          >
+            IR
+          </button>
+        </th>
+      </tr>
+    </table>
+  </mat-grid-tile>
+  <mat-grid-tile class="continicio">
+    <table>
+      <tr>
+        <td>
+          <h1>
+            <p>Información sobre</p>
+            <p>la vacunación</p>
+          </h1>
+        </td>
+        <td>
+          <img
+            src="assets/images/informacion.png"
+            width="150px"
+            height="150px"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="btnizq"
+            routerLink="/inicio/infovacs"
+          >
+            IR
+          </button>
+        </th>
+      </tr>
+    </table>
+  </mat-grid-tile>
+</mat-grid-list>

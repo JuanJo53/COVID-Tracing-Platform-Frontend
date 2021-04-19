@@ -1,5 +1,47 @@
+<div class="data_types">
+  <mat-button-toggle-group
+    class="buttons_configs"
+    #data_view="matButtonToggleGroup"
+    [(ngModel)]="circleDisplayType"
+    (click)="changeData()"
+  >
+    <mat-button-toggle value="confirmed" aria-label="Text align left">
+      Casos Confirmados
+    </mat-button-toggle>
+    <mat-button-toggle value="deaths" aria-label="Text align center">
+      Muertes
+    </mat-button-toggle>
+    <mat-button-toggle value="recovered" aria-label="Text align center">
+      Recuperdados
+    </mat-button-toggle>
+    <!-- <mat-button-toggle value="vaccined" aria-label="Text align center" disabled>
+      Vacunados
+    </mat-button-toggle> -->
+  </mat-button-toggle-group>
+</div>
 <div id="map" class="mat-elevation-z8"></div>
 
-<!-- <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map> -->
+<!-- <div id="detail" class="detail">
+  <h1>{{ depto.department }}</h1>
+  <br />
+  <div class="data_label">
+    <h3>Confirmados:</h3>
+    <span class="confirmed" id="confirmed">{{ depto.confirmed | number }}</span>
+  </div>
+  <br />
+  <div class="data_label">
+    <h3>Muertes:</h3>
+    <span class="deaths">{{ depto.deaths | number }}</span>
+  </div>
+  <br />
+  <div class="data_label">
+    <h3>Recuperados:</h3>
+    <span class="recovered">{{ depto.recovered | number }}</span>
+  </div>
+  <br />
+</div> -->
+<!-- <div class="data_label" >
+  <h3>Vacunados:</h3>
+  <span class="vaccined">{{ depto.vacined | number }}</span>
+</div>
+<br /> -->

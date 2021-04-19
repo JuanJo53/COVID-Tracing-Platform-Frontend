@@ -1,6 +1,16 @@
 .chart_container {
-  display: block;
   padding: 4%;
+  min-height: 200px;
+  // background-color: #313947;
+}
+.chart_element_container {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+  margin: 3px;
+}
+.chart {
+  height: 150%;
 }
 .buttons_configs {
   margin: 10px;

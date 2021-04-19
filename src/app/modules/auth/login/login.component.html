@@ -1,54 +1,55 @@
-<h1 mat-dialog-title><strong>INICIO DE SESION</strong></h1>
-<div mat-dialog-content>
-  <h4 class="title2">
-    Bienvenido de nuevo, por favor introduzca su usuario y contraseña.
-  </h4>
+<div>
+  <div align="center">
+    <img src="assets/images/ricovid1.png" alt="" width="370" />
+  </div>
+  <!--h1 mat-dialog-title><strong>INICIO DE SESION</strong></h1-->
+
+  <div mat-dialog-content>
+    <h4 class="title2">INICIO DE SESIÓN</h4>
+    <br />
+  </div>
+  <form [formGroup]="form" (ngSubmit)="login()" class="ini">
+    <div class="primer1">
+      <mat-icon class="form-letter">account_circle</mat-icon>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Usuario</mat-label>
+        <input
+          matInput
+          formControlName="username"
+          placeholder="Nombre de Usuario"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="primer1">
+      <mat-icon class="form-letter">lock</mat-icon>
+      <mat-form-field class="form-input">
+        <mat-label class="form-letter">Contraseña</mat-label>
+
+        <input
+          matInput
+          formControlName="password"
+          placeholder="Contraseña"
+          required
+          type="password"
+          class="inputuc"
+        />
+      </mat-form-field>
+    </div>
+    <br />
+    <div mat-dialog-actions class="buttons">
+      <button type="submit" mat-raised-button color="primary" class="btnizq">
+        Iniciar Sesión
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        class="form__button btnder"
+        (click)="onClickRegisterBtn()"
+      >
+        Registrarse
+      </button>
+    </div>
+  </form>
   <br />
 </div>
-<form [formGroup]="form" (ngSubmit)="login()">
-  <div class="loginentrada">
-    <mat-icon class="form-letter">account_circle</mat-icon>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Correo Electronico</mat-label>
-      <input
-        matInput
-        formControlName="username"
-        placeholder="Correo Electronico"
-        required
-      />
-    </mat-form-field>
-  </div>
-  <mat-icon class="form-letter">lock</mat-icon>
-  <mat-form-field class="form-input">
-    <mat-label class="form-letter">Contraseña</mat-label>
-
-    <input
-      matInput
-      formControlName="password"
-      placeholder="Contraseña"
-      required
-      type="password"
-      class="inputuc"
-    /> </mat-form-field
-  ><br />
-  <br />
-  <div mat-dialog-actions>
-    <button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      class="button_login"
-    >
-      Iniciar Sesión
-    </button>
-    <button
-      mat-raised-button
-      color="accent"
-      class="form__button"
-      routerLink="/auth/signup"
-      class="button_regis"
-    >
-      Registrarse
-    </button>
-  </div>
-</form>

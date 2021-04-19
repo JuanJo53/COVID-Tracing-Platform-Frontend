@@ -1,4 +1,4 @@
-<div class="grid_container">
+<div class="grid_container" *ngIf="worldDetail">
   <div class="grid_hearder">
     <h1>Global</h1>
   </div>
@@ -16,63 +16,60 @@
           <mat-icon>map</mat-icon>
         </mat-button-toggle>
         <mat-button-toggle
-          value="chart"
-          aria-label="Text align center"
-          matTooltip="Vista de Gráfico"
-        >
-          <mat-icon>show_chart</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle
           value="table"
           aria-label="Text align center"
           matTooltip="Vista de Tabla"
         >
           <mat-icon>table_view</mat-icon>
         </mat-button-toggle>
+        <mat-button-toggle
+          value="chart"
+          aria-label="Text align center"
+          matTooltip="Vista de Gráfico"
+        >
+          <mat-icon>show_chart</mat-icon>
+        </mat-button-toggle>
       </mat-button-toggle-group>
-    </div>
-    <div class="select_insight">
-      <mat-form-field appearance="fill">
-        <mat-label>Detalles</mat-label>
-        <mat-select [(value)]="selected">
-          <mat-option>Ninguno</mat-option>
-          <mat-option value="province">Provincias</mat-option>
-          <mat-option value="municipality">Municipio</mat-option>
-        </mat-select>
-      </mat-form-field>
     </div>
     <div class="total_panel">
       <label for="total">Casos Totales:</label>
-      <h1 class="cases" name="total">{{ 1232132 | number }}</h1>
+      <h1 class="cases" name="total">{{ worldDetail.confirmed | number }}</h1>
     </div>
     <div class="deaths_panel">
       <label for="deaths">Muertes:</label>
-      <h2 class="deaths" name="deaths">{{ 123123132 | number }}</h2>
+      <h2 class="deaths" name="deaths">{{ worldDetail.deaths | number }}</h2>
     </div>
-    <div class="recovered_panel">
+    <!-- <div class="recovered_panel">
       <label for="recovered">Recuperados:</label>
       <h2 class="recovered" name="recovered">{{ 12321321 | number }}</h2>
     </div>
     <div class="actives_panel">
       <label for="actives">Activos:</label>
       <h2 class="actives" name="actives">{{ 6545646546 | number }}</h2>
-    </div>
+    </div> -->
   </div>
-  <div class="data_view">
+  <div class="data_view" *ngIf="countries.length">
     <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
-      <app-map [depto]="depto"></app-map>
+      <app-map [countries]="countries"></app-map>
     </div>
     <div class="table_view" *ngIf="view_select.value == 'table'">
-      <app-table
-        [displayedColumns]="displayedColumns"
-        [data]="deptos"
-      ></app-table>
+      <app-table [displayedColumns]="displayedColumns"></app-table>
     </div>
     <div class="chart_view" *ngIf="view_select.value == 'chart'">
-      <app-chart
-        [chartData]="chartData"
-        [chartLabels]="chartLabels"
-      ></app-chart>
+      <app-chart [countries]="countries"></app-chart>
     </div>
   </div>
+</div>
+<div class="no_data" *ngIf="countries.length <= 0">
+  <table class="tabla">
+    <tr>
+      <img src="assets/images/viruscovid.png" width="380px" height="380px" />
+    </tr>
+    <tr>
+      <h1>
+        <p class="adv1">¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</p>
+        <p class="adv2">Por favor intentalo mas tarde.</p>
+      </h1>
+    </tr>
+  </table>
 </div>

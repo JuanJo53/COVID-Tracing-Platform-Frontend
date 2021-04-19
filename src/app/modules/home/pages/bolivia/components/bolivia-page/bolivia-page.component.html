@@ -1,6 +1,116 @@
 <mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label class="name">Bolivia</ng-template>
+    <div class="grid_container" *ngIf="dataReady">
+      <div class="setting_view">
+        <div class="view_change">
+          <mat-button-toggle-group
+            [(ngModel)]="selectedView"
+            #view_select="matButtonToggleGroup"
+            (click)="refreshDataView()"
+          >
+            <mat-button-toggle
+              value="table"
+              aria-label="Text align center"
+              matTooltip="Vista de Tabla"
+            >
+              <mat-icon>table_view</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle
+              value="map"
+              aria-label="Text align left"
+              matTooltip="Vista de Mapa"
+            >
+              <mat-icon>map</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle
+              value="chart"
+              aria-label="Text align center"
+              matTooltip="Vista de Gráfico"
+            >
+              <mat-icon>show_chart</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="details">
+          <div class="total_panel">
+            <label for="total">Casos Totales:</label>
+            <h1 class="cases" name="total">
+              {{ bolivia.totalconfirmed | number }}
+            </h1>
+          </div>
+          <div class="deaths_panel">
+            <label for="deaths">Muertes:</label>
+            <h2 class="deaths" name="deaths">
+              {{ bolivia.totalDeaths | number }}
+            </h2>
+          </div>
+          <div class="recovered_panel">
+            <label for="recovered">Recuperados:</label>
+            <h2 class="recovered" name="recovered">
+              {{ bolivia.totalrecovered | number }}
+            </h2>
+          </div>
+          <div class="actives_panel">
+            <label for="actives">Vacunados 1ra Dosis:</label>
+            <h2 class="actives" name="actives">
+              {{ bolivia.firstVaccine | number }}
+            </h2>
+          </div>
+          <div class="actives_panel">
+            <label for="actives">Vacunados 2da Dosis:</label>
+            <h2 class="actives" name="actives">
+              {{ bolivia.secondVaccine | number }}
+            </h2>
+          </div>
+
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="btnizq"
+            (click)="btnDownload()"
+          >
+            DESCARGAR DATOS DE BOLIVIA
+          </button>
+        </div>
+      </div>
+      <div class="data_view">
+        <div class="map_view" *ngIf="view_select.value == 'map' && mapReady">
+          <app-map
+            [bolivia]="bolivia"
+            [deptos]="deptos"
+            [type]="'bolivia'"
+          ></app-map>
+        </div>
+        <div class="table_view" *ngIf="view_select.value == 'table'">
+          <app-table
+            [displayedColumns]="displayedColumns"
+            [bolivia]="bolivia"
+            [type]="'bolivia'"
+          ></app-table>
+        </div>
+        <div class="chart_view" *ngIf="view_select.value == 'chart'">
+          <app-chart [type]="'bolivia'"></app-chart>
+        </div>
+      </div>
+    </div>
+    <div class="no_data" *ngIf="!dataReady">
+      <table class="tabla">
+        <tr>
+          <img src="assets/images/virus.png" width="380px" height="380px" />
+        </tr>
+        <tr>
+          <h1>
+            <p class="adv1">¡NO HAY DATOS DISPONIBLES PARA MOSTRAR!</p>
+            <p class="adv2">Por favor intentalo mas tarde.</p>
+          </h1>
+        </tr>
+      </table>
+    </div>
+  </mat-tab>
   <mat-tab *ngFor="let depto of deptos">
-    <ng-template mat-tab-label>{{ depto.name }}</ng-template>
+    <ng-template mat-tab-label class="name">{{ depto.department }}</ng-template>
     <app-department [depto]="depto"></app-department>
   </mat-tab>
 </mat-tab-group>

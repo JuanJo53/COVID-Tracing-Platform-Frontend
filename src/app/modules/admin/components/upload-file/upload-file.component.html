@@ -1,8 +1,23 @@
-<div class="upload_button_container">
-  <button mat-raised-button color="accent" (click)="onClick()">
+<div class="upload_button_container" *ngIf="!uploading">
+  <button
+    *ngIf="!municipality"
+    mat-raised-button
+    (click)="onClick()"
+    class="btnIzq"
+  >
     <mat-icon>file_upload</mat-icon>
     Subir Dataset</button
-  ><input
+  ><button
+    *ngIf="municipality"
+    mat-raised-button
+    (click)="onClick()"
+    class="btnIzq"
+  >
+    <mat-icon>file_upload</mat-icon>
+    Subir Dataset de Municipio de
+    {{ region }}
+  </button>
+  <input
     type="file"
     #fileUpload
     id="fileUpload"

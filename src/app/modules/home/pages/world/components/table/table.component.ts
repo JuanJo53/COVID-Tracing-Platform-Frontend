@@ -8,6 +8,8 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { CountryService } from 'src/app/core/http/country.service';
+import { CountryList } from 'src/app/shared/models/country-list';
 import { Department } from 'src/app/shared/models/department';
 
 @Component({
@@ -16,17 +18,19 @@ import { Department } from 'src/app/shared/models/department';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  @Input() data: Department[];
   @Input() displayedColumns: [];
+  data: CountryList[];
 
   isLoadingResults = true;
   isRateLimitReached = false;
 
   length = 20;
-  size = 10;
+  size = 30;
   order = 'id';
   asc = true;
   actualPage = 0;
+
+  dataType = 'acumulated';
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -34,10 +38,13 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   // dataSource: Department;
 
-  constructor() {}
+  constructor(private worldService: CountryService) {}
   dataSource = new MatTableDataSource();
   ngOnInit(): void {
-    // this.fectchData();
+    this.worldService.getWorldTotalData().subscribe((result) => {
+      this.length = result;
+    });
+    this.fectchCumulativeData(1);
   }
   ngAfterViewInit(): void {
     this.dataSource = new MatTableDataSource(this.data);
@@ -49,7 +56,47 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource(this.data);
     this.dataSource.sort = this.sort;
   }
+  fectchHistoricData(page: number): void {
+    this.isLoadingResults = true;
+    this.worldService
+      .getHistoricDataCountries((page - 1) * this.size, this.size)
+      .subscribe((data) => {
+        this.data = data;
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.sort = this.sort;
+        // this.dataSource.paginator = this.paginator;
 
+        this.isLoadingResults = false;
+      });
+  }
+  fectchCumulativeData(page: number): void {
+    this.isLoadingResults = true;
+    this.worldService
+      .getCumulativeDataCountries((page - 1) * this.size, this.size)
+      .subscribe((data) => {
+        this.data = data;
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.sort = this.sort;
+        // this.dataSource.paginator = this.paginator;
+
+        this.isLoadingResults = false;
+      });
+  }
+  refreshPage(event) {
+    this.actualPage = event.pageIndex;
+    if (this.dataType == 'acumulated') {
+      this.fectchCumulativeData(event.pageIndex + 1);
+    } else {
+      this.fectchHistoricData(event.pageIndex + 1);
+    }
+  }
+  refreshDataType() {
+    if (this.dataType == 'acumulated') {
+      this.fectchCumulativeData(this.actualPage + 1);
+    } else {
+      this.fectchHistoricData(this.actualPage + 1);
+    }
+  }
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

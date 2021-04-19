@@ -1,52 +1,98 @@
 <div class="container">
-  <h1>Administra los datasets!</h1>
-  <div class="datasets_list">
-    <div class="table_container mat-elevation-z8">
-      <mat-form-field class="search">
-        <mat-label>Buscar</mat-label>
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="Ex. ium"
-          #search
-        />
-      </mat-form-field>
-      <table
-        class="full-width-table"
-        mat-table
-        [dataSource]="dataSource"
-        matSort
-      >
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>Id</th>
-          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
-        </ng-container>
-        <ng-container matColumnDef="url">
-          <th mat-header-cell *matHeaderCellDef>URL del Documento</th>
-          <td mat-cell *matCellDef="let row">{{ row.url }}</td>
-        </ng-container>
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef>Fecha</th>
-          <td mat-cell *matCellDef="let row">{{ row.date }}</td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="5">
-            No se encontro nada con: "{{ search.value }}"
-          </td>
-        </tr>
-      </table>
-
-      <mat-paginator
-        [length]="length"
-        [pageSize]="size"
-        [pageSizeOptions]="[5, 10, 20, 30, 50]"
-      >
-      </mat-paginator>
-    </div>
-  </div>
-  <app-upload-file></app-upload-file>
+  <h1>Administra los datasets</h1>
+  <mat-tab-group class="tab" mat-align-tabs="start">
+    <mat-tab label="Mundo">
+      <div class="table_component_container mat-elevation-z8">
+        <div
+          class="loading-shade"
+          *ngIf="isLoadingResults || isRateLimitReached"
+        >
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+        <h1>Historial de Actualizacion</h1>
+        <mat-form-field class="search">
+          <mat-label>Buscar</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Ex. ium"
+            #search
+          />
+        </mat-form-field>
+        <br />
+        <app-upload-file [region]="'global'"></app-upload-file>
+        <br />
+        <div class="table_container">
+          <table
+            class="full-width-table"
+            mat-table
+            [dataSource]="dataSource"
+            matSort
+          >
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>#</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.id }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="username">
+              <th mat-header-cell *matHeaderCellDef>Usuario</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.username }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="region">
+              <th mat-header-cell *matHeaderCellDef>Region Afectada</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.region }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Fecha</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.date | date }}
+              </td>
+            </ng-container>
+            <tr
+              mat-header-row
+              *matHeaderRowDef="displayedColumns; sticky: true"
+            ></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="5">
+                No se encontro nada con: "{{ search.value }}"
+              </td>
+            </tr>
+          </table>
+        </div>
+        <mat-paginator
+          [length]="length"
+          [pageSize]="size"
+          (page)="refreshPage($event)"
+        >
+        </mat-paginator>
+      </div>
+    </mat-tab>
+    <mat-tab label="Bolivia">
+      <div class="bolivia_container">
+        <mat-form-field appearance="fill">
+          <mat-label>Departamentos</mat-label>
+          <mat-select [(value)]="depto">
+            <mat-option>Ninguno</mat-option>
+            <mat-option value="BO-L">La Paz</mat-option>
+            <mat-option value="BO-C">Cochabamba</mat-option>
+            <mat-option value="BO-S">Santa Cruz</mat-option>
+            <mat-option value="BO-H">Chuquisaca</mat-option>
+            <mat-option value="BO-T">Tarija</mat-option>
+            <mat-option value="BO-B">Beni</mat-option>
+            <mat-option value="BO-N">Pando</mat-option>
+            <mat-option value="BO-O">Oruro</mat-option>
+            <mat-option value="BO-P">Potosi</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <app-bolivia-datasets [depto]="depto"></app-bolivia-datasets>
+    </mat-tab>
+  </mat-tab-group>
 </div>

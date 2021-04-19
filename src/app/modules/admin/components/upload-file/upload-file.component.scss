@@ -1,4 +1,26 @@
 .upload_button_container {
+  // text-align: center;
+  // margin-top: 40px;
+}
+.btnIzq {
+  background-color: #deae4a;
+  margin-right: 1%;
+  color: #313947;
+}
+.tabla {
+  margin-top: 2%;
+  margin-left: 25%;
   text-align: center;
-  margin-top: 100px;
+  align-items: center;
+}
+.loading_shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

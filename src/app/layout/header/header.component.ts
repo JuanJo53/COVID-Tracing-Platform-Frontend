@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/core/authentication/token.service';
 import { LoginComponent } from 'src/app/modules/auth/login/login.component';
 import { SignupComponent } from 'src/app/modules/auth/signup/signup.component';
@@ -15,7 +16,11 @@ export class HeaderComponent implements OnInit {
   username: string;
   logged = false;
 
-  constructor(private tokenService: TokenService, public dialog: MatDialog) {}
+  constructor(
+    private tokenService: TokenService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -28,7 +33,7 @@ export class HeaderComponent implements OnInit {
       width: '500px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log(result);
       this.resultMsg = result;
       if (result) {
         Swal.fire(
@@ -40,6 +45,8 @@ export class HeaderComponent implements OnInit {
             window.location.reload();
           }
         });
+      } else if (result == false) {
+        this.btnSignup();
       }
       this.ngOnInit();
     });
@@ -57,6 +64,8 @@ export class HeaderComponent implements OnInit {
           'Usted se registro correctamente. ¡Bienvenido!',
           'success'
         );
+      } else if (result == false) {
+        this.btnLogin();
       }
       this.ngOnInit();
     });

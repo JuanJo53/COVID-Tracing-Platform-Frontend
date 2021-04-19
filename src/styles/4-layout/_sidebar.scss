@@ -1,15 +1,15 @@
 .sidebar {
   width: 26rem;
   height: 100%;
-  background-color: $color-primary-white;
+  background-color: #313947;
   background-size: cover;
   //box-shadow: $color-box-shadow;
-  box-shadow: 0px 5px 15px grey;
+  //box-shadow: 0px 5px 15px grey;
   &list {
     padding: 2rem;
   }
-  border-top-right-radius: 3rem;
-  border-bottom-right-radius: 3rem;
+  //border-top-right-radius: 3rem;
+  //border-bottom-right-radius: 3rem;
   .sidebar-brand {
     // transition: $transition-5;
     height: 18rem;
@@ -21,7 +21,7 @@
     margin-top: 3rem;
     &logo {
       // transition: $transition-5;
-      //background-color: red;
+      background-color: red;
       flex: 0 1 50%;
       width: 10rem;
       background-size: cover;

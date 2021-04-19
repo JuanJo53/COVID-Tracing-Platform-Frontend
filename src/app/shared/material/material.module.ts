@@ -26,6 +26,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [],
   imports: [
@@ -49,6 +52,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonToggleModule,
     MatGridListModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
+    ClipboardModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -66,6 +72,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatMenuModule,
     MatSortModule,
     LayoutModule,
+    MatDatepickerModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
@@ -74,6 +81,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonToggleModule,
     MatGridListModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
+    ClipboardModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}

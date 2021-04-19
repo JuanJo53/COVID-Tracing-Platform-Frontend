@@ -1,100 +1,101 @@
-<h1 mat-dialog-title><strong>REGISTO</strong></h1>
-<div mat-dialog-content>
-  <h4 class="title2">
-    Bienvenido, por favor llene el formulario para poder registrarse.
-  </h4>
-  <br />
-
-  <form [formGroup]="form" (ngSubmit)="saveUser()">
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Nombre</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="firstName"
-        placeholder="Nombre"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Apellido Paterno</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="firstSurname"
-        placeholder="Apellido Paterno"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Apellido Materno</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="secondSurname"
-        placeholder="Apellido Materno"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Nombre de Usuario</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="userName"
-        placeholder="Nombre de Usuario"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Email</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="email"
-        placeholder="Email"
-        required
-        type="email"
-      />
-    </mat-form-field>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Contraseña</mat-label>
-      <input
-        matInput
-        formControlName="password"
-        placeholder="Contraseña"
-        required
-        type="password"
-      />
-    </mat-form-field>
-    <mat-form-field class="form-input">
-      <mat-label class="form-letter">Confirmar Contraseña</mat-label>
-      <input
-        matInput
-        formControlName="confirmPassword"
-        placeholder="Confirmar Contraseña"
-        required
-        type="password"
-      />
-    </mat-form-field>
+<div class="colorback">
+  <div align="center">
+    <img src="assets/images/ricovid2.png" alt="" width="370" />
+  </div>
+  <!--h1 mat-dialog-title><strong>REGISTO</strong></h1-->
+  <div mat-dialog-content>
+    <h4 class="title2">REGISTRO</h4>
     <br />
-    <div mat-dialog-actions>
-      <button
-        type="submit"
-        mat-raised-button
-        color="primary"
-        class="button_signup"
-      >
-        Registrarse
-      </button>
-      <a
-        color="accent"
-        class="form__button"
-        routerLink="/auth/login"
-        class="button_regis"
-      >
-        Ya tengo una cuenta...
-      </a>
-    </div>
-  </form>
+
+    <form [formGroup]="form" (ngSubmit)="saveUser()">
+      <div class="ini">
+        <mat-form-field class="form-input">
+          <mat-label class="form-letter">Nombre</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="firstName"
+            placeholder="Nombre"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <mat-label class="form-letter">Apellido Paterno</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="firstSurname"
+            placeholder="Apellido Paterno"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <mat-label class="form-letter">Apellido Materno</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="secondSurname"
+            placeholder="Apellido Materno"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <mat-label class="form-letter">Nombre de Usuario</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="userName"
+            placeholder="Nombre de Usuario"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <mat-label class="form-letter">Email</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="email"
+            placeholder="Email"
+            required
+            type="email"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <mat-label class="form-letter">Contraseña</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Contraseña"
+            required
+            type="password"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <mat-label class="form-letter">Confirmar Contraseña</mat-label>
+          <input
+            matInput
+            formControlName="confirmPassword"
+            placeholder="Confirmar Contraseña"
+            required
+            type="password"
+          />
+        </mat-form-field>
+      </div>
+      <br />
+      <div mat-dialog-actions class="buttons">
+        <button type="submit" mat-raised-button color="primary" class="btnizq">
+          Registrarse
+        </button>
+        <a
+          color="accent"
+          class="form__button form-letter1"
+          mat-button
+          (click)="onClickLoginBtn()"
+        >
+          Ya tengo una cuenta...
+        </a>
+      </div>
+    </form>
+  </div>
+  <br />
 </div>

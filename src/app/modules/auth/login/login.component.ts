@@ -8,6 +8,7 @@ import { UserRoleService } from 'src/app/core/services/user-role.service';
 import { LoginUser } from 'src/app/shared/models/login-user';
 import Swal from 'sweetalert2';
 
+import 'sweetalert2/src/sweetalert2.scss';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,7 +27,6 @@ export class LoginComponent implements OnInit {
     private fromBuilder: FormBuilder,
     private tokenService: TokenService,
     private authService: AuthService,
-    private userRoleService: UserRoleService,
     private router: Router,
     public dialogRef: MatDialogRef<LoginComponent>
   ) {}
@@ -61,10 +61,19 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.role);
 
         this.tokenService.getAuthorities().forEach((rol) => {
+          const currentUrl = this.router.url;
           if (rol == 'ROLE_ADMIN') {
-            this.router.navigate(['/admin']);
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
           } else if (rol == 'ROLE_USER') {
-            this.router.navigate(['/home/dashboard']);
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
           }
         });
 
@@ -81,5 +90,8 @@ export class LoginComponent implements OnInit {
         });
       }
     );
+  }
+  onClickRegisterBtn(): void {
+    this.dialogRef.close(false);
   }
 }

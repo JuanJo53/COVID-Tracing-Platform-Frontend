@@ -3,32 +3,30 @@
     <h4 class="usuario">Hola, {{ this.username }}</h4>
   </div>
   <div class="user_btn">
-    <button
+    <!-- <button
       mat-icon-button
       matTooltip="Notifications"
       [style.overflow]="'visible'"
-      class="topbar-button-right"
     >
       <mat-icon class="maticon">notifications</mat-icon>
       <span class="notification-number mat-bg-warn">1</span>
-    </button>
+    </button> -->
     <button
       mat-icon-button
       [matMenuTriggerFor]="settingMenu"
       matTooltip="Settings"
       [style.overflow]="'visible'"
-      class="topbar-button-right"
     >
       <mat-icon class="maticon">settings</mat-icon>
     </button>
 
     <mat-menu #settingMenu="matMenu" class="matmenuestilo">
-      <button mat-menu-item>
+      <!-- <button mat-menu-item class="btnizq">
         <mat-icon class="maticon_nav">notifications_off</mat-icon>
         <span>Disable alerts</span>
-      </button>
-      <button mat-menu-item (click)="btnLogout()">
-        <mat-icon class="maticon_nav">exit_to_app</mat-icon>
+      </button> -->
+      <button mat-menu-item (click)="btnLogout()" class="btnizq">
+        <mat-icon class="bl">exit_to_app</mat-icon>
         <span>Sign out</span>
       </button>
     </mat-menu>
@@ -39,8 +37,10 @@
   </div>
 </mat-toolbar>
 <mat-toolbar class="topbar header unlogged" *ngIf="!logged">
-  <button mat-raised-button color="primary" (click)="btnLogin()">
+  <button mat-raised-button (click)="btnLogin()" class="btnizq">
     Iniciar Sesion
   </button>
-  <button mat-button (click)="btnSignup()">Registrarse</button>
+  <button mat-raised-button (click)="btnSignup()" class="btnder">
+    Registrarse
+  </button>
 </mat-toolbar>
