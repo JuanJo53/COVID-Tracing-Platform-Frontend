@@ -148,6 +148,9 @@
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
+                            <li>
+                                <a href="#openSnackBar">openSnackBar</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -166,12 +169,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(tokenService: <a href="../injectables/TokenService.html">TokenService</a>)</code>
+<code>constructor(tokenService: <a href="../injectables/TokenService.html">TokenService</a>, _snackBar: MatSnackBar)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/modules/admin/pages/home-admin/home-admin.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/modules/admin/pages/home-admin/home-admin.component.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -193,6 +196,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/TokenService.html" target="_self" >TokenService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
                                                         </td>
                                                   
                                                     <td>
@@ -240,8 +255,47 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/modules/admin/pages/home-admin/home-admin.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/modules/admin/pages/home-admin/home-admin.component.ts:16</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSnackBar"></a>
+                    <span class="name">
+                        <b>
+                            openSnackBar
+                        </b>
+                        <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openSnackBar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">src/app/modules/admin/pages/home-admin/home-admin.component.ts:17</a></div>
                 </td>
             </tr>
 
@@ -284,7 +338,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/modules/admin/pages/home-admin/home-admin.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/modules/admin/pages/home-admin/home-admin.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -298,6 +352,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
 import { TokenService } from &#x27;src/app/core/authentication/token.service&#x27;;
 
 @Component({
@@ -306,15 +361,161 @@ import { TokenService } from &#x27;src/app/core/authentication/token.service&#x2
   styleUrls: [&#x27;./home-admin.component.scss&#x27;],
 })
 export class HomeAdminComponent implements OnInit {
-  constructor(public tokenService: TokenService) {}
+  constructor(
+    public tokenService: TokenService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
+  openSnackBar() {
+    this._snackBar.open(&#x27;Copiado al portapapeles&#x27;, &#x27;OK&#x27;, {
+      duration: 2000,
+    });
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;home-admin works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!--mat-grid-list cols&#x3D;&quot;3&quot; rowHeight&#x3D;&quot;2:1.4&quot;--&gt;
+&lt;mat-grid-list cols&#x3D;&quot;2&quot; rowHeight&#x3D;&quot;2:1&quot;&gt;
+  &lt;mat-grid-tile class&#x3D;&quot;continicio&quot;&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;h1&gt;
+            &lt;p&gt;Pre registro Nacional&lt;/p&gt;
+            &lt;p&gt;para la vacunación&lt;/p&gt;
+            &lt;p&gt;contra el Covid - 19&lt;/p&gt;
+          &lt;/h1&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;img
+            src&#x3D;&quot;assets/images/jeringuilla.png&quot;
+            width&#x3D;&quot;150px&quot;
+            height&#x3D;&quot;150px&quot;
+          /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th colspan&#x3D;&quot;2&quot;&gt;
+          &lt;a
+            href&#x3D;&quot;https://vacunate.boliviasegura.gob.bo/#/formulario&quot;
+            target&#x3D;&quot;_blank&quot;
+          &gt;
+            &lt;button
+              type&#x3D;&quot;submit&quot;
+              mat-raised-button
+              color&#x3D;&quot;primary&quot;
+              class&#x3D;&quot;btnizq&quot;
+              href&#x3D;&quot;https://google.com&quot;
+            &gt;
+              REGISTRATE
+            &lt;/button&gt;&lt;/a
+          &gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/mat-grid-tile&gt;
+  &lt;mat-grid-tile class&#x3D;&quot;continicio&quot;&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;h1 class&#x3D;&quot;title&quot;&gt;Medico en línea&lt;/h1&gt;
+          &lt;h3&gt;
+            &lt;p&gt;Para consultas del COVID-19&lt;/p&gt;
+            &lt;p&gt;llama a la línea gratuita&lt;/p&gt;
+          &lt;/h3&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;img
+            src&#x3D;&quot;assets/images/estetoscopio.png&quot;
+            width&#x3D;&quot;150px&quot;
+            height&#x3D;&quot;150px&quot;
+          /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th colspan&#x3D;&quot;2&quot;&gt;
+          &lt;button
+            type&#x3D;&quot;submit&quot;
+            mat-raised-button
+            color&#x3D;&quot;primary&quot;
+            class&#x3D;&quot;btnizq&quot;
+            [cdkCopyToClipboard]&#x3D;&quot;&#x27;800 10 11 04&#x27;&quot;
+            (click)&#x3D;&quot;openSnackBar()&quot;
+          &gt;
+            800 10 11 04
+          &lt;/button&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/mat-grid-tile&gt;
+  &lt;mat-grid-tile class&#x3D;&quot;continicio&quot;&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;h1&gt;
+            &lt;p&gt;Recomendaciones&lt;/p&gt;
+            &lt;p&gt;oficiales&lt;/p&gt;
+          &lt;/h1&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;img
+            src&#x3D;&quot;assets/images/portapapeles.png&quot;
+            width&#x3D;&quot;150px&quot;
+            height&#x3D;&quot;150px&quot;
+          /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th colspan&#x3D;&quot;2&quot;&gt;
+          &lt;button
+            type&#x3D;&quot;submit&quot;
+            mat-raised-button
+            color&#x3D;&quot;primary&quot;
+            class&#x3D;&quot;btnizq&quot;
+            routerLink&#x3D;&quot;/inicio/recomendaciones&quot;
+          &gt;
+            IR
+          &lt;/button&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/mat-grid-tile&gt;
+  &lt;mat-grid-tile class&#x3D;&quot;continicio&quot;&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;h1&gt;
+            &lt;p&gt;Información sobre&lt;/p&gt;
+            &lt;p&gt;la vacunación&lt;/p&gt;
+          &lt;/h1&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;img
+            src&#x3D;&quot;assets/images/informacion.png&quot;
+            width&#x3D;&quot;150px&quot;
+            height&#x3D;&quot;150px&quot;
+          /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th colspan&#x3D;&quot;2&quot;&gt;
+          &lt;button
+            type&#x3D;&quot;submit&quot;
+            mat-raised-button
+            color&#x3D;&quot;primary&quot;
+            class&#x3D;&quot;btnizq&quot;
+            routerLink&#x3D;&quot;/inicio/infovacs&quot;
+          &gt;
+            IR
+          &lt;/button&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/mat-grid-tile&gt;
+&lt;/mat-grid-list&gt;
 </code></pre>
     </div>
 
@@ -322,7 +523,39 @@ export class HomeAdminComponent implements OnInit {
                 <p class="comment">
                     <code>./home-admin.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.continicio{
+    border-radius: 25px;
+    //background-color: #757F8E;
+    margin-bottom: 25px;
+    border: 20px #fff;
+    //padding-bottom: 5%;
+}
+p{
+    align-items: center;
+    text-align: center;
+}
+.btnizq{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #313947;
+    width: 40%;
+    background-color: #deae4a;
+    border-radius: 6px;
+    border: 2px solid #313947;
+    margin-right: 5%;
+}
+.btnizq:hover{
+    color: #ffffff;
+    background-color: #313947;
+}
+td{
+    padding: 15px;
+}
+.title{
+    text-align: center;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -350,8 +583,8 @@ export class HomeAdminComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>home-admin works!</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
+        var COMPONENT_TEMPLATE = '<div><!--mat-grid-list cols="3" rowHeight="2:1.4"--><mat-grid-list cols="2" rowHeight="2:1">  <mat-grid-tile class="continicio">    <table>      <tr>        <td>          <h1>            <p>Pre registro Nacional</p>            <p>para la vacunación</p>            <p>contra el Covid - 19</p>          </h1>        </td>        <td>          <img            src="assets/images/jeringuilla.png"            width="150px"            height="150px"          />        </td>      </tr>      <tr>        <th colspan="2">          <a            href="https://vacunate.boliviasegura.gob.bo/#/formulario"            target="_blank"          >            <button              type="submit"              mat-raised-button              color="primary"              class="btnizq"              href="https://google.com"            >              REGISTRATE            </button></a          >        </th>      </tr>    </table>  </mat-grid-tile>  <mat-grid-tile class="continicio">    <table>      <tr>        <td>          <h1 class="title">Medico en línea</h1>          <h3>            <p>Para consultas del COVID-19</p>            <p>llama a la línea gratuita</p>          </h3>        </td>        <td>          <img            src="assets/images/estetoscopio.png"            width="150px"            height="150px"          />        </td>      </tr>      <tr>        <th colspan="2">          <button            type="submit"            mat-raised-button            color="primary"            class="btnizq"            [cdkCopyToClipboard]="\'800 10 11 04\'"            (click)="openSnackBar()"          >            800 10 11 04          </button>        </th>      </tr>    </table>  </mat-grid-tile>  <mat-grid-tile class="continicio">    <table>      <tr>        <td>          <h1>            <p>Recomendaciones</p>            <p>oficiales</p>          </h1>        </td>        <td>          <img            src="assets/images/portapapeles.png"            width="150px"            height="150px"          />        </td>      </tr>      <tr>        <th colspan="2">          <button            type="submit"            mat-raised-button            color="primary"            class="btnizq"            routerLink="/inicio/recomendaciones"          >            IR          </button>        </th>      </tr>    </table>  </mat-grid-tile>  <mat-grid-tile class="continicio">    <table>      <tr>        <td>          <h1>            <p>Información sobre</p>            <p>la vacunación</p>          </h1>        </td>        <td>          <img            src="assets/images/informacion.png"            width="150px"            height="150px"          />        </td>      </tr>      <tr>        <th colspan="2">          <button            type="submit"            mat-raised-button            color="primary"            class="btnizq"            routerLink="/inicio/infovacs"          >            IR          </button>        </th>      </tr>    </table>  </mat-grid-tile></mat-grid-list></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaDatasetsComponent', 'selector': 'app-bolivia-datasets'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfvaccinationComponent', 'selector': 'app-infvaccination'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'RecommendationsComponent', 'selector': 'app-recommendations'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeAdminComponent'};
 </script>

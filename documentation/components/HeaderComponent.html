@@ -184,12 +184,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(tokenService: <a href="../injectables/TokenService.html">TokenService</a>, dialog: MatDialog)</code>
+<code>constructor(tokenService: <a href="../injectables/TokenService.html">TokenService</a>, dialog: MatDialog, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/layout/header/header.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/layout/header/header.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -223,6 +223,18 @@
                                                   
                                                         <td>
                                                                     <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -270,8 +282,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/layout/header/header.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/layout/header/header.component.ts:31</a></div>
                 </td>
             </tr>
 
@@ -309,8 +321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/app/layout/header/header.component.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/layout/header/header.component.ts:73</a></div>
                 </td>
             </tr>
 
@@ -348,8 +360,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/layout/header/header.component.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/layout/header/header.component.ts:54</a></div>
                 </td>
             </tr>
 
@@ -387,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/layout/header/header.component.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/layout/header/header.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -431,7 +443,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/layout/header/header.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/layout/header/header.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -457,7 +469,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/layout/header/header.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/layout/header/header.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -484,7 +496,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/layout/header/header.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/layout/header/header.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -511,7 +523,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/layout/header/header.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/layout/header/header.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -526,6 +538,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { MatDialog, MatDialogRef } from &#x27;@angular/material/dialog&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 import { TokenService } from &#x27;src/app/core/authentication/token.service&#x27;;
 import { LoginComponent } from &#x27;src/app/modules/auth/login/login.component&#x27;;
 import { SignupComponent } from &#x27;src/app/modules/auth/signup/signup.component&#x27;;
@@ -541,7 +554,11 @@ export class HeaderComponent implements OnInit {
   username: string;
   logged &#x3D; false;
 
-  constructor(private tokenService: TokenService, public dialog: MatDialog) {}
+  constructor(
+    private tokenService: TokenService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -554,7 +571,7 @@ export class HeaderComponent implements OnInit {
       width: &#x27;500px&#x27;,
     });
     dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
-      console.log(&#x27;The dialog was closed&#x27;);
+      console.log(result);
       this.resultMsg &#x3D; result;
       if (result) {
         Swal.fire(
@@ -566,6 +583,8 @@ export class HeaderComponent implements OnInit {
             window.location.reload();
           }
         });
+      } else if (result &#x3D;&#x3D; false) {
+        this.btnSignup();
       }
       this.ngOnInit();
     });
@@ -583,6 +602,8 @@ export class HeaderComponent implements OnInit {
           &#x27;Usted se registro correctamente. ¡Bienvenido!&#x27;,
           &#x27;success&#x27;
         );
+      } else if (result &#x3D;&#x3D; false) {
+        this.btnLogin();
       }
       this.ngOnInit();
     });
@@ -602,32 +623,30 @@ export class HeaderComponent implements OnInit {
     &lt;h4 class&#x3D;&quot;usuario&quot;&gt;Hola, {{ this.username }}&lt;/h4&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;user_btn&quot;&gt;
-    &lt;button
+    &lt;!-- &lt;button
       mat-icon-button
       matTooltip&#x3D;&quot;Notifications&quot;
       [style.overflow]&#x3D;&quot;&#x27;visible&#x27;&quot;
-      class&#x3D;&quot;topbar-button-right&quot;
     &gt;
       &lt;mat-icon class&#x3D;&quot;maticon&quot;&gt;notifications&lt;/mat-icon&gt;
       &lt;span class&#x3D;&quot;notification-number mat-bg-warn&quot;&gt;1&lt;/span&gt;
-    &lt;/button&gt;
+    &lt;/button&gt; --&gt;
     &lt;button
       mat-icon-button
       [matMenuTriggerFor]&#x3D;&quot;settingMenu&quot;
       matTooltip&#x3D;&quot;Settings&quot;
       [style.overflow]&#x3D;&quot;&#x27;visible&#x27;&quot;
-      class&#x3D;&quot;topbar-button-right&quot;
     &gt;
       &lt;mat-icon class&#x3D;&quot;maticon&quot;&gt;settings&lt;/mat-icon&gt;
     &lt;/button&gt;
 
     &lt;mat-menu #settingMenu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;matmenuestilo&quot;&gt;
-      &lt;button mat-menu-item&gt;
+      &lt;!-- &lt;button mat-menu-item class&#x3D;&quot;btnizq&quot;&gt;
         &lt;mat-icon class&#x3D;&quot;maticon_nav&quot;&gt;notifications_off&lt;/mat-icon&gt;
         &lt;span&gt;Disable alerts&lt;/span&gt;
-      &lt;/button&gt;
-      &lt;button mat-menu-item (click)&#x3D;&quot;btnLogout()&quot;&gt;
-        &lt;mat-icon class&#x3D;&quot;maticon_nav&quot;&gt;exit_to_app&lt;/mat-icon&gt;
+      &lt;/button&gt; --&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;btnLogout()&quot; class&#x3D;&quot;btnizq&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;bl&quot;&gt;exit_to_app&lt;/mat-icon&gt;
         &lt;span&gt;Sign out&lt;/span&gt;
       &lt;/button&gt;
     &lt;/mat-menu&gt;
@@ -638,10 +657,12 @@ export class HeaderComponent implements OnInit {
   &lt;/div&gt;
 &lt;/mat-toolbar&gt;
 &lt;mat-toolbar class&#x3D;&quot;topbar header unlogged&quot; *ngIf&#x3D;&quot;!logged&quot;&gt;
-  &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;btnLogin()&quot;&gt;
+  &lt;button mat-raised-button (click)&#x3D;&quot;btnLogin()&quot; class&#x3D;&quot;btnizq&quot;&gt;
     Iniciar Sesion
   &lt;/button&gt;
-  &lt;button mat-button (click)&#x3D;&quot;btnSignup()&quot;&gt;Registrarse&lt;/button&gt;
+  &lt;button mat-raised-button (click)&#x3D;&quot;btnSignup()&quot; class&#x3D;&quot;btnder&quot;&gt;
+    Registrarse
+  &lt;/button&gt;
 &lt;/mat-toolbar&gt;
 </code></pre>
     </div>
@@ -652,8 +673,19 @@ export class HeaderComponent implements OnInit {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.logged {
   justify-content: space-between;
+  background-color: white;
 }
-</code></pre>
+.btnizq{
+  background-color: #deae4a;
+  margin-right: 1%;
+  color: #313947;
+}
+.btnder{
+  //background-color: #757F8E;
+  background-color: #313947;
+  //color: #757F8E;
+  color: white;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -681,8 +713,8 @@ export class HeaderComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-toolbar class="topbar header logged" *ngIf="logged">  <div class="hello_user">    <h4 class="usuario">Hola, {{ this.username }}</h4>  </div>  <div class="user_btn">    <button      mat-icon-button      matTooltip="Notifications"      [style.overflow]="\'visible\'"      class="topbar-button-right"    >      <mat-icon class="maticon">notifications</mat-icon>      <span class="notification-number mat-bg-warn">1</span>    </button>    <button      mat-icon-button      [matMenuTriggerFor]="settingMenu"      matTooltip="Settings"      [style.overflow]="\'visible\'"      class="topbar-button-right"    >      <mat-icon class="maticon">settings</mat-icon>    </button>    <mat-menu #settingMenu="matMenu" class="matmenuestilo">      <button mat-menu-item>        <mat-icon class="maticon_nav">notifications_off</mat-icon>        <span>Disable alerts</span>      </button>      <button mat-menu-item (click)="btnLogout()">        <mat-icon class="maticon_nav">exit_to_app</mat-icon>        <span>Sign out</span>      </button>    </mat-menu>    <button mat-icon-button class="img-button">      <img src="assets/images/4.jpg" alt="" />    </button>  </div></mat-toolbar><mat-toolbar class="topbar header unlogged" *ngIf="!logged">  <button mat-raised-button color="primary" (click)="btnLogin()">    Iniciar Sesion  </button>  <button mat-button (click)="btnSignup()">Registrarse</button></mat-toolbar></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
+        var COMPONENT_TEMPLATE = '<div><mat-toolbar class="topbar header logged" *ngIf="logged">  <div class="hello_user">    <h4 class="usuario">Hola, {{ this.username }}</h4>  </div>  <div class="user_btn">    <!-- <button      mat-icon-button      matTooltip="Notifications"      [style.overflow]="\'visible\'"    >      <mat-icon class="maticon">notifications</mat-icon>      <span class="notification-number mat-bg-warn">1</span>    </button> -->    <button      mat-icon-button      [matMenuTriggerFor]="settingMenu"      matTooltip="Settings"      [style.overflow]="\'visible\'"    >      <mat-icon class="maticon">settings</mat-icon>    </button>    <mat-menu #settingMenu="matMenu" class="matmenuestilo">      <!-- <button mat-menu-item class="btnizq">        <mat-icon class="maticon_nav">notifications_off</mat-icon>        <span>Disable alerts</span>      </button> -->      <button mat-menu-item (click)="btnLogout()" class="btnizq">        <mat-icon class="bl">exit_to_app</mat-icon>        <span>Sign out</span>      </button>    </mat-menu>    <button mat-icon-button class="img-button">      <img src="assets/images/4.jpg" alt="" />    </button>  </div></mat-toolbar><mat-toolbar class="topbar header unlogged" *ngIf="!logged">  <button mat-raised-button (click)="btnLogin()" class="btnizq">    Iniciar Sesion  </button>  <button mat-raised-button (click)="btnSignup()" class="btnder">    Registrarse  </button></mat-toolbar></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaDatasetsComponent', 'selector': 'app-bolivia-datasets'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfvaccinationComponent', 'selector': 'app-infvaccination'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'RecommendationsComponent', 'selector': 'app-recommendations'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
 </script>

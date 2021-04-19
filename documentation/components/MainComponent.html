@@ -438,7 +438,7 @@ export class MainComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;mat-drawer-container&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;mat-drawer-container class&#x3D;&quot;all&quot;&gt;
   &lt;mat-drawer
     class&#x3D;&quot;sidebar&quot;
     mode&#x3D;&quot;side&quot;
@@ -464,7 +464,9 @@ export class MainComponent implements OnInit {
                 <p class="comment">
                     <code>./main.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.all{
+    background-color: #fff;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -492,8 +494,8 @@ export class MainComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-drawer-container>  <mat-drawer    class="sidebar"    mode="side"    [class.menu-open]="isSidebarOpen2"    [class.menu-close]="!isSidebarOpen2"    opened  >    <app-sidebar (openEvent)="receiveOpen($event)"></app-sidebar>  </mat-drawer>  <mat-drawer-content    [ngStyle]="{ \'margin-left.rem\': contentMargin }"    class="p-3"  >    <app-header></app-header>    <router-outlet> </router-outlet>  </mat-drawer-content></mat-drawer-container></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
+        var COMPONENT_TEMPLATE = '<div><mat-drawer-container class="all">  <mat-drawer    class="sidebar"    mode="side"    [class.menu-open]="isSidebarOpen2"    [class.menu-close]="!isSidebarOpen2"    opened  >    <app-sidebar (openEvent)="receiveOpen($event)"></app-sidebar>  </mat-drawer>  <mat-drawer-content    [ngStyle]="{ \'margin-left.rem\': contentMargin }"    class="p-3"  >    <app-header></app-header>    <router-outlet> </router-outlet>  </mat-drawer-content></mat-drawer-container></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaDatasetsComponent', 'selector': 'app-bolivia-datasets'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfvaccinationComponent', 'selector': 'app-infvaccination'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'RecommendationsComponent', 'selector': 'app-recommendations'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MainComponent'};
 </script>

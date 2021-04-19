@@ -164,6 +164,9 @@
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
+                                <a href="#onClickLoginBtn">onClickLoginBtn</a>
+                            </li>
+                            <li>
                                 <a href="#saveUser">saveUser</a>
                             </li>
                         </ul>
@@ -294,8 +297,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/modules/auth/signup/signup.component.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/modules/auth/signup/signup.component.ts:83</a></div>
                 </td>
             </tr>
 
@@ -376,8 +379,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">src/app/modules/auth/signup/signup.component.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/modules/auth/signup/signup.component.ts:107</a></div>
                 </td>
             </tr>
 
@@ -506,6 +509,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="onClickLoginBtn"></a>
+                    <span class="name">
+                        <b>
+                            onClickLoginBtn
+                        </b>
+                        <a href="#onClickLoginBtn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClickLoginBtn()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">src/app/modules/auth/signup/signup.component.ts:114</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="saveUser"></a>
                     <span class="name">
                         <b>
@@ -524,8 +566,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">src/app/modules/auth/signup/signup.component.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/modules/auth/signup/signup.component.ts:97</a></div>
                 </td>
             </tr>
 
@@ -706,7 +748,10 @@ export class SignupComponent implements OnInit {
           ],
         ],
         role: [2, [Validators.required]],
-        password: [&#x27;&#x27;, Validators.compose([Validators.required])],
+        password: [
+          &#x27;&#x27;,
+          Validators.compose([Validators.required, Validators.minLength(8)]),
+        ],
         confirmPassword: [&#x27;&#x27;, Validators.compose([Validators.required])],
       },
       {
@@ -742,113 +787,117 @@ export class SignupComponent implements OnInit {
     this.authService.createUser(newUser).subscribe((user) &#x3D;&gt; {
       console.log(user);
       Swal.fire(&#x27;Registro Exitoso!&#x27;, &#x27;Ahora puedes iniciar sesión!&#x27;, &#x27;success&#x27;);
-      this.dialogRef.close(true);
+      this.dialogRef.close(false);
     });
+  }
+  onClickLoginBtn() {
+    this.dialogRef.close(false);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;h1 mat-dialog-title&gt;&lt;strong&gt;REGISTO&lt;/strong&gt;&lt;/h1&gt;
-&lt;div mat-dialog-content&gt;
-  &lt;h4 class&#x3D;&quot;title2&quot;&gt;
-    Bienvenido, por favor llene el formulario para poder registrarse.
-  &lt;/h4&gt;
-  &lt;br /&gt;
-
-  &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;saveUser()&quot;&gt;
-    &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
-      &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Nombre&lt;/mat-label&gt;
-      &lt;input
-        type&#x3D;&quot;text&quot;
-        matInput
-        formControlName&#x3D;&quot;firstName&quot;
-        placeholder&#x3D;&quot;Nombre&quot;
-        required
-      /&gt;
-    &lt;/mat-form-field&gt;
-    &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
-      &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Apellido Paterno&lt;/mat-label&gt;
-      &lt;input
-        type&#x3D;&quot;text&quot;
-        matInput
-        formControlName&#x3D;&quot;firstSurname&quot;
-        placeholder&#x3D;&quot;Apellido Paterno&quot;
-        required
-      /&gt;
-    &lt;/mat-form-field&gt;
-    &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
-      &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Apellido Materno&lt;/mat-label&gt;
-      &lt;input
-        type&#x3D;&quot;text&quot;
-        matInput
-        formControlName&#x3D;&quot;secondSurname&quot;
-        placeholder&#x3D;&quot;Apellido Materno&quot;
-        required
-      /&gt;
-    &lt;/mat-form-field&gt;
-    &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
-      &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Nombre de Usuario&lt;/mat-label&gt;
-      &lt;input
-        type&#x3D;&quot;text&quot;
-        matInput
-        formControlName&#x3D;&quot;userName&quot;
-        placeholder&#x3D;&quot;Nombre de Usuario&quot;
-        required
-      /&gt;
-    &lt;/mat-form-field&gt;
-    &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
-      &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Email&lt;/mat-label&gt;
-      &lt;input
-        type&#x3D;&quot;text&quot;
-        matInput
-        formControlName&#x3D;&quot;email&quot;
-        placeholder&#x3D;&quot;Email&quot;
-        required
-        type&#x3D;&quot;email&quot;
-      /&gt;
-    &lt;/mat-form-field&gt;
-    &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
-      &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Contraseña&lt;/mat-label&gt;
-      &lt;input
-        matInput
-        formControlName&#x3D;&quot;password&quot;
-        placeholder&#x3D;&quot;Contraseña&quot;
-        required
-        type&#x3D;&quot;password&quot;
-      /&gt;
-    &lt;/mat-form-field&gt;
-    &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
-      &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Confirmar Contraseña&lt;/mat-label&gt;
-      &lt;input
-        matInput
-        formControlName&#x3D;&quot;confirmPassword&quot;
-        placeholder&#x3D;&quot;Confirmar Contraseña&quot;
-        required
-        type&#x3D;&quot;password&quot;
-      /&gt;
-    &lt;/mat-form-field&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;colorback&quot;&gt;
+  &lt;div align&#x3D;&quot;center&quot;&gt;
+    &lt;img src&#x3D;&quot;assets/images/ricovid2.png&quot; alt&#x3D;&quot;&quot; width&#x3D;&quot;370&quot; /&gt;
+  &lt;/div&gt;
+  &lt;!--h1 mat-dialog-title&gt;&lt;strong&gt;REGISTO&lt;/strong&gt;&lt;/h1--&gt;
+  &lt;div mat-dialog-content&gt;
+    &lt;h4 class&#x3D;&quot;title2&quot;&gt;REGISTRO&lt;/h4&gt;
     &lt;br /&gt;
-    &lt;div mat-dialog-actions&gt;
-      &lt;button
-        type&#x3D;&quot;submit&quot;
-        mat-raised-button
-        color&#x3D;&quot;primary&quot;
-        class&#x3D;&quot;button_signup&quot;
-      &gt;
-        Registrarse
-      &lt;/button&gt;
-      &lt;a
-        color&#x3D;&quot;accent&quot;
-        class&#x3D;&quot;form__button&quot;
-        routerLink&#x3D;&quot;/auth/login&quot;
-        class&#x3D;&quot;button_regis&quot;
-      &gt;
-        Ya tengo una cuenta...
-      &lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/form&gt;
+
+    &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;saveUser()&quot;&gt;
+      &lt;div class&#x3D;&quot;ini&quot;&gt;
+        &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
+          &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Nombre&lt;/mat-label&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            matInput
+            formControlName&#x3D;&quot;firstName&quot;
+            placeholder&#x3D;&quot;Nombre&quot;
+            required
+          /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
+          &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Apellido Paterno&lt;/mat-label&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            matInput
+            formControlName&#x3D;&quot;firstSurname&quot;
+            placeholder&#x3D;&quot;Apellido Paterno&quot;
+            required
+          /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
+          &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Apellido Materno&lt;/mat-label&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            matInput
+            formControlName&#x3D;&quot;secondSurname&quot;
+            placeholder&#x3D;&quot;Apellido Materno&quot;
+            required
+          /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
+          &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Nombre de Usuario&lt;/mat-label&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            matInput
+            formControlName&#x3D;&quot;userName&quot;
+            placeholder&#x3D;&quot;Nombre de Usuario&quot;
+            required
+          /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
+          &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Email&lt;/mat-label&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            matInput
+            formControlName&#x3D;&quot;email&quot;
+            placeholder&#x3D;&quot;Email&quot;
+            required
+            type&#x3D;&quot;email&quot;
+          /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
+          &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Contraseña&lt;/mat-label&gt;
+          &lt;input
+            matInput
+            formControlName&#x3D;&quot;password&quot;
+            placeholder&#x3D;&quot;Contraseña&quot;
+            required
+            type&#x3D;&quot;password&quot;
+          /&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field class&#x3D;&quot;form-input&quot;&gt;
+          &lt;mat-label class&#x3D;&quot;form-letter&quot;&gt;Confirmar Contraseña&lt;/mat-label&gt;
+          &lt;input
+            matInput
+            formControlName&#x3D;&quot;confirmPassword&quot;
+            placeholder&#x3D;&quot;Confirmar Contraseña&quot;
+            required
+            type&#x3D;&quot;password&quot;
+          /&gt;
+        &lt;/mat-form-field&gt;
+      &lt;/div&gt;
+      &lt;br /&gt;
+      &lt;div mat-dialog-actions class&#x3D;&quot;buttons&quot;&gt;
+        &lt;button type&#x3D;&quot;submit&quot; mat-raised-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;btnizq&quot;&gt;
+          Registrarse
+        &lt;/button&gt;
+        &lt;a
+          color&#x3D;&quot;accent&quot;
+          class&#x3D;&quot;form__button form-letter1&quot;
+          mat-button
+          (click)&#x3D;&quot;onClickLoginBtn()&quot;
+        &gt;
+          Ya tengo una cuenta...
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;br /&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -857,7 +906,60 @@ export class SignupComponent implements OnInit {
                 <p class="comment">
                     <code>./signup.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.ini {
+  //background-color: #313947;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.image {
+  align: center;
+}
+.title2 {
+  //color: #313947;
+  //color: white;
+  color: #deae4a;
+  text-align: center;
+}
+.form-letter {
+  //color: #313947;
+  //color: #DEAE4A;
+  color: white;
+}
+.form-input {
+  color: white;
+  //color: #313947;
+  //color: #DEAE4A;
+}
+.form-letter1 {
+  //color: #313947;
+  color: white;
+}
+.btnizq {
+  background-color: #deae4a;
+  margin-right: 5%;
+  color: #313947;
+}
+.ini {
+  //background-color: #313947;
+  //display: flex;
+  //justify-content: center;
+  //flex-direction: column;
+  //align-items: center;
+}
+.buttons {
+  //display: flex;
+  //background-color: salmon;
+  margin-left: 23%;
+}
+.colorback {
+  background-color: #313947;
+}
+.mat-form-field {
+  width: 80%;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -885,8 +987,8 @@ export class SignupComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title><strong>REGISTO</strong></h1><div mat-dialog-content>  <h4 class="title2">    Bienvenido, por favor llene el formulario para poder registrarse.  </h4>  <br />  <form [formGroup]="form" (ngSubmit)="saveUser()">    <mat-form-field class="form-input">      <mat-label class="form-letter">Nombre</mat-label>      <input        type="text"        matInput        formControlName="firstName"        placeholder="Nombre"        required      />    </mat-form-field>    <mat-form-field class="form-input">      <mat-label class="form-letter">Apellido Paterno</mat-label>      <input        type="text"        matInput        formControlName="firstSurname"        placeholder="Apellido Paterno"        required      />    </mat-form-field>    <mat-form-field class="form-input">      <mat-label class="form-letter">Apellido Materno</mat-label>      <input        type="text"        matInput        formControlName="secondSurname"        placeholder="Apellido Materno"        required      />    </mat-form-field>    <mat-form-field class="form-input">      <mat-label class="form-letter">Nombre de Usuario</mat-label>      <input        type="text"        matInput        formControlName="userName"        placeholder="Nombre de Usuario"        required      />    </mat-form-field>    <mat-form-field class="form-input">      <mat-label class="form-letter">Email</mat-label>      <input        type="text"        matInput        formControlName="email"        placeholder="Email"        required        type="email"      />    </mat-form-field>    <mat-form-field class="form-input">      <mat-label class="form-letter">Contraseña</mat-label>      <input        matInput        formControlName="password"        placeholder="Contraseña"        required        type="password"      />    </mat-form-field>    <mat-form-field class="form-input">      <mat-label class="form-letter">Confirmar Contraseña</mat-label>      <input        matInput        formControlName="confirmPassword"        placeholder="Confirmar Contraseña"        required        type="password"      />    </mat-form-field>    <br />    <div mat-dialog-actions>      <button        type="submit"        mat-raised-button        color="primary"        class="button_signup"      >        Registrarse      </button>      <a        color="accent"        class="form__button"        routerLink="/auth/login"        class="button_regis"      >        Ya tengo una cuenta...      </a>    </div>  </form></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
+        var COMPONENT_TEMPLATE = '<div><div class="colorback">  <div align="center">    <img src="assets/images/ricovid2.png" alt="" width="370" />  </div>  <!--h1 mat-dialog-title><strong>REGISTO</strong></h1-->  <div mat-dialog-content>    <h4 class="title2">REGISTRO</h4>    <br />    <form [formGroup]="form" (ngSubmit)="saveUser()">      <div class="ini">        <mat-form-field class="form-input">          <mat-label class="form-letter">Nombre</mat-label>          <input            type="text"            matInput            formControlName="firstName"            placeholder="Nombre"            required          />        </mat-form-field>        <mat-form-field class="form-input">          <mat-label class="form-letter">Apellido Paterno</mat-label>          <input            type="text"            matInput            formControlName="firstSurname"            placeholder="Apellido Paterno"            required          />        </mat-form-field>        <mat-form-field class="form-input">          <mat-label class="form-letter">Apellido Materno</mat-label>          <input            type="text"            matInput            formControlName="secondSurname"            placeholder="Apellido Materno"            required          />        </mat-form-field>        <mat-form-field class="form-input">          <mat-label class="form-letter">Nombre de Usuario</mat-label>          <input            type="text"            matInput            formControlName="userName"            placeholder="Nombre de Usuario"            required          />        </mat-form-field>        <mat-form-field class="form-input">          <mat-label class="form-letter">Email</mat-label>          <input            type="text"            matInput            formControlName="email"            placeholder="Email"            required            type="email"          />        </mat-form-field>        <mat-form-field class="form-input">          <mat-label class="form-letter">Contraseña</mat-label>          <input            matInput            formControlName="password"            placeholder="Contraseña"            required            type="password"          />        </mat-form-field>        <mat-form-field class="form-input">          <mat-label class="form-letter">Confirmar Contraseña</mat-label>          <input            matInput            formControlName="confirmPassword"            placeholder="Confirmar Contraseña"            required            type="password"          />        </mat-form-field>      </div>      <br />      <div mat-dialog-actions class="buttons">        <button type="submit" mat-raised-button color="primary" class="btnizq">          Registrarse        </button>        <a          color="accent"          class="form__button form-letter1"          mat-button          (click)="onClickLoginBtn()"        >          Ya tengo una cuenta...        </a>      </div>    </form>  </div>  <br /></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoliviaDatasetsComponent', 'selector': 'app-bolivia-datasets'},{'name': 'BoliviaPageComponent', 'selector': 'app-bolivia-page'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ClientDatasetsComponent', 'selector': 'app-client-datasets'},{'name': 'DatasetsComponent', 'selector': 'app-datasets'},{'name': 'DepartmentComponent', 'selector': 'app-department'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeAdminComponent', 'selector': 'app-home-admin'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InfvaccinationComponent', 'selector': 'app-infvaccination'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'RecommendationsComponent', 'selector': 'app-recommendations'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'UploadFileComponent', 'selector': 'app-upload-file'},{'name': 'WorldPageComponent', 'selector': 'app-world-page'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignupComponent'};
 </script>

@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>FileService</li>
+  <li>MunicipalityService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/services/file.service.ts</code>
+            <code>src/app/core/http/municipality.service.ts</code>
         </p>
 
 
@@ -93,18 +93,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#countryDownload">countryDownload</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#download">download</a>
-                            </li>
-                            <li>
-                                <a href="#getAllFiles">getAllFiles</a>
-                            </li>
-                            <li>
-                                <a href="#upload">upload</a>
+                                <a href="#getAllDepartmentMunicipalities">getAllDepartmentMunicipalities</a>
                             </li>
                         </ul>
                     </td>
@@ -129,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/services/file.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/core/http/municipality.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -188,28 +177,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="countryDownload"></a>
+                    <a name="getAllDepartmentMunicipalities"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
-                            countryDownload
+                            getAllDepartmentMunicipalities
                         </b>
-                        <a href="#countryDownload"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getAllDepartmentMunicipalities"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>countryDownload(iso: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getAllDepartmentMunicipalities(deptoIso: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/core/services/file.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/core/http/municipality.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -229,213 +216,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>iso</td>
+                                    <td>deptoIso</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="download"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            download
-                        </b>
-                        <a href="#download"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>download(depto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/app/core/services/file.service.ts:57</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>depto</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getAllFiles"></a>
-                    <span class="name">
-                        <b>
-                            getAllFiles
-                        </b>
-                        <a href="#getAllFiles"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getAllFiles()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">src/app/core/services/file.service.ts:78</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="upload"></a>
-                    <span class="name">
-                        <b>
-                            upload
-                        </b>
-                        <a href="#upload"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>upload(formData, depto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, municipality: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/core/services/file.service.ts:22</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>formData</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>depto</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>municipality</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
                                     </td>
 
                                     <td>
@@ -486,7 +269,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/core/services/file.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/http/municipality.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -513,7 +296,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/services/file.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/core/http/municipality.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -528,85 +311,26 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-import { TokenService } from &#x27;../authentication/token.service&#x27;;
+import { Municipality } from &#x27;src/app/shared/models/municipality&#x27;;
 import apiKey from &#x27;../apiKey&#x27;;
-import { FileRequest } from &#x27;src/app/shared/models/file-request&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
+import { TokenService } from &#x27;../authentication/token.service&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
-export class FileService {
+export class MunicipalityService {
   authToken: string;
   headers: any;
-
   constructor(private http: HttpClient, private tokenService: TokenService) {
     this.authToken &#x3D; this.tokenService.getToken();
     this.headers &#x3D; new HttpHeaders({
       Authorization: &#x60;Bearer ${this.authToken}&#x60;,
     });
   }
-
-  upload(formData, depto: string, municipality: boolean) {
-    const userId &#x3D; this.tokenService.getUserId();
-    if (municipality) {
-      return this.http.post&lt;FormData&gt;(
-        apiKey.api + &#x60;/api/v1/data/municipality/${depto}/admin/${userId}&#x60;,
-        formData,
-        {
-          headers: this.headers,
-          reportProgress: true,
-          observe: &#x27;events&#x27;,
-        }
-      );
-    }
-    if (depto &#x3D;&#x3D; &#x27;global&#x27;) {
-      return this.http.post&lt;FormData&gt;(
-        apiKey.api + &#x60;/api/v1/data/country/admin/${userId}&#x60;,
-        formData,
-        {
-          headers: this.headers,
-          reportProgress: true,
-          observe: &#x27;events&#x27;,
-        }
-      );
-    } else {
-      return this.http.post&lt;FormData&gt;(
-        apiKey.api + &#x60;/api/v1/data/department/${depto}/admin/${userId}&#x60;,
-        formData,
-        {
-          headers: this.headers,
-          reportProgress: true,
-          observe: &#x27;events&#x27;,
-        }
-      );
-    }
-  }
-  public download(depto: string): any {
-    const header &#x3D; new HttpHeaders({
-      Authorization: &#x60;Bearer ${this.authToken}&#x60;,
-    });
-    return this.http.get(
-      apiKey.api + &#x60;/api/v1/data/department/${depto}/download&#x60;,
-      {
-        headers: header,
-        responseType: &#x27;blob&#x27;,
-      }
+  getAllDepartmentMunicipalities(deptoIso: string) {
+    return this.http.get&lt;Municipality[]&gt;(
+      apiKey.api + &#x60;/api/v1/data/municipality/BOL/${deptoIso}/list&#x60;
     );
-  }
-  public countryDownload(iso: string): any {
-    const header &#x3D; new HttpHeaders({
-      Authorization: &#x60;Bearer ${this.authToken}&#x60;,
-    });
-    return this.http.get(apiKey.api + &#x60;/api/v1/data/country/${iso}/download&#x60;, {
-      headers: header,
-      responseType: &#x27;blob&#x27;,
-    });
-  }
-  getAllFiles() {
-    return this.http.get&lt;FileRequest[]&gt;(apiKey.api, {
-      headers: this.headers,
-    });
   }
 }
 </code></pre>
@@ -642,7 +366,7 @@ export class FileService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'FileService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'MunicipalityService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

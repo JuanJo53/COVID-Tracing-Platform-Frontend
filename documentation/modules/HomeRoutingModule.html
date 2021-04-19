@@ -73,11 +73,21 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { HomeComponent } from &#x27;./pages/home/home.component&#x27;;
+import { InfvaccinationComponent } from &#x27;./pages/infvaccination/infvaccination.component&#x27;;
+import { RecommendationsComponent } from &#x27;./pages/recommendations/recommendations.component&#x27;;
 
 const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
     component: HomeComponent,
+  },
+  {
+    path: &#x27;recomendaciones&#x27;,
+    component: RecommendationsComponent,
+  },
+  {
+    path: &#x27;infovacs&#x27;,
+    component: InfvaccinationComponent,
   },
 ];
 

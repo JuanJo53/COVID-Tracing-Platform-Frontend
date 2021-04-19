@@ -314,7 +314,6 @@ export class UserRoleService {
   setUserRole() {
     this.roles &#x3D; this.tokenService.getAuthorities();
     this.userRole.next(this.roles);
-    console.log(this.userRole);
   }
 }
 </code></pre>
