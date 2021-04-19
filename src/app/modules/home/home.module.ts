@@ -7,7 +7,11 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { RecommendationsComponent } from './pages/recommendations/recommendations.component';
 import { InfvaccinationComponent } from './pages/infvaccination/infvaccination.component';
 @NgModule({
-  declarations: [HomeComponent, RecommendationsComponent, InfvaccinationComponent],
+  declarations: [
+    HomeComponent,
+    RecommendationsComponent,
+    InfvaccinationComponent,
+  ],
   imports: [CommonModule, SharedModule, MaterialModule, HomeRoutingModule],
   entryComponents: [],
 })
