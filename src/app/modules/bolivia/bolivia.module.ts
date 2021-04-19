@@ -8,7 +8,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { TableComponent } from './components/table/table.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
-import { ClientDatasetsComponent } from '../client-datasets/client-datasets.component';
+import { ClientDatasetsComponent } from '../home/pages/client-datasets/client-datasets.component';
 import { MapComponent } from './components/map/map.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
