@@ -29,6 +29,12 @@ export class DepartmentService {
         `/api/v1/data/department/${deptoId}/historic/list?page=${page}&size=${size}`
     );
   }
+  getDepartmentPredictionData(deptoId: string, date: any) {
+    return this.http.get<DepartmentList[]>(
+      apiKey.api +
+        `/api/v1/data/prediction/BOL/${deptoId}/department?date=${date}`
+    );
+  }
   getAllDepartments() {
     return this.http.get<Department[]>(
       apiKey.api + `/api/v1/data/department/BOL/list`

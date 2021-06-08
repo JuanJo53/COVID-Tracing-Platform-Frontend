@@ -31,9 +31,20 @@
     <mat-button-toggle value="historic" aria-label="Text align center">
       Datos Historicos
     </mat-button-toggle>
+    <mat-button-toggle
+      *ngIf="type != 'bolivia'"
+      value="prediction"
+      aria-label="Text align center"
+    >
+      Prediccion
+    </mat-button-toggle>
   </mat-button-toggle-group>
 
-  <mat-form-field class="example-form-field" appearance="fill">
+  <mat-form-field
+    *ngIf="dataType != 'prediction'"
+    class="example-form-field"
+    appearance="fill"
+  >
     <mat-label>Rango de Fechas</mat-label>
     <mat-date-range-input
       [formGroup]="dateRange"
@@ -50,6 +61,19 @@
     ></mat-datepicker-toggle>
     <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
   </mat-form-field>
+
+  <mat-form-field *ngIf="dataType == 'prediction'" appearance="fill">
+    <mat-label>Fecha hasta dónde predecir</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker1"
+      [value]="predictionDate.value"
+      [formControl]="predictionDate"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+
   <button mat-raised-button (click)="refreshDataType()">Filtrar</button>
 
   <div class="chart_element_container">

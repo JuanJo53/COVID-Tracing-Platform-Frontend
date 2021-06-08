@@ -86,6 +86,7 @@ export class ChartComponent implements OnInit {
   dateRange: FormGroup;
   startDate: string;
   endDate: string;
+  predictionDate = new FormControl(new Date(2021, 8, 1));
 
   constructor(
     private deptoService: DepartmentService,
@@ -259,20 +260,63 @@ export class ChartComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
+  fectchPredictionData(): void {
+    this.data = [];
+    this.confirmed = [];
+    this.deaths = [];
+    this.recovered = [];
+    this.vaccined1 = [];
+    this.vaccined2 = [];
+    this.chartLabels = [];
+    this.chartData = [];
+
+    const date = this.datePipe.transform(
+      this.predictionDate.value,
+      'yyyy-MM-dd'
+    );
+    console.log(date);
+    this.isLoadingResults = true;
+
+    this.deptoService
+      .getDepartmentPredictionData(this.depto.iso, date)
+      .subscribe((data) => {
+        this.data = data;
+        console.log(data);
+        this.data.forEach((elem) => {
+          this.confirmed.push(elem.confirmed);
+          this.deaths.push(elem.deaths);
+          this.recovered.push(elem.recovered);
+          this.chartLabels.push(
+            this.datePipe.transform(elem.date, 'dd-MM-yyyy')
+          );
+        });
+        this.chartData = [
+          { data: this.confirmed, label: 'Casos Confirmados' },
+          { data: this.deaths, label: 'Muertes' },
+          { data: this.recovered, label: 'Recuperados' },
+        ];
+
+        this.isLoadingResults = false;
+      });
+  }
   refreshDataType() {
     this.getDateRange();
     if (this.type == 'department') {
       if (this.dataType == 'acumulated') {
         this.fectchCumulativeData();
-      } else {
+      } else if (this.dataType == 'historic') {
         this.fectchHistoricData();
+      } else {
+        this.fectchPredictionData();
       }
     } else if (this.type == 'bolivia') {
       this.getDateRange();
       if (this.dataType == 'acumulated') {
         this.fetchBoliviaDataCumulated();
-      } else {
+      } else if (this.dataType == 'historic') {
         this.fetchBoliviaDataHistoric();
+      } else {
+        this.fectchPredictionData();
       }
     }
   }
