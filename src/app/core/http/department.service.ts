@@ -32,7 +32,7 @@ export class DepartmentService {
   getDepartmentPredictionData(deptoId: string, date: any) {
     return this.http.get<DepartmentList[]>(
       apiKey.api +
-        `/api/v1/data/prediction/BOL/${deptoId}/department?date=${date}`
+        `/api/v1/data/prediction/BOL/${deptoId}/department/gray?date=${date}`
     );
   }
   getAllDepartments() {
